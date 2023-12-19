@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ข้อมูลตำแหน่งทางวิชาการ')
+@section('title', 'ข้อมูลวุฒิการศึกษา')
 
 @section('importcss')
     @parent
@@ -31,20 +31,20 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/home">{{ __('Home') }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('Academics') }}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('Qualification') }}</li>
                     </ol>
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ route('academics.create') }}" class="btn btn-primary mb-2">
-                    <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New Academic') }}</span>
+                <a href="{{ route('qualifications.create') }}" class="btn btn-primary mb-2">
+                    <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New') }}</span>
                 </a>
             </div>
         </div>
         <div class="row justify-content-end">
 
                 <div class="card bg-white">
-                    <div class="card-header mt-1"><i class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลตำแหน่งทางวิชาการ') }}</div>
+                    <div class="card-header mt-1"><i class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลวุฒิการศึกษา') }}</div>
 
                     <div class="card-body">
                         <div class="table-responsive mt-3">
@@ -52,7 +52,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="text-center text-nowrap col-md-1">{{ __('No.') }}</th>
-                                        <th scope="col" class="text-nowrap">{{ __('ชื่อตำแหน่งทางวิชาการ') }}</th>
+                                        <th scope="col" class="text-nowrap">{{ __('วุฒิการศึกษา') }}</th>
                                         <th scope="col" class="text-center text-nowrap col-md-1">{{ __('ตัวย่อ') }}</th>
                                         <th scope="col" class="text-center col-md-2">{{ __('Actions') }}</th>
                                     </tr>
