@@ -1,0 +1,45 @@
+/* Import Kanit fonts */
+
+@font-face {
+    font-family: 'Kanit-Regular';
+    src: url(../fonts/Kanit-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Kanit-Medium';
+    src: url(../fonts/Kanit-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Kanit-Bold';
+    src: url(../fonts/Kanit-Bold.ttf);
+}
+
+* {
+    padding: 0;
+    font-family: 'Kanit-Regular' !important;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.nav li {
+    margin: 20px 0 20px;
+}
+
+.nav li a {
+    /* padding: 0; */
+    padding-bottom: 3px;
+    color: #000000;
+}
+
+.nav li a.active {
+    border-bottom: 1px solid;
+
+    background-color: transparent !important;
+}
+
+.nav li a:hover {
+    border-bottom: 1px solid;
+
+}

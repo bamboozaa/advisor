@@ -1,0 +1,14 @@
+/* Sidebar */
+
+.nav .nav-item .nav-link {
+    /* color: #fff !important; */
+}
+
+.table {
+    --bs-table-bg: #fff !important;
+}
+
+input[type="text"] {
+    background-color: #fff !important
+}
+
