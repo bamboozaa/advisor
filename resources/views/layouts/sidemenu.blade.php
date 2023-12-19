@@ -49,6 +49,11 @@
                     <i class="fs-5 bi bi-trophy"></i> <span class="ms-1 d-none d-sm-inline">{{ __('ตำแหน่งทางวิชาการ') }}</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('qualifications.index') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('qualifications.*') ? 'active' : '' }}">
+                    <i class="fs-5 bi bi-trophy"></i> <span class="ms-1 d-none d-sm-inline">{{ __('วุฒิการศึกษา') }}</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
