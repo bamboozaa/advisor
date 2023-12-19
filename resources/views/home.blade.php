@@ -33,12 +33,13 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-mortarboard text-primary" style="font-size: 40px"></i>
+                                        {{-- <i class="bi bi-mortarboard text-primary" style="font-size: 40px"></i> --}}
+                                        <i class="bi bi-people text-primary" style="font-size: 40px"></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
                                             <div>
-                                                <a href="/advisers" style="font-size: 26px;">
+                                                <a href="/advisers" style="font-size: 26px; text-decoration:none;">
                                                     {{-- <span>{{ $advisers_count }}</span> --}}
                                                     <span>50</span>
                                                 </a>
@@ -57,17 +58,39 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-people text-warning" style="font-size: 40px"></i>
+                                        <i class="bi bi-people text-success" style="font-size: 40px"></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
                                             <div>
-                                                <a href="/students" style="font-size: 26px;">
+                                                <a href="/students" style="font-size: 26px; text-decoration:none;">
                                                     {{-- <span>{{ $student_count }}</span> --}}
                                                     <span>50</span>
                                                 </a>
                                             </div>
                                             <div>{{ __('จำนวนนักศึกษา') }}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card bg-white">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <i class="bi bi bi-trophy text-warning fs-1" ></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <span class="right">
+                                            <div>
+                                                <a href="{{ url('academics') }}" style="font-size: 26px; text-decoration:none;">
+                                                    <span>{{ count($academics) }}</span>
+                                                </a>
+                                            </div>
+                                            <div>{{ __('ตำแหน่งทางวิชาการ') }}</div>
                                         </span>
                                     </div>
                                 </div>
@@ -81,5 +104,11 @@
         </div>
     </div>
 
+
+@endsection
+
+@section('footer')
+
+    @include('footer')
 
 @endsection

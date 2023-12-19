@@ -1,9 +1,9 @@
 <!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="container-fluid mt-2">
+<div class="container-fluid fixed-bottom px-0">
 
-    <footer class="bg-dark text-center" style="color: 40513B">
+    <footer class="text-center" style="color: #2e2f82">
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgb(237, 241, 214);">
+        <div class="text-center p-3" style="background-color: transparent;">
             © 2023 Copyright: สำนักบริการคอมพิวเตอร์ มหาวิทยาลัยหอการค้าไทย
         </div>
         <!-- Copyright -->

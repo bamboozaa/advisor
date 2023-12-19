@@ -13,7 +13,7 @@
             </li>
             <li class="text-nowrap">
                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white {{ request()->routeIs('advisers.*') ? 'active' : '' }}">
-                    <i class="bi bi-mortarboard fs-5"></i>
+                    <i class="bi bi-people fs-5"></i>
                     <span class="ms-1 d-none d-sm-inline">{{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</span>
                     <i class="bi bi-caret-down"></i>
                 </a>
