@@ -30,7 +30,7 @@
             </li>
             <li>
                 <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
-                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">{{ __('ข้อมูลนักศึกษา') }}</span> <i
+                    <i class="fs-5 bi-people"></i><span class="ms-2 d-none d-sm-inline">{{ __('ข้อมูลนักศึกษา') }}</span> <i
                         class="bi bi-caret-down"></i>
                 </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
@@ -46,12 +46,12 @@
             </li>
             <li>
                 <a href="{{ route('academics.index') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('academics.*') ? 'active' : '' }}">
-                    <i class="fs-5 bi bi-trophy"></i> <span class="ms-1 d-none d-sm-inline">{{ __('ตำแหน่งทางวิชาการ') }}</span>
+                    <i class="fs-5 bi bi-trophy"></i> <span class="ms-2 d-none d-sm-inline">{{ __('ตำแหน่งทางวิชาการ') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('qualifications.index') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('qualifications.*') ? 'active' : '' }}">
-                    <i class="fs-5 bi bi-trophy"></i> <span class="ms-1 d-none d-sm-inline">{{ __('วุฒิการศึกษา') }}</span>
+                    <i class="bi bi-mortarboard fs-5"></i><span class="ms-2 d-none d-sm-inline">{{ __('วุฒิการศึกษา') }}</span>
                 </a>
             </li>
         </ul>

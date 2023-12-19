@@ -12,7 +12,8 @@ class QualificationController extends Controller
      */
     public function index()
     {
-        //
+        $qualifications = Qualification::all();
+        return view('qualifications.index', compact('qualifications'));
     }
 
     /**
@@ -20,7 +21,7 @@ class QualificationController extends Controller
      */
     public function create()
     {
-        //
+        return view('qualifications.create');
     }
 
     /**
@@ -28,7 +29,15 @@ class QualificationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'qualification' => 'required|unique:qualifications',
+        ]);
+
+        Qualification::create($request->all());
+
+        session()->flash('success', 'Qualification created successfully.');
+
+        return redirect()->route('qualifications.index');
     }
 
     /**
@@ -44,7 +53,7 @@ class QualificationController extends Controller
      */
     public function edit(Qualification $qualification)
     {
-        //
+        return view('qualifications.edit', compact('qualification'));
     }
 
     /**
@@ -52,7 +61,11 @@ class QualificationController extends Controller
      */
     public function update(Request $request, Qualification $qualification)
     {
-        //
+        $qualification->update($request->all());
+
+        session()->flash('success', 'Qualification updated successfully.');
+
+        return redirect()->route('qualifications.index');
     }
 
     /**
@@ -60,6 +73,10 @@ class QualificationController extends Controller
      */
     public function destroy(Qualification $qualification)
     {
-        //
+        $qualification->delete();
+
+        session()->flash('success', 'Qualification deleted successfully.');
+
+        return redirect()->route('qualifications.index');
     }
 }

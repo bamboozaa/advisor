@@ -58,18 +58,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (count($academics) > 0)
-                                        @foreach ($academics as $key => $academic)
+                                    @if (count($qualifications) > 0)
+                                        @foreach ($qualifications as $key => $qualification)
                                             <tr>
                                                 <td class="text-center">{{ $key+1 }}</td>
-                                                <td>{{ $academic->academic }}</td>
-                                                <td class="text-center">{{ $academic->abbreviation }}</td>
+                                                <td>{{ $qualification->qualification }}</td>
+                                                <td class="text-center">{{ $qualification->abbreviation }}</td>
                                                 <td class="text-center text-nowrap">
-                                                    <a href="{{ route('academics.edit', $academic->id) }}" class="btn btn-warning btn-sm">
+                                                    <a href="{{ route('qualifications.edit', $qualification->id) }}" class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil-square fs-sm"></i>
                                                         <span class="ms-1">{{ __('Edit') }}</span>
                                                     </a>
-                                                    <form action="{{ route('academics.destroy', $academic->id) }}" method="POST" style="display: inline;">
+                                                    <form action="{{ route('qualifications.destroy', $qualification->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this department?')">
