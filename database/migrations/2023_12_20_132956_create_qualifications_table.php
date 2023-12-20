@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('qualification');
             $table->string('abbreviation')->nullable();
+            $table->integer('thesis')->nullable();
+            $table->integer('is')->nullable();
             $table->timestamps();
         });
     }

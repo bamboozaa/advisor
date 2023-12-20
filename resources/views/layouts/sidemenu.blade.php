@@ -8,10 +8,20 @@
             </li> --}}
             <li>
                 <a href="{{ route('home') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('home') ? 'active' : '' }}">
-                    <i class="fs-5 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">{{ __('Dashboard') }}</span>
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-2 d-none d-sm-inline">{{ __('Dashboard') }}</span>
                 </a>
             </li>
-            <li class="text-nowrap">
+            <li>
+                <a href="{{ route('advisors.index') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('advisors.*') ? 'active' : '' }}">
+                    <i class="bi bi-people-fill fs-5"></i><span class="ms-2 d-none d-sm-inline">{{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('students.index') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('students.*') ? 'active' : '' }}">
+                    <i class="bi bi-people fs-5"></i><span class="ms-2 d-none d-sm-inline">{{ __('ข้อมูลนักศึกษา') }}</span>
+                </a>
+            </li>
+            {{-- <li class="text-nowrap">
                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white {{ request()->routeIs('advisers.*') ? 'active' : '' }}">
                     <i class="bi bi-people fs-5"></i>
                     <span class="ms-1 d-none d-sm-inline">{{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</span>
@@ -27,8 +37,8 @@
                                 class="d-none d-sm-inline ms-2">{{ __('แสดงรายชื่ออาจารย์ที่ปรึกษา') }}</span></a>
                     </li>
                 </ul>
-            </li>
-            <li>
+            </li> --}}
+            {{-- <li>
                 <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                     <i class="fs-5 bi-people"></i><span class="ms-2 d-none d-sm-inline">{{ __('ข้อมูลนักศึกษา') }}</span> <i
                         class="bi bi-caret-down"></i>
@@ -44,7 +54,28 @@
                     </li>
                 </ul>
             </li>
-            <li>
+            <li> --}}
+                {{-- <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white {{ request()->routeIs('academics.*') || request()->routeIs('qualifications.*') ? 'active' : '' }}"> --}}
+                <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
+                    <i class="bi bi-gear fs-5"></i><span class="ms-2 d-none d-sm-inline">{{ __('ตั้งค่าระบบ') }}</span> <i
+                        class="bi bi-caret-down"></i>
+                </a>
+                <ul class="collapse nav flex-column ms-1 {{ request()->routeIs('academics.*') || request()->routeIs('qualifications.*') ? 'show' : '' }}" id="submenu4" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{{ route('academics.index') }}" class="nav-link px-0 text-white ms-2 {{ request()->routeIs('academics.*') ? 'active' : '' }}">
+                            <i class="bi bi-sliders fs-6"></i>
+                            <span class="d-none d-sm-inline ms-2">{{ __('ตำแหน่งทางวิชาการ') }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('qualifications.index') }}" class="nav-link px-0 text-white ms-2 {{ request()->routeIs('qualifications.*') ? 'active' : '' }}">
+                            <i class="bi bi-sliders fs-6"></i>
+                            <span class="d-none d-sm-inline ms-2">{{ __('วุฒิการศึกษา') }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            {{-- <li>
                 <a href="{{ route('academics.index') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('academics.*') ? 'active' : '' }}">
                     <i class="fs-5 bi bi-trophy"></i> <span class="ms-2 d-none d-sm-inline">{{ __('ตำแหน่งทางวิชาการ') }}</span>
                 </a>
@@ -53,7 +84,7 @@
                 <a href="{{ route('qualifications.index') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('qualifications.*') ? 'active' : '' }}">
                     <i class="bi bi-mortarboard fs-5"></i><span class="ms-2 d-none d-sm-inline">{{ __('วุฒิการศึกษา') }}</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>

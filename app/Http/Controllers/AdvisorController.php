@@ -12,7 +12,8 @@ class AdvisorController extends Controller
      */
     public function index()
     {
-        //
+        $advisors = Advisor::all();
+        return view('advisors.index', compact('advisors'));
     }
 
     /**
@@ -20,7 +21,7 @@ class AdvisorController extends Controller
      */
     public function create()
     {
-        //
+        return view('advisors.create');
     }
 
     /**

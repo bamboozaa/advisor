@@ -48,6 +48,18 @@
                                     <input type="text" name="abbreviation" class="form-control" value="{{ old('name', $academic->abbreviation) }}" />
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label for="thesis" class="col-sm-3 col-form-label text-end">{{ __('จำนวนวิทยานิพนธ์ (Thesis) :') }}</label>
+                                <div class="col-sm-auto">
+                                    <input type="text" name="thesis" class="form-control" value="{{ old('name', $academic->thesis) }}" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="is" class="col-sm-3 col-form-label text-end">{{ __('จำนวนการค้นคว้าอิสระ (IS) :') }}</label>
+                                <div class="col-sm-auto">
+                                    <input type="text" name="is" class="form-control" value="{{ old('name', $academic->is) }}" />
+                                </div>
+                            </div>
 
                             <div class="row mb-3 mt-4 justify-content-center">
                                 <div class="col-sm-3">

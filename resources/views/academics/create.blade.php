@@ -38,29 +38,41 @@
                         <form method="POST" action="{{ route('academics.store') }}">
                             @csrf
                             <div class="row mb-3">
-                                <label for="academic" class="col-sm-3 col-form-label text-end">{{ __('ชื่อตำแหน่งทางวิชาการ :') }}</label>
+                                <label for="academic"
+                                    class="col-sm-3 col-form-label text-end">{{ __('ชื่อตำแหน่งทางวิชาการ :') }}</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="academic" class="form-control" required />
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="abbreviation" class="col-sm-3 col-form-label text-end">{{ __('ตัวย่อตำแหน่งทางวิชาการ :') }}</label>
+                                <label for="abbreviation"
+                                    class="col-sm-3 col-form-label text-end">{{ __('ตัวย่อตำแหน่งทางวิชาการ :') }}</label>
                                 <div class="col-sm-auto">
                                     <input type="text" name="abbreviation" class="form-control" required />
                                 </div>
                             </div>
-                            <hr>
-
-
-                                <div class="row justify-content-center">
-                                    <div class="col-sm-3">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="bi bi-floppy2-fill fs-sm"></i>
-                                            <span class="ms-2">{{ __('บันทึก') }}</span>
-                                        </button>
-                                    </div>
-
+                            <div class="row mb-3">
+                                <label for="thesis" class="col-sm-3 col-form-label text-end">{{ __('จำนวนวิทยานิพนธ์ (Thesis) :') }}</label>
+                                <div class="col-sm-auto">
+                                    <input type="text" name="thesis" class="form-control" />
                                 </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="is" class="col-sm-3 col-form-label text-end">{{ __('จำนวนการค้นคว้าอิสระ (IS) :') }}</label>
+                                <div class="col-sm-auto">
+                                    <input type="text" name="is" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-sm-3">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-floppy2-fill fs-sm"></i>
+                                        <span class="ms-2">{{ __('บันทึก') }}</span>
+                                    </button>
+                                </div>
+
+                            </div>
                         </form>
                     </div>
                 </div>

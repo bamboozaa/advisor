@@ -9,5 +9,5 @@ class Academic extends Model
 {
     use HasFactory;
     protected $table = 'academics';
-    protected $fillable = ['academic', 'abbreviation'];
+    protected $fillable = ['academic', 'abbreviation', 'thesis', 'is'];
 }

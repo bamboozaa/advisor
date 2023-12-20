@@ -54,6 +54,8 @@
                                         <th scope="col" class="text-center text-nowrap col-md-1">{{ __('No.') }}</th>
                                         <th scope="col" class="text-nowrap">{{ __('ชื่อตำแหน่งทางวิชาการ') }}</th>
                                         <th scope="col" class="text-center text-nowrap col-md-1">{{ __('ตัวย่อ') }}</th>
+                                        <th scope="col" class="text-center text-nowrap col-md-1">{{ __('จำนวนวิทยานิพนธ์') }}</th>
+                                        <th scope="col" class="text-center text-nowrap col-md-1">{{ __('จำนวนการค้นคว้าอิสระ') }}</th>
                                         <th scope="col" class="text-center col-md-2">{{ __('Actions') }}</th>
                                     </tr>
                                 </thead>
@@ -64,6 +66,8 @@
                                                 <td class="text-center">{{ $key+1 }}</td>
                                                 <td>{{ $academic->academic }}</td>
                                                 <td class="text-center">{{ $academic->abbreviation }}</td>
+                                                <td class="text-center">{{ $academic->thesis }}</td>
+                                                <td class="text-center">{{ $academic->is }}</td>
                                                 <td class="text-center text-nowrap">
                                                     <a href="{{ route('academics.edit', $academic->id) }}" class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil-square fs-sm"></i>
