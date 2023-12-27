@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advisor;
+use App\Models\Academic;
+use App\Models\Qualification;
 use Illuminate\Http\Request;
 
 class AdvisorController extends Controller
@@ -21,7 +23,9 @@ class AdvisorController extends Controller
      */
     public function create()
     {
-        return view('advisors.create');
+        $academics = Academic::pluck('academic', 'id');
+        $qualifications = Qualification::pluck('qualification', 'id');
+        return view('advisors.create', compact('academics', 'qualifications'));
     }
 
     /**
@@ -29,7 +33,19 @@ class AdvisorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'adv_id' => 'required|unique:advisors',
+            'adv_fname' => 'required',
+            'adv_lname' => 'required',
+            'aca_id' => 'required',
+            'qua_id' => 'required',
+        ]);
+
+        Advisor::create($request->all());
+
+        session()->flash('success', 'Advisor created successfully.');
+
+        return redirect()->route('advisors.index');
     }
 
     /**
@@ -45,7 +61,9 @@ class AdvisorController extends Controller
      */
     public function edit(Advisor $advisor)
     {
-        //
+        $academics = Academic::pluck('academic', 'id');
+        $qualifications = Qualification::pluck('qualification', 'id');
+        return view('advisors.edit', compact('advisor', 'academics', 'qualifications'));
     }
 
     /**
@@ -53,7 +71,11 @@ class AdvisorController extends Controller
      */
     public function update(Request $request, Advisor $advisor)
     {
-        //
+        $advisor->update($request->all());
+
+        session()->flash('success', 'Advisor updated successfully.');
+
+        return redirect()->route('advisors.index');
     }
 
     /**
@@ -61,6 +83,10 @@ class AdvisorController extends Controller
      */
     public function destroy(Advisor $advisor)
     {
-        //
+        $advisor->delete();
+
+        session()->flash('success', 'Advisor deleted successfully.');
+
+        return redirect()->route('advisors.index');
     }
 }

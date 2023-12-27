@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('adv_lname', 100)->nullable();
             $table->integer('aca_id')->nullable();
             $table->integer('qua_id')->nullable();
-            $table->string('image')->nullable();
-            $table->integer('status')->default(1);
+            // $table->string('image')->nullable();
+            // $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

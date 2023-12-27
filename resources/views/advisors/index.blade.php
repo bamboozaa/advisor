@@ -66,16 +66,16 @@
                                         @foreach ($advisors as $key => $advisor)
                                             <tr>
                                                 <td class="text-center">{{ $key+1 }}</td>
-                                                <td>{{ $advisor->adv_fname }}</td>
+                                                <td>{{ $advisor->academic['academic'] . " " . $advisor->qualification['abbreviation'] . $advisor->adv_fname }}</td>
                                                 <td>{{ $advisor->adv_lname }}</td>
                                                 <td class="text-center"></td>
                                                 <td class="text-center"></td>
                                                 <td class="text-center text-nowrap">
-                                                    <a href="{{ route('advisor.edit', $academic->id) }}" class="btn btn-warning btn-sm">
+                                                    <a href="{{ route('advisors.edit', $advisor->id) }}" class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil-square fs-sm"></i>
                                                         <span class="ms-1">{{ __('Edit') }}</span>
                                                     </a>
-                                                    <form action="{{ route('advisor.destroy', $academic->id) }}" method="POST" style="display: inline;">
+                                                    <form action="{{ route('advisors.destroy', $advisor->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this department?')">

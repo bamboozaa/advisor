@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Academic;
+use App\Models\Advisor;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $academics = Academic::all();
-        return view('home', compact('academics'));
+        $advisors = Advisor::all();
+        return view('home', compact('academics', 'advisors'));
     }
 }

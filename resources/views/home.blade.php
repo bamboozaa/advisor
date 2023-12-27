@@ -39,9 +39,9 @@
                                     <div class="col-8 text-right">
                                         <span class="right">
                                             <div>
-                                                <a href="/advisers" style="font-size: 26px; text-decoration:none;">
-                                                    {{-- <span>{{ $advisers_count }}</span> --}}
-                                                    <span>50</span>
+                                                <a href="{{ url('advisors') }}" style="font-size: 26px; text-decoration:none;">
+                                                    <span>{{ count($advisors) }}</span>
+                                                    {{-- <span>50</span> --}}
                                                 </a>
                                             </div>
                                             <div>
@@ -63,7 +63,7 @@
                                     <div class="col-8 text-right">
                                         <span class="right">
                                             <div>
-                                                <a href="/students" style="font-size: 26px; text-decoration:none;">
+                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
                                                     {{-- <span>{{ $student_count }}</span> --}}
                                                     <span>50</span>
                                                 </a>

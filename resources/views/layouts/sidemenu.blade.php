@@ -53,8 +53,8 @@
                                 class="d-none d-sm-inline ms-2">{{ __('แสดงรายชื่อนักศึกษา') }}</span></a>
                     </li>
                 </ul>
-            </li>
-            <li> --}}
+            </li>--}}
+            <li>
                 {{-- <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white {{ request()->routeIs('academics.*') || request()->routeIs('qualifications.*') ? 'active' : '' }}"> --}}
                 <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                     <i class="bi bi-gear fs-5"></i><span class="ms-2 d-none d-sm-inline">{{ __('ตั้งค่าระบบ') }}</span> <i
