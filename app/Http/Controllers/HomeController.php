@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Academic;
 use App\Models\Advisor;
+use App\Models\Student;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,7 @@ class HomeController extends Controller
     {
         $academics = Academic::all();
         $advisors = Advisor::all();
-        return view('home', compact('academics', 'advisors'));
+        $students = Student::all();
+        return view('home', compact('academics', 'advisors', 'students'));
     }
 }

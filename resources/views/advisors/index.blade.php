@@ -51,8 +51,7 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
-                                        <th class="text-nowrap align-middle" rowspan="2">{{ __('ชื่อ') }}</th>
-                                        <th class="text-nowrap align-middle" rowspan="2">{{ __('นามสกุล') }}</th>
+                                        <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
                                         <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
                                         <th class="text-center align-middle" rowspan="2">{{ __('Actions') }}</th>
                                     </tr>
@@ -66,8 +65,7 @@
                                         @foreach ($advisors as $key => $advisor)
                                             <tr>
                                                 <td class="text-center">{{ $key+1 }}</td>
-                                                <td>{{ $advisor->academic['academic'] . " " . $advisor->qualification['abbreviation'] . $advisor->adv_fname }}</td>
-                                                <td>{{ $advisor->adv_lname }}</td>
+                                                <td>{{ $advisor->academic['academic'] . " " . $advisor->qualification['abbreviation'] . $advisor->adv_fname . " " . $advisor->adv_lname }}</td>
                                                 <td class="text-center"></td>
                                                 <td class="text-center"></td>
                                                 <td class="text-center text-nowrap">

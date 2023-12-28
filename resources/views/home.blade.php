@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Welcome to Advisers System 1.1')
+@section('title', 'Welcome to Advisers System 1.2')
 
 @section('importcss')
     @parent
@@ -65,7 +65,7 @@
                                             <div>
                                                 <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
                                                     {{-- <span>{{ $student_count }}</span> --}}
-                                                    <span>50</span>
+                                                    <span>{{ count($students) }}</span>
                                                 </a>
                                             </div>
                                             <div>{{ __('จำนวนนักศึกษา') }}</div>
