@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('student_id', 13);
-            $table->string('lec_id', 10);
+            // $table->string('lec_id', 10);
             $table->string('std_title', 100)->nullable();
             $table->string('std_fname')->nullable();
             $table->string('std_lname')->nullable();
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('programname');
             $table->year('academic_year');
             $table->integer('semester')->default(1);
-            $table->integer('project');
-            $table->text('title_research');
+            // $table->integer('project');
+            // $table->text('title_research');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

@@ -24,20 +24,18 @@
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ url('qualifications') }}" class="btn btn-primary mb-2">
+                <a href="{{ url('students') }}" class="btn btn-primary mb-2">
                     <i class="bi bi-back"></i><span class="ms-2">{{ __('Back') }}</span>
                 </a>
             </div>
         </div>
 
-        <main role="main" class="col-md-12">
+        <main role="main" class="row justify-content-center">
             {!! Form::open([
                 'method' => 'post',
                 'action' => ['App\Http\Controllers\StudentController@store'],
                 'files' => true,
             ]) !!}
-            {!! Form::token() !!}
-            {{-- csrf_field() --}}
             <div class="card">
                 <div class="card-header">
                     <h5><span style="color: green"><strong>เพิ่ม</strong></span> ข้อมูลนักศึกษาใหม่</h5>
@@ -47,68 +45,82 @@
                         <table class="table table-hover table-sm">
                             <thead>
                                 <tr>
-                                    <th class="text-end" scope="col">{{ __('รหัสนักศึกษา') }}</th>
-                                    <td><input class="form-control form-control-sm col-md-5" type="text"
-                                            name="student_id"></td>
-                                    <th class="text-end" scope="col">{{ __('คำนำหน้าชื่อ') }}</th>
-                                    <td><input class="form-control form-control-sm col-md-4" type="text"
-                                            name="std_title"></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-end" scope="col">ชื่อ</th>
-                                    <td><input class="form-control form-control-sm" type="text" name="std_fname">
-                                    </td>
-                                    <th class="text-end" scope="col">นามสกุล</th>
-                                    <td><input class="form-control form-control-sm" type="text" name="std_lname">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="text-end" scope="col">คณะ</th>
-                                    <td><input class="form-control form-control-sm" type="text" name="facultyname">
-                                    </td>
-                                    <th class="text-end" scope="col">สาขาวิชา</th>
-                                    <td><input class="form-control form-control-sm" type="text" name="programname">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th class="text-end" scope="col">ปีการศึกษา</th>
+                                    <th class="text-end" scope="col">{{ __('รหัสนักศึกษา') }}<span style="color: red">*</span></th>
                                     <td>
-                                        <select class="form-select form-select-sm col-md-3" name="academic_year" id="year">
+                                        <input class="form-control form-control-sm w-auto" type="text" name="student_id">
+                                    </td>
+                                    <th class="text-end" scope="col">{{ __('คำนำหน้าชื่อ') }}</th>
+                                    <td>
+                                        <input class="form-control form-control-sm w-auto" type="text" name="std_title">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end" scope="col">ชื่อ<span style="color: red">*</span></th>
+                                    <td>
+                                        <input class="form-control form-control-sm" type="text" name="std_fname">
+                                    </td>
+                                    <th class="text-end" scope="col">นามสกุล<span style="color: red">*</span></th>
+                                    <td>
+                                        <input class="form-control form-control-sm" type="text" name="std_lname">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end" scope="col">คณะ<span style="color: red">*</span></th>
+                                    <td>
+                                        <input class="form-control form-control-sm" type="text" name="facultyname">
+                                    </td>
+                                    <th class="text-end" scope="col">สาขาวิชา<span style="color: red">*</span></th>
+                                    <td>
+                                        <input class="form-control form-control-sm" type="text" name="programname">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}<span style="color: red">*</span></th>
+                                    <td>
+                                        <select class="form-select form-select-sm w-auto" name="academic_year" id="year">
                                             <option value="">Select Year</option>
                                         </select>
                                     </td>
-                                    <th class="text-end" scope="col">ภาคการศึกษา</th>
-                                    <td>{!! Form::select('semester', [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2'], 0, [
-                                        'class' => 'form-select form-select-sm col-md-auto',
-                                    ]) !!}</td>
+                                    <th class="text-end" scope="col">ภาคการศึกษา<span style="color: red">*</span></th>
+                                    <td>
+                                        {!! Form::select(
+                                            'semester',
+                                            [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2'],
+                                            1,
+                                            ['class' => 'form-select form-select-sm w-auto']
+                                        ) !!}
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"></td>
+                                    <th></th>
+                                    <td></td>
                                     <th class="text-end" scope="col">สถานะนักศึกษา</th>
-                                    <td>{!! Form::select('status', [1 => 'กำลังศึกษา', 2 => 'สำเร็จการศึกษา'], 1, [
-                                        'class' => 'form-select form-select-sm col-md-auto',
-                                    ]) !!}</td>
+                                    <td>
+                                        {!! Form::select('status', [
+                                            1 => 'กำลังศึกษา',
+                                            2 => 'สำเร็จการศึกษา'
+                                        ], 1, [
+                                            'class' => 'form-select form-select-sm w-auto',
+                                        ]) !!}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="text-start pt-4" colspan="4">ข้อมูลการทำงานวิจัย วิทยานิพนธ์/การค้นคว้าอิสระ</th>
                                 </tr>
                                 <tr>
-                                    <th class="text-end" scope="col">อาจารย์ที่ปรึกษา</th>
+                                    <th class="text-end" scope="col">อาจารย์ที่ปรึกษา<span style="color: red">*</span></th>
                                     <td>
-                                        {!! Form::select('lec_id', [0 => 'Please select'], 0, ['class' => 'form-select form-select-sm col-md-auto']) !!}
-                                        {{-- {!! Form::select('lec_id', [0 => 'Please select']+ $advisers->toArray(), 0, ['class' => 'form-select form-select-sm col-md-auto']) !!} --}}
-
+                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), 0, ['class' => 'form-select form-select-sm w-auto']) !!}
                                     </td>
-                                    <th class="text-end" scope="col">งานวิจัยทางด้านวิชาการ</th>
-                                    <td>{!! Form::select(
-                                        'project',
-                                        [1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)', 0 => 'ยังไม่ได้เลือกประเภทงานวิจัย'],
+                                    <th class="text-end" scope="col">งานวิจัยทางด้านวิชาการ<span style="color: red">*</span></th>
+                                    <td>{!! Form::select('project',
+                                        [0 => 'ยังไม่ได้เลือกประเภทงานวิจัย', 1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)'],
                                         0,
-                                        ['class' => 'form-select form-select-sm col-md-9'],
+                                        ['class' => 'form-select form-select-sm w-auto'],
                                     ) !!}</td>
                                 </tr>
                                 <tr>
-                                    <th class="align-top text-end" scope="col">หัวข้องานวิจัย</th>
+                                    <th class="align-top text-end" scope="col">หัวข้องานวิจัย<span style="color: red">*</span></th>
                                     <td colspan="3">{!! Form::textarea('title_research', null, ['class' => 'form-control form-control-sm align-top', 'rows' => '4']) !!}</td>
                                 </tr>
                             </thead>
