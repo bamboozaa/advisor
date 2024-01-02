@@ -51,6 +51,8 @@ class StudentController extends Controller
             'title_research' => 'required',
         ]);
 
+
+
         $data1 = [
             'student_id' => $request->student_id,
             'std_title' => $request->std_title,

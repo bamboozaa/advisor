@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('adv_id', 10);
+            $table->integer('aca_id', 10);
+            $table->integer('qua_id', 10);
             $table->string('student_id', 13);
             $table->integer('project');
             $table->text('title_research');
