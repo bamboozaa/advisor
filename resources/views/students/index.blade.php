@@ -69,13 +69,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if (count($students) > 0)
+                                    @foreach ($students as $student)
+                                        <tr>
+                                            <td class="text-center">{{ $student->student_id }}</td>
+                                            <td>{{ $student->std_fname . " " . $student->std_lname }}</td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                    @endforeach
+                                @else
                                 <tr>
-                                    <td class="text-center"></td>
-                                    <td></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center"></td>
+                                    <td colspan="5"></td>
                                 </tr>
+                                @endif
+
                             </tbody>
                         </table>
                     </div>
