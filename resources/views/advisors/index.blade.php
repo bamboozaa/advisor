@@ -68,7 +68,7 @@
                                 @if (count($advisors) > 0)
                                     @foreach ($advisors as $key => $advisor)
                                         <tr>
-                                            <td class="text-center">{{ $key+1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td>{{ $advisor->academic['academic'] . ' ' . $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                             </td>
                                             @php
@@ -77,15 +77,23 @@
                                             @endphp
                                             <td class="text-center">
                                                 {{-- {{ $advisor->projects[0]['project'] }} --}}
-                                                @if ($advisor->projects[0]['project'] == 1)
-                                                    @php $thesiscount++; @endphp
-                                                @endif
+                                                @foreach ($advisor->projects as $project)
+                                                    {{-- {{ dd($project) }} --}}
+                                                    @if ($project['project'] == 1)
+                                                        @php $thesiscount++; @endphp
+                                                    @endif
+                                                @endforeach
+                                                {{-- @if ($advisor->projects[0]['project'] == 1)
+                                                    @php $thesiscount ++; @endphp
+                                                @endif --}}
                                                 {{ $thesiscount > 0 ? $thesiscount : '' }}
                                             </td>
                                             <td class="text-center">
-                                                @if ($advisor->projects[0]['project'] == 2)
-                                                    @php $iscount++; @endphp
-                                                @endif
+                                                @foreach ($advisor->projects as $project)
+                                                    @if ($project['project'] == 2)
+                                                        @php $iscount++; @endphp
+                                                    @endif
+                                                @endforeach
                                                 {{ $iscount > 0 ? $iscount : '' }}
                                             </td>
                                             <td class="text-center text-nowrap">
