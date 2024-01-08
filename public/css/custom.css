@@ -11,3 +11,7 @@ input[type="text"] {
 .form-select {
     background-color: #fff !important
 }
+
+textarea.form-control {
+    background-color: #fff !important
+}
