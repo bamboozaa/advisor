@@ -43,58 +43,81 @@
         </div>
         <div class="row justify-content-end">
 
-                <div class="card bg-white">
-                    <div class="card-header mt-1"><i class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</div>
-                    <div class="card-body">
-                        <div class="table-responsive mt-3">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
-                                        <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
-                                        <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
-                                        <th class="text-center align-middle" rowspan="2">{{ __('Actions') }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th width="15%" class="text-center">{{ __('วิทยานิพนธ์') }}</th>
-                                        <th width="15%" class="text-center">{{ __('การค้นคว้าอิสระ') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (count($advisors) > 0)
-                                        @foreach ($advisors as $key => $advisor)
-                                            <tr>
-                                                <td class="text-center">{{ $key+1 }}</td>
-                                                <td>{{ $advisor->academic['academic'] . " " . $advisor->qualification['abbreviation'] . $advisor->adv_fname . " " . $advisor->adv_lname }}</td>
-                                                <td class="text-center"></td>
-                                                <td class="text-center"></td>
-                                                <td class="text-center text-nowrap">
-                                                    <a href="{{ route('advisors.edit', $advisor->id) }}" class="btn btn-warning btn-sm">
-                                                        <i class="bi bi-pencil-square fs-sm"></i>
-                                                        <span class="ms-1">{{ __('Edit') }}</span>
-                                                    </a>
-                                                    <form action="{{ route('advisors.destroy', $advisor->id) }}" method="POST" style="display: inline;">
+            <div class="card bg-white">
+                <div class="card-header mt-1"><i
+                        class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive mt-3">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
+                                    <th class="text-nowrap align-middle text-center" rowspan="2">
+                                        {{ __('ชื่อ - นามสกุล') }}</th>
+                                    <th class="text-center text-nowrap" colspan="2">
+                                        {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
+                                    <th class="text-center align-middle" rowspan="2">{{ __('Actions') }}</th>
+                                </tr>
+                                <tr>
+                                    <th width="15%" class="text-center">{{ __('วิทยานิพนธ์') }}</th>
+                                    <th width="15%" class="text-center">{{ __('การค้นคว้าอิสระ') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (count($advisors) > 0)
+                                    @foreach ($advisors as $advisor)
+                                        <tr>
+                                            <td class="text-center"></td>
+                                            <td>{{ $advisor->academic['academic'] . ' ' . $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                            </td>
+                                            @php
+                                                $thesiscount = 0;
+                                                $iscount = 0;
+                                            @endphp
+                                            <td class="text-center">
+                                                {{-- {{ $advisor->projects[0]['project'] }} --}}
+                                                @if ($advisor->projects[0]['project'] == 1)
+                                                    @php $thesiscount++; @endphp
+                                                @endif
+                                                {{ $thesiscount > 0 ? $thesiscount : '' }}
+                                            </td>
+                                            <td class="text-center">
+                                                @if ($advisor->projects[0]['project'] == 2)
+                                                    @php $iscount++; @endphp
+                                                @endif
+                                                {{ $iscount > 0 ? $iscount : '' }}
+                                            </td>
+                                            <td class="text-center text-nowrap">
+                                                <a href="{{ route('advisors.edit', $advisor->id) }}"
+                                                    class="btn btn-warning btn-sm">
+                                                    <i class="bi bi-pencil-square fs-sm"></i>
+                                                    <span class="ms-1">{{ __('Edit') }}</span>
+                                                </a>
+                                                <form action="{{ route('advisors.destroy', $advisor->id) }}" method="POST"
+                                                    style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this department?')">
+                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Are you sure you want to delete this department?')">
                                                         <i class="bi bi-trash fs-sm"></i>
                                                         <span class="ms-1">{{ __('Delete') }}</span>
                                                     </button>
                                                 </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @else
-                                        <tr>
-                                            <td colspan="6">{{ __('ไม่พบข้อมูลที่ท่านต้องการค้นหาในขณะนี้') }}</td>
+                                            </td>
                                         </tr>
-                                    @endif
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="6">{{ __('ไม่พบข้อมูลที่ท่านต้องการค้นหาในขณะนี้') }}</td>
+                                    </tr>
+                                @endif
 
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+            </div>
 
         </div>
     </div>
