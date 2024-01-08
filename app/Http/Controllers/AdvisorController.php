@@ -53,7 +53,7 @@ class AdvisorController extends Controller
      */
     public function show(Advisor $advisor)
     {
-        //
+        return view('advisors.show', compact('advisor'));
     }
 
     /**
