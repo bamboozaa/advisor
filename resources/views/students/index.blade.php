@@ -64,7 +64,7 @@
                                         {{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap">
                                         {{ __('อาจารย์ที่ปรึกษา') }}</th>
-                                    <th class="text-center align-middle">{{ __('งานวิจัย') }}</th>
+                                    <th class="text-center text-nowrap align-middle">{{ __('งานวิจัย') }}</th>
                                     <th class="text-center align-middle">{{ __('เรื่อง') }}</th>
                                 </tr>
                             </thead>
