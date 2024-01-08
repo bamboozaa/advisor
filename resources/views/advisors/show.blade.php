@@ -20,7 +20,7 @@
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ url('advisors') }}">{{ __('Advisors') }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            {{ (!isset($advisor->academic['abbreviation']) ? "" : old('name', $advisor->academic['abbreviation']) . " ") . old('name', $advisor->qualification['abbreviation']) . ' ' . old('name', $advisor->adv_fname) . ' ' . old('name', $advisor->adv_lname) }}
+                            {{ (!isset($advisor->academic['abbreviation']) ? '' : old('name', $advisor->academic['abbreviation']) . ' ') . old('name', $advisor->qualification['abbreviation']) . ' ' . old('name', $advisor->adv_fname) . ' ' . old('name', $advisor->adv_lname) }}
                         </li>
                     </ol>
                 </nav>
@@ -48,7 +48,8 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th class="text-left" scope="col" colspan="4">{{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</th>
+                                        <th class="text-left" scope="col" colspan="4">
+                                            {{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</th>
                                     </tr>
                                     <tr>
                                         <th class="align-middle text-right bg-info" scope="col">
@@ -58,10 +59,14 @@
                                         </td>
                                         <th class="align-middle text-right bg-info" scope="col">
                                             {!! Form::label('adv_academic', 'ตำแหน่งทางวิชาการ', ['class' => 'form-control-plaintext text-light']) !!}</th>
-                                        <td>{!! Form::text('adv_academic', !isset($advisor->academic['academic']) ? "" : old('name', $advisor->academic['academic']), [
-                                            'class' => 'form-control',
-                                            'readonly',
-                                        ]) !!}</td>
+                                        <td>{!! Form::text(
+                                            'adv_academic',
+                                            !isset($advisor->academic['academic']) ? '' : old('name', $advisor->academic['academic']),
+                                            [
+                                                'class' => 'form-control',
+                                                'readonly',
+                                            ],
+                                        ) !!}</td>
                                     </tr>
                                     <tr>
                                         <th class="align-middle text-right bg-info" scope="col">
@@ -80,10 +85,14 @@
                                         ) !!}</td>
                                         <th class="align-middle text-right bg-info" scope="col">
                                             {!! Form::label('abbreviation', 'ตัวย่อ', ['class' => 'form-control-plaintext text-light']) !!}</th>
-                                        <td>{!! Form::text('abbreviation', !isset($advisor->academic['abbreviation']) ? "" : old('name', $advisor->academic['abbreviation']), [
-                                            'class' => 'form-control',
-                                            'readonly',
-                                        ]) !!}</td>
+                                        <td>{!! Form::text(
+                                            'abbreviation',
+                                            !isset($advisor->academic['abbreviation']) ? '' : old('name', $advisor->academic['abbreviation']),
+                                            [
+                                                'class' => 'form-control',
+                                                'readonly',
+                                            ],
+                                        ) !!}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -100,80 +109,222 @@
                     <div class="px-lg-4">
                         <div class="row mb-3">
                             <!-- Table Students -->
-                            <fieldset class="scheduler-border">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="student-tab" data-toggle="tab" href="#student"
-                                            role="tab" aria-controls="student" aria-selected="true">รายชื่อนักศึกษา</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                            aria-controls="home" aria-selected="true">ประวัติการศึกษา</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                                            role="tab" aria-controls="profile"
-                                            aria-selected="false">หลักสูตรที่ประจำหรือสอน</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact"
-                                            role="tab" aria-controls="contact" aria-selected="false">ผลงานทางวิชาการ</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="student" role="tabpanel"
-                                        aria-labelledby="student-tab">
-                                        <table class="table table-bordered table-hover table-sm mt-1">
-                                            <thead class="bg-light">
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th class="text-nowrap" scope="col">รหัสนักศึกษา</th>
-                                                    <th scope="col" class="text-nowrap">ชื่อ - นามสกุล</th>
-                                                    <th style="white-space:nowrap" scope="col">ปีการศึกษา/ภาค</th>
-                                                    <th style="white-space:nowrap" scope="col">งานวิจัยทางวิชาการ</th>
-                                                    <th width="100%" scope="col">หัวข้องานวิจัยเรื่อง</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="bg-light">
-                                                @if (count($advisor->projects) > 0)
-                                                    @foreach ($advisor->projects as $key => $project)
-                                                        <tr>
-                                                            <td class="align-top">{{ $key + 1 }}</td>
-                                                            <td class="align-top">
-                                                                <a href="#">{{ $project->student_id }}</a>
+                            {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                        aria-selected="true">รายชื่อนักศึกษา</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                        type="button" role="tab" aria-controls="profile"
+                                        aria-selected="false">Profile</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                        type="button" role="tab" aria-controls="contact"
+                                        aria-selected="false">Contact</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <table class="table table-bordered table-hover table-sm mt-1">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th class="text-nowrap" scope="col">รหัสนักศึกษา</th>
+                                                <th scope="col" class="text-nowrap">ชื่อ - นามสกุล</th>
+                                                <th style="white-space:nowrap" scope="col">ปีการศึกษา/ภาค</th>
+                                                <th style="white-space:nowrap" scope="col">งานวิจัยทางวิชาการ</th>
+                                                <th width="100%" scope="col">หัวข้องานวิจัยเรื่อง</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-light">
+                                            @if (count($advisor->projects) > 0)
+                                                @foreach ($advisor->projects as $key => $project)
+                                                    <tr>
+                                                        <td class="align-top">{{ $key + 1 }}</td>
+                                                        <td class="align-top">
+                                                            <a href="#">{{ $project->student_id }}</a>
+                                                        </td>
+                                                        <td style="white-space:nowrap" class="align-top text-left">
+                                                                {{ $student->std_title . ' ' . $student->std_fname . ' ' . $student->std_lname }}
                                                             </td>
-                                                            {{-- <td style="white-space:nowrap" class="align-top text-left">
+                                                            <td class="align-top">
+                                                                {{ $student->academic_year . '/' . $student->semester }}
+                                                            </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td style="white-space:nowrap" class="align-top text-left">
+                                                            {{ $project['project'] === 1 ? 'วิทยานิพนธ์' : '' }}
+                                                            {{ $project['project'] === 2 ? 'ค้นคว้าอิสระ' : '' }}</td>
+                                                        <td class="text-left">{{ $project['title_research'] }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td class="text-left" colspan="6"><mark><span
+                                                                class="text-danger">* ไม่พบข้อมูลที่ท่านต้องการค้นหา
+                                                                !!!</span></mark></td>
+                                                </tr>
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    ...</div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                    ...</div>
+                            </div> --}}
+                            {{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="student-tab" data-toggle="tab" href="#student"
+                                        role="tab" aria-controls="student" aria-selected="true">รายชื่อนักศึกษา</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                        aria-controls="home" aria-selected="true">ประวัติการศึกษา</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                        aria-controls="profile" aria-selected="false">หลักสูตรที่ประจำหรือสอน</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                        aria-controls="contact" aria-selected="false">ผลงานทางวิชาการ</a>
+                                </li>
+                            </ul> --}}
+                            {{-- <div class="tab-content" id="student">
+                                <div class="tab-pane fade show active" id="student" role="tabpanel"
+                                    aria-labelledby="student-tab">
+                                    <table class="table table-bordered table-hover table-sm mt-1">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th class="text-nowrap" scope="col">รหัสนักศึกษา</th>
+                                                <th scope="col" class="text-nowrap">ชื่อ - นามสกุล</th>
+                                                <th style="white-space:nowrap" scope="col">ปีการศึกษา/ภาค</th>
+                                                <th style="white-space:nowrap" scope="col">งานวิจัยทางวิชาการ</th>
+                                                <th width="100%" scope="col">หัวข้องานวิจัยเรื่อง</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-light">
+                                            @if (count($advisor->projects) > 0)
+                                                @foreach ($advisor->projects as $key => $project)
+                                                    <tr>
+                                                        <td class="align-top">{{ $key + 1 }}</td>
+                                                        <td class="align-top">
+                                                            <a href="#">{{ $project->student_id }}</a>
+                                                        </td>
+                                                        <td style="white-space:nowrap" class="align-top text-left">
+                                                                {{ $student->std_title . ' ' . $student->std_fname . ' ' . $student->std_lname }}
+                                                            </td>
+                                                            <td class="align-top">
+                                                                {{ $student->academic_year . '/' . $student->semester }}
+                                                            </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td style="white-space:nowrap" class="align-top text-left">
+                                                            {{ $project['project'] === 1 ? 'วิทยานิพนธ์' : '' }}
+                                                            {{ $project['project'] === 2 ? 'ค้นคว้าอิสระ' : '' }}</td>
+                                                        <td class="text-left">{{ $project['title_research'] }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td class="text-left" colspan="6"><mark><span
+                                                                class="text-danger">* ไม่พบข้อมูลที่ท่านต้องการค้นหา
+                                                                !!!</span></mark></td>
+                                                </tr>
+                                            @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">...
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    ...</div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                    ...</div>
+                            </div> --}}
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-home" type="button" role="tab"
+                                        aria-controls="nav-home" aria-selected="true">{{ __('รายชื่อนักศึกษา') }}
+                                    </button>
+                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-profile" type="button" role="tab"
+                                        aria-controls="nav-profile" aria-selected="false">{{ __('ประวัติการศึกษา') }}
+                                    </button>
+                                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-contact" type="button" role="tab"
+                                        aria-controls="nav-contact" aria-selected="false">{{ __('หลักสูตรที่ประจำหรือสอน') }}
+                                    </button>
+                                    <button class="nav-link" id="nav-contact2-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-contact2" type="button" role="tab"
+                                        aria-controls="nav-contact2" aria-selected="false">{{ __('ผลงานทางวิชาการ') }}
+                                    </button>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <table class="table table-hover table-sm">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th class="text-nowrap" scope="col">รหัสนักศึกษา</th>
+                                                <th scope="col" class="text-nowrap">ชื่อ - นามสกุล</th>
+                                                <th style="white-space:nowrap" scope="col">ปีการศึกษา/ภาค</th>
+                                                <th style="white-space:nowrap" scope="col">งานวิจัยทางวิชาการ</th>
+                                                <th width="100%" scope="col">หัวข้องานวิจัยเรื่อง</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-light">
+                                            @if (count($advisor->projects) > 0)
+                                                @foreach ($advisor->projects as $key => $project)
+                                                    <tr>
+                                                        <td class="align-top">{{ $key + 1 }}</td>
+                                                        <td class="align-top">
+                                                            <a href="#">{{ $project->student_id }}</a>
+                                                        </td>
+                                                        {{-- <td style="white-space:nowrap" class="align-top text-left">
                                                                 {{ $student->std_title . ' ' . $student->std_fname . ' ' . $student->std_lname }}
                                                             </td>
                                                             <td class="align-top">
                                                                 {{ $student->academic_year . '/' . $student->semester }}
                                                             </td> --}}
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td style="white-space:nowrap" class="align-top text-left">
-                                                                {{ $project['project'] === 1 ? 'วิทยานิพนธ์' : '' }}
-                                                                {{ $project['project'] === 2 ? 'ค้นคว้าอิสระ' : '' }}</td>
-                                                            <td class="text-left">{{ $project['title_research'] }}</td>
-                                                        </tr>
-                                                    @endforeach
-                                                @else
-                                                    <tr>
-                                                        <td class="text-left" colspan="6"><mark><span
-                                                                    class="text-danger">* ไม่พบข้อมูลที่ท่านต้องการค้นหา
-                                                                    !!!</span></mark></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td style="white-space:nowrap" class="align-top text-left">
+                                                            {{ $project['project'] === 1 ? 'วิทยานิพนธ์' : '' }}
+                                                            {{ $project['project'] === 2 ? 'ค้นคว้าอิสระ' : '' }}</td>
+                                                        <td class="text-left">{{ $project['title_research'] }}</td>
                                                     </tr>
-                                                @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="tab-pane fade" id="home" role="tabpanel"
-                                        aria-labelledby="home-tab">...</div>
-                                    <div class="tab-pane fade" id="profile" role="tabpanel"
-                                        aria-labelledby="profile-tab">...</div>
-                                    <div class="tab-pane fade" id="contact" role="tabpanel"
-                                        aria-labelledby="contact-tab">...</div>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td class="text-left" colspan="6"><mark><span
+                                                                class="text-danger">* ไม่พบข้อมูลที่ท่านต้องการค้นหา
+                                                                !!!</span></mark></td>
+                                                </tr>
+                                            @endif
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </fieldset>
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                    aria-labelledby="nav-profile-tab">...
+                                </div>
+                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                    aria-labelledby="nav-contact-tab">...
+                                </div>
+                                    <div class="tab-pane fade" id="nav-contact2" role="tabpanel"
+                                    aria-labelledby="nav-contact2-tab">
+                                    contact2
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
