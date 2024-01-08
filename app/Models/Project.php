@@ -33,4 +33,9 @@ class Project extends Model
     {
         return $this->belongsTo(Advisor::class);
     }
+
+    public function student(): HasOne
+    {
+        return $this->hasOne(Student::class, 'student_id', 'student_id');
+    }
 }

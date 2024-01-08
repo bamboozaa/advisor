@@ -23,9 +23,14 @@ class Student extends Model
         'status'
     ];
 
-    public function project(): HasOne
+    // public function project(): HasOne
+    // {
+    //     return $this->hasOne(Project::class, 'student_id', 'student_id');
+    // }
+
+    public function project(): BelongsTo
     {
-        return $this->hasOne(Project::class, 'student_id', 'student_id');
+        return $this->belongsTo(Project::class);
     }
 
     public function projectAdvisor(): HasOneThrough
@@ -37,4 +42,5 @@ class Student extends Model
     // {
     //     return $this->hasOneThrough(Academic::class, Project::class, 'student_id', 'id', 'student_id', 'id');
     // }
+
 }

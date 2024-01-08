@@ -289,14 +289,10 @@
                                                         <td class="align-top">
                                                             <a href="#">{{ $project->student_id }}</a>
                                                         </td>
-                                                        {{-- <td style="white-space:nowrap" class="align-top text-left">
-                                                                {{ $student->std_title . ' ' . $student->std_fname . ' ' . $student->std_lname }}
-                                                            </td>
-                                                            <td class="align-top">
-                                                                {{ $student->academic_year . '/' . $student->semester }}
-                                                            </td> --}}
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td class="text-nowrap">
+                                                            {{ $project->student['std_title'] . ' ' . $project->student['std_fname'] . ' ' . $project->student['std_lname'] }}
+                                                        </td>
+                                                        <td class="text-center">{{ $project->student['academic_year'] . '/' . $project->student['semester'] }}</td>
                                                         <td style="white-space:nowrap" class="align-top text-left">
                                                             {{ $project['project'] === 1 ? 'วิทยานิพนธ์' : '' }}
                                                             {{ $project['project'] === 2 ? 'ค้นคว้าอิสระ' : '' }}</td>
