@@ -74,7 +74,7 @@
                                         <tr>
                                             <td class="text-center">{{ $student->student_id }}</td>
                                             <td>{{ $student->std_fname . " " . $student->std_lname }}</td>
-                                            <td class="text-center">{{ $student->projectAdvisor['adv_fname'] . " " . $student->projectAdvisor['adv_lname'] }}</td>
+                                            <td class="text-center text-nowrap">{{ $student->projectAdvisor['adv_fname'] . " " . $student->projectAdvisor['adv_lname'] }}</td>
                                             <td class="text-center">{{ $student->project['project'] === 1 ? "Thesis" : "IS"}}</td>
                                             <td>{{ $student->project['title_research'] }}</td>
                                         </tr>
