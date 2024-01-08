@@ -4,14 +4,14 @@
     --bs-table-bg: #fff !important;
 }
 
-input[type="text"] {
+input[type="text"], .form-select, textarea.form-control {
     background-color: #fff !important
 }
 
-.form-select {
+/* .form-select {
     background-color: #fff !important
 }
 
 textarea.form-control {
     background-color: #fff !important
-}
+} */
