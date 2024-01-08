@@ -101,6 +101,7 @@
                                                 {{ $iscount > 0 ? $iscount : '' }}
                                             </td>
                                             <td class="text-center text-nowrap">
+                                                <a href="{{ route('advisors.show', $advisor->id) }}" class="btn-floating btn-sm btn-info"><i class="bi bi-info-circle" aria-hidden="true"></i></a>
                                                 <a href="{{ route('advisors.edit', $advisor->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="bi bi-pencil-square fs-sm"></i>
