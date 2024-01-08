@@ -69,8 +69,11 @@
                                     @foreach ($advisors as $key => $advisor)
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
+                                            @php
+                                                !isset($advisor->academic['academic']) ? "yes" : "no";
+                                            @endphp
                                             {{-- (is_null($advisor->academic['academic']) ? $advisor->academic['academic'] . " " : "") --}}
-                                            <td>{{ $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                            <td>{{ (!isset($advisor->academic['academic']) ? "" : $advisor->academic['academic'] . " ") . $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                             </td>
                                             @php
                                                 $thesiscount = 0;

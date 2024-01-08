@@ -26,9 +26,9 @@ class StudentController extends Controller
     {
         // $advisors = Advisor::selectRaw("CONCAT (adv_fname, ' ', adv_lname) as fullname, adv_id")->pluck('fullname', 'adv_id');
         $advisors = DB::table("advisors")
-        ->join('academics', 'academics.id' , '=', 'advisors.aca_id')
+        ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
-        ->selectRaw("CONCAT (academics.academic, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
+        ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
         return view('students.create', compact('advisors'));
     }
