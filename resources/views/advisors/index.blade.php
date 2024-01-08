@@ -70,7 +70,7 @@
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
                                             {{-- (is_null($advisor->academic['academic']) ? $advisor->academic['academic'] . " " : "") --}}
-                                            <td>{{ (is_null($advisor->academic['academic']) ? "" : $advisor->academic['academic'] . " ") . $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                            <td>{{ $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                             </td>
                                             @php
                                                 $thesiscount = 0;
