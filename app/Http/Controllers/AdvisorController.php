@@ -37,7 +37,7 @@ class AdvisorController extends Controller
             'adv_id' => 'required|unique:advisors',
             'adv_fname' => 'required',
             'adv_lname' => 'required',
-            'aca_id' => 'required',
+            // 'aca_id' => 'required',
             'qua_id' => 'required',
         ]);
 

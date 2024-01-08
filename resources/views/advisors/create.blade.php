@@ -72,7 +72,7 @@
                                     <div class="col-lg-6">
                                         <label for="academic" class="form-label">
                                             {{ __('ตำแหน่งทางวิชาการ') }}
-                                            <span style="color: red">*</span>
+                                            {{-- <span style="color: red">*</span> --}}
                                         </label>
                                         {!! Form::select('aca_id', $academics, null, ['class' => 'form-select text-info', 'placeholder' => 'Please Select ...']) !!}
                                     </div>
