@@ -1,5 +1,5 @@
 <!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="container-fluid fixed-bottom px-0">
+<div class="container-fluid px-0">
 
     <footer class="text-center" style="color: #2e2f82">
         <!-- Copyright -->

@@ -85,7 +85,12 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        $advisors = DB::table("advisors")
+        ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
+        ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
+        ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
+        ->pluck('fullname', 'advisors.adv_id');
+        return view('students.show', compact('student', 'advisors'));
     }
 
     /**

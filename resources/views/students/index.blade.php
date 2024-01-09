@@ -72,7 +72,7 @@
                                 @if (count($students) > 0)
                                     @foreach ($students as $student)
                                         <tr>
-                                            <td>{{ $student->student_id }}</td>
+                                            <td><a href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a></td>
                                             <td class="text-nowrap">{{ $student->std_fname . " " . $student->std_lname }}</td>
                                             <td class="text-nowrap">{{ $student->projectAdvisor['adv_fname'] . " " . $student->projectAdvisor['adv_lname'] }}</td>
                                             <td class="text-center">{{ $student->project['project'] === 1 ? "Thesis" : "IS"}}</td>

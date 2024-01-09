@@ -4,14 +4,12 @@
     --bs-table-bg: #fff !important;
 }
 
-input[type="text"], .form-select, textarea.form-control {
-    background-color: #fff !important
-}
-
-/* .form-select {
-    background-color: #fff !important
-}
-
+input[type="text"],
+.form-select,
 textarea.form-control {
-    background-color: #fff !important
-} */
+    background-color: #fff !important;
+}
+
+input[type="text"]:read-only {
+    background-color: #f3f3f3 !important;
+}
