@@ -102,11 +102,11 @@
                                     <th class="text-start pt-4" colspan="4">{{ __('ข้อมูลการทำงานวิจัย วิทยานิพนธ์/การค้นคว้าอิสระ') }}</th>
                                 </tr>
                                 <tr>
-                                    <th class="text-end" scope="col">{{ __('อาจารย์ที่ปรึกษา') }}<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <td>
                                         {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), old('name', $student->project['adv_id']), ['class' => 'form-select form-select-sm w-auto', 'disabled']) !!}
                                     </td>
-                                    <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}</th>
                                     <td>{!! Form::select('project',
                                         [0 => 'ยังไม่ได้เลือกประเภทงานวิจัย', 1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)'],
                                         old('name', $student->project['project']),
@@ -114,7 +114,7 @@
                                     ) !!}</td>
                                 </tr>
                                 <tr>
-                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย') }}<span style="color: red">*</span></th>
+                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย') }}</th>
                                     <td colspan="3">{!! Form::textarea('title_research', old('name', $student->project['title_research']), ['class' => 'form-control form-control-sm align-top', 'rows' => '4', 'readonly']) !!}</td>
                                 </tr>
                             </thead>
