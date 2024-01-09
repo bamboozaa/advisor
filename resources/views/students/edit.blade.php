@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Show Student')
+@section('title', 'Edit Student')
 
 @section('importcss')
     @parent
@@ -31,10 +31,15 @@
         </div>
 
         <main role="main" class="row justify-content-center">
-
+            {!! Form::open([
+                'method' => 'post',
+                'action' => ['App\Http\Controllers\StudentController@update', $student->id],
+                'files' => true,
+            ]) !!}
+            @method('PATCH')
             <div class="card">
                 <div class="card-header">
-                    <h5><span style="color:cornflowerblue"><strong>แสดง</strong></span> ข้อมูลนักศึกษา</h5>
+                    <h5><span style="color: red"><strong>{{ __('แก้ไข') }}</strong></span> {{ __('ข้อมูลนักศึกษา') }}</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -43,37 +48,37 @@
                                 <tr>
                                     <th class="text-end w-10" scope="col">{{ __('รหัสนักศึกษา') }}</th>
                                     <td class="w-25">
-                                        {!! Form::text('student_id', old('name', $student->student_id), ['class' => 'form-control form-control-sm w-auto text-info', 'readonly']) !!}
+                                        {!! Form::text('student_id', old('name', $student->student_id), ['class' => 'form-control form-control-sm w-auto text-info']) !!}
                                     </td>
                                     <th class="text-end w-10" scope="col">{{ __('คำนำหน้าชื่อ') }}</th>
                                     <td class="w-25">
-                                        {!! Form::text('std_title', old('name', $student->std_title), ['class' => 'form-control form-control-sm w-auto text-info', 'readonly']) !!}
+                                        {!! Form::text('std_title', old('name', $student->std_title), ['class' => 'form-control form-control-sm w-auto text-info']) !!}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('ชื่อ') }}</th>
                                     <td>
-                                        {!! Form::text('std_fname', old('name', $student->std_fname), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
+                                        {!! Form::text('std_fname', old('name', $student->std_fname), ['class' => 'form-control form-control-sm text-info']) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('นามสกุล') }}</th>
                                     <td>
-                                        {!! Form::text('std_lname', old('name', $student->std_lname), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
+                                        {!! Form::text('std_lname', old('name', $student->std_lname), ['class' => 'form-control form-control-sm text-info']) !!}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('คณะ') }}</th>
                                     <td>
-                                        {!! Form::text('facultyname', old('name', $student->facultyname), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
+                                        {!! Form::text('facultyname', old('name', $student->facultyname), ['class' => 'form-control form-control-sm text-info']) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('สาขาวิชา') }}</th>
                                     <td>
-                                        {!! Form::text('programname', old('name', $student->programname), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
+                                        {!! Form::text('programname', old('name', $student->programname), ['class' => 'form-control form-control-sm text-info']) !!}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}</th>
                                     <td>
-                                        {!! Form::select('academic_year', ["" => 'Select Year'], old('name', $student->academic_year), ['class' => 'form-select form-select-sm text-info w-auto', 'id' => 'year', 'disabled', 'data-my-data' => $student->academic_year]) !!}
+                                        {!! Form::select('academic_year', ["" => 'Select Year'], old('name', $student->academic_year), ['class' => 'form-select form-select-sm text-info w-auto', 'id' => 'year', 'data-my-data' => $student->academic_year]) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('ภาคการศึกษา') }}</th>
                                     <td>
@@ -81,7 +86,7 @@
                                             'semester',
                                             [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2'],
                                             old('name', $student->semester),
-                                            ['class' => 'form-select form-select-sm text-info w-auto', 'disabled']
+                                            ['class' => 'form-select form-select-sm text-info w-auto']
                                         ) !!}
                                     </td>
                                 </tr>
@@ -94,7 +99,7 @@
                                             1 => 'กำลังศึกษา',
                                             2 => 'สำเร็จการศึกษา'
                                         ], old('name', $student->status), [
-                                            'class' => 'form-select form-select-sm text-info w-auto', 'disabled'
+                                            'class' => 'form-select form-select-sm text-info w-auto'
                                         ]) !!}
                                     </td>
                                 </tr>
@@ -104,18 +109,18 @@
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <td>
-                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), old('name', $student->project['adv_id']), ['class' => 'form-select form-select-sm text-info w-auto', 'disabled']) !!}
+                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), old('name', $student->project['adv_id']), ['class' => 'form-select form-select-sm text-info w-auto']) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}</th>
                                     <td>{!! Form::select('project',
                                         [0 => 'ยังไม่ได้เลือกประเภทงานวิจัย', 1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)'],
                                         old('name', $student->project['project']),
-                                        ['class' => 'form-select form-select-sm text-info w-auto', 'disabled'],
+                                        ['class' => 'form-select form-select-sm text-info w-auto'],
                                     ) !!}</td>
                                 </tr>
                                 <tr>
                                     <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย') }}</th>
-                                    <td colspan="3">{!! Form::textarea('title_research', old('name', $student->project['title_research']), ['class' => 'form-control form-control-sm text-info align-top', 'rows' => '4', 'readonly']) !!}</td>
+                                    <td colspan="3">{!! Form::textarea('title_research', old('name', $student->project['title_research']), ['class' => 'form-control form-control-sm text-info align-top', 'rows' => '4']) !!}</td>
                                 </tr>
                             </thead>
                         </table>
@@ -124,32 +129,34 @@
                 <div class="card-footer">
                     <div class="row justify-content-center">
                         <div class="d-grid col-sm-3">
-
-                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning"><i class="bi bi-floppy pe-2"></i><span>{{ __('แก้ไข') }}</span></a>
-
+                            <button class="btn btn-success" type="submit" name="submit">
+                                <i class="bi bi-floppy pe-2"></i><span>{{ __('อัพเดท') }}</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--</form>-->
+            {!! Form::close() !!}
 
         </main>
     </div>
 
     <script type="text/javascript">
         const d = new Date();
-        // const data = document.getElementById('year').value;
         const myData = document.getElementById('year').getAttribute('data-my-data');
-        for (y = d.getFullYear()-7; y <= d.getFullYear()+5; y++) {
+        for (y = d.getFullYear()-7; y <= d.getFullYear()+7; y++) {
             var optn = document.createElement("OPTION");
             optn.text = y;
             optn.value = y;
+
+            // if year is 2015 selected
 
             if (y == myData) {
                 optn.selected = true;
             }
 
             document.getElementById('year').options.add(optn);
-            // document.getElementById('year').value = old('name', $student->academic_year);
         }
     </script>
 @endsection
