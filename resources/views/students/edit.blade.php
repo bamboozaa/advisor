@@ -31,11 +31,13 @@
         </div>
 
         <main role="main" class="row justify-content-center">
-            {!! Form::open([
+            {{-- {!! Form::open([
                 'method' => 'post',
                 'action' => ['App\Http\Controllers\StudentController@update', $student->id],
                 'files' => true,
-            ]) !!}
+            ]) !!} --}}
+            <form method="POST" action="{{ route('students.update', old('name', $student->id)) }}" enctype="multipart/form-data">
+            @csrf
             @method('PATCH')
             <div class="card">
                 <div class="card-header">
@@ -136,8 +138,8 @@
                     </div>
                 </div>
             </div>
-            <!--</form>-->
-            {!! Form::close() !!}
+            </form>
+            {{-- {!! Form::close() !!} --}}
 
         </main>
     </div>

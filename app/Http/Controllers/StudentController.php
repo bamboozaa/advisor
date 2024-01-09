@@ -51,8 +51,6 @@ class StudentController extends Controller
             'title_research' => 'required',
         ]);
 
-
-
         $data1 = [
             'student_id' => $request->student_id,
             'std_title' => $request->std_title,
@@ -111,7 +109,34 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $student_id = $request->student_id;
+        $project = Project::where('student_id', $student_id);
+        $data1 = [
+            'student_id' => $request->student_id,
+            'std_title' => $request->std_title,
+            'std_fname' => $request->std_fname,
+            'std_lname' => $request->std_lname,
+            'facultyname' => $request->facultyname,
+            'programname' => $request->programname,
+            'academic_year' => $request->academic_year,
+            'semester' => $request->semester,
+            'status' => $request->status,
+        ];
+
+        $data2 = [
+            'student_id' => $request->student_id,
+            'adv_id' => $request->adv_id,
+            'project' => $request->project,
+            'title_research' => $request->title_research,
+        ];
+
+        $student->update($data1);
+        // $student->project->update($data1);
+        $project->update($data2);
+
+        session()->flash('success', 'Student updated successfully.');
+
+        return redirect()->route('students.show', $student);
     }
 
     /**
