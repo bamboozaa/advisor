@@ -147,7 +147,6 @@
 
         </main>
     </div>
-    </div>
 
     <script type="text/javascript">
         const d = new Date();
@@ -165,4 +164,10 @@
             document.getElementById('year').options.add(optn);
         }
     </script>
+@endsection
+
+@section('footer')
+
+    @include('footer')
+
 @endsection
