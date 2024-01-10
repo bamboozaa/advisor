@@ -113,7 +113,7 @@
                                                 {{-- {{ !isset($advisor->academic['thesis']) ? floor((15 - $iscount)/3) - $thesiscount : $advisor->academic['thesis']  - $thesiscount }} --}}
                                             </td>
                                             <td class="text-success text-center">
-                                                {{ (15 - $iscount) - ($thesiscount*3) > 15 ? "" : (15 - $iscount) - ($thesiscount*3) }}
+                                                {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "" : (15 - $iscount) - ($thesiscount*3) }}
                                             </td>
                                             <td class="text-center text-nowrap">
                                                 <a href="{{ route('advisors.show', $advisor->id) }}"
