@@ -118,7 +118,7 @@
                                                     <i class="bi bi-pencil-square fs-sm"></i>
                                                     <span class="ms-1">{{ __('Edit') }}</span>
                                                 </a>
-                                                <form action="{{ route('advisors.destroy', $advisor->id) }}" method="POST"
+                                                {{-- <form action="{{ route('advisors.destroy', $advisor->id) }}" method="POST"
                                                     style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
@@ -127,7 +127,7 @@
                                                         <i class="bi bi-trash fs-sm"></i>
                                                         <span class="ms-1">{{ __('Delete') }}</span>
                                                     </button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                     @endforeach
