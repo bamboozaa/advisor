@@ -70,7 +70,7 @@
                                     @foreach ($advisors as $key => $advisor)
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
-                                            <td>
+                                            <td class="text-nowrap">
                                                 {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                             </td>
 
