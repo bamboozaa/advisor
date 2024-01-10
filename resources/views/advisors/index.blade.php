@@ -57,6 +57,8 @@
                                         {{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">
                                         {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
+                                        <th class="text-center align-middle" rowspan="2">{{ __('thesis') }}</th>
+                                        <th class="text-center align-middle" rowspan="2">{{ __('is') }}</th>
                                     <th class="text-center align-middle" rowspan="2">{{ __('Actions') }}</th>
                                 </tr>
                                 <tr>
@@ -69,39 +71,54 @@
                                     @foreach ($advisors as $key => $advisor)
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
-                                            @php
-                                                !isset($advisor->academic['academic']) ? "yes" : "no";
-                                            @endphp
-                                            {{-- (is_null($advisor->academic['academic']) ? $advisor->academic['academic'] . " " : "") --}}
-                                            <td>{{ (!isset($advisor->academic['academic']) ? "" : $advisor->academic['academic'] . " ") . $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                            <td>
+                                                {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                             </td>
+
                                             @php
                                                 $thesiscount = 0;
                                                 $iscount = 0;
                                             @endphp
+
+                                            @foreach ($advisor->projects as $project)
+
+                                                @if ($project['project'] == 1)
+                                                    @php $thesiscount++; @endphp
+                                                @endif
+
+                                                @if ($project['project'] == 2)
+                                                    @php $iscount++; @endphp
+                                                @endif
+
+                                            @endforeach
                                             <td class="text-center">
-                                                {{-- {{ $advisor->projects[0]['project'] }} --}}
-                                                @foreach ($advisor->projects as $project)
-                                                    {{-- {{ dd($project) }} --}}
-                                                    @if ($project['project'] == 1)
-                                                        @php $thesiscount++; @endphp
-                                                    @endif
-                                                @endforeach
-                                                {{-- @if ($advisor->projects[0]['project'] == 1)
-                                                    @php $thesiscount ++; @endphp
-                                                @endif --}}
                                                 {{ $thesiscount > 0 ? $thesiscount : '' }}
                                             </td>
                                             <td class="text-center">
-                                                @foreach ($advisor->projects as $project)
-                                                    @if ($project['project'] == 2)
-                                                        @php $iscount++; @endphp
-                                                    @endif
-                                                @endforeach
                                                 {{ $iscount > 0 ? $iscount : '' }}
                                             </td>
+                                            <td class="text-success text-center">
+                                                @if ($iscount > 0)
+                                                    {{ floor((15 - $iscount)/3) - $thesiscount }}
+                                                @endif
+
+                                                @if (!isset($advisor->academic['thesis']))
+                                                    {{ floor((15 - $iscount)/3) - $thesiscount }}
+                                                @endif
+
+                                                @if (isset($advisor->academic['thesis']) && $iscount <= 0)
+                                                    {{ $advisor->academic['thesis']  - $thesiscount }}
+                                                @endif
+                                                {{-- {{ $iscount > 0 ? floor((15 - $iscount)/3) - $thesiscount : '' }} --}}
+                                                {{-- {{ !isset($advisor->academic['thesis']) ? floor((15 - $iscount)/3) - $thesiscount : $advisor->academic['thesis']  - $thesiscount }} --}}
+                                            </td>
+                                            <td class="text-success text-center">
+                                                {{ (15 - $iscount) - ($thesiscount*3) > 15 ? "" : (15 - $iscount) - ($thesiscount*3) }}
+                                            </td>
                                             <td class="text-center text-nowrap">
-                                                <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info"><i class="bi bi-info-circle fs-sm me-1"></i>{{ __('Info') }}</a>
+                                                <a href="{{ route('advisors.show', $advisor->id) }}"
+                                                    class="btn btn-sm btn-info"><i
+                                                        class="bi bi-info-circle fs-sm me-1"></i>{{ __('Info') }}</a>
                                                 <a href="{{ route('advisors.edit', $advisor->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="bi bi-pencil-square fs-sm"></i>

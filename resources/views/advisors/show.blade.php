@@ -146,7 +146,7 @@
                                                     <tr>
                                                         <td class="align-top">{{ $key + 1 }}</td>
                                                         <td class="align-top">
-                                                            <a href="#">{{ $project->student_id }}</a>
+                                                            <a href="{{ route('students.show', $project->student['id']) }}">{{ $project->student_id }}</a>
                                                         </td>
                                                         <td class="text-nowrap">
                                                             {{ $project->student['std_title'] . ' ' . $project->student['std_fname'] . ' ' . $project->student['std_lname'] }}
