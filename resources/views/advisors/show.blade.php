@@ -53,7 +53,7 @@
                                     </tr>
                                     <tr>
                                         <th class="align-middle text-end" style="background-color: #0c8ccc" scope="col">
-                                            {!! Form::label('adv_title', 'คำนำหน้าชื่อตามบัตรประชาชน', ['class' => 'form-control-plaintext text-light']) !!}</th>
+                                            {!! Form::label('adv_title', 'คำนำหน้าชื่อ', ['class' => 'form-control-plaintext text-light']) !!}</th>
                                         <td>
                                             {!! Form::text('adv_title', old('name', $advisor->adv_title), ['class' => 'form-control col-md-4', 'readonly']) !!}
                                         </td>
