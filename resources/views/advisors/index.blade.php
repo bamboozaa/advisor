@@ -102,7 +102,7 @@
                                                 @elseif (!isset($advisor->academic['thesis']))
                                                     {{ floor((15 - $iscount)/3) - $thesiscount }}
                                                 @elseif (isset($advisor->academic['thesis']) && $iscount <= 0)
-                                                    {{ $advisor->academic['thesis']  - $thesiscount }}
+                                                    {{ $advisor->academic['thesis']  - $thesiscount <= 0 ? "" : $advisor->academic['thesis']  - $thesiscount }}
                                                 @endif
                                             </td>
                                             <td class="text-success text-center">
