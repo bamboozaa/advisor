@@ -56,13 +56,13 @@
                                     <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
-                                    <th class="text-center align-middle" rowspan="2">{{ __('Actions') }}</th>
+                                    <th class="text-center align-middle text-nowrap" rowspan="2" style="width: 1%">{{ __('Actions') }}</th>
                                 </tr>
                                 <tr>
-                                    <th class="text-center">{{ __('วิทยานิพนธ์') }}</th>
-                                    <th class="text-center">{{ __('การค้นคว้าอิสระ') }}</th>
-                                    <th class="text-center">{{ __('thesis') }}</th>
-                                    <th class="text-center">{{ __('is') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('thesis') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('is') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
