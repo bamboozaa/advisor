@@ -61,8 +61,8 @@
                                 <tr>
                                     <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์') }}</th>
                                     <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('thesis') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('is') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 5%">{{ __('thesis') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 5%">{{ __('is') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,16 +117,6 @@
                                                     <i class="bi bi-pencil-square fs-sm"></i>
                                                     <span class="ms-1">{{ __('Edit') }}</span>
                                                 </a>
-                                                {{-- <form action="{{ route('advisors.destroy', $advisor->id) }}" method="POST"
-                                                    style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm('Are you sure you want to delete this department?')">
-                                                        <i class="bi bi-trash fs-sm"></i>
-                                                        <span class="ms-1">{{ __('Delete') }}</span>
-                                                    </button>
-                                                </form> --}}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -135,13 +125,11 @@
                                         <td colspan="6">{{ __('ไม่พบข้อมูลที่ท่านต้องการค้นหาในขณะนี้') }}</td>
                                     </tr>
                                 @endif
-
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
