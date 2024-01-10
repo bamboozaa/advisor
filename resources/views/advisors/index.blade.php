@@ -50,20 +50,19 @@
                 <div class="card-body">
                     <div class="table-responsive mt-3">
                         <table class="table table-bordered table-hover">
-                            <thead>
+                            <thead class="table-light">
                                 <tr>
                                     <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
-                                    <th class="text-nowrap align-middle text-center" rowspan="2">
-                                        {{ __('ชื่อ - นามสกุล') }}</th>
-                                    <th class="text-center text-nowrap" colspan="2">
-                                        {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
-                                        <th class="text-center align-middle" rowspan="2">{{ __('thesis') }}</th>
-                                        <th class="text-center align-middle" rowspan="2">{{ __('is') }}</th>
+                                    <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
+                                    <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
+                                    <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
                                     <th class="text-center align-middle" rowspan="2">{{ __('Actions') }}</th>
                                 </tr>
                                 <tr>
-                                    <th width="15%" class="text-center">{{ __('วิทยานิพนธ์') }}</th>
-                                    <th width="15%" class="text-center">{{ __('การค้นคว้าอิสระ') }}</th>
+                                    <th class="text-center">{{ __('วิทยานิพนธ์') }}</th>
+                                    <th class="text-center">{{ __('การค้นคว้าอิสระ') }}</th>
+                                    <th class="text-center">{{ __('thesis') }}</th>
+                                    <th class="text-center">{{ __('is') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
