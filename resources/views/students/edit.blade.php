@@ -19,12 +19,13 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ url('students') }}">{{ __('Students') }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ $student->std_title . " " . $student->std_fname . " " . $student->std_lname }}</li>
+                        <li class="breadcrumb-item"><a href="{{ url('students', $student->id) }}">{{ $student->std_title . " " . $student->std_fname . " " . $student->std_lname }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('Edit Student') }}</li>
                     </ol>
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ url('students') }}" class="btn btn-primary mb-2">
+                <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">
                     <i class="bi bi-back"></i><span class="ms-2">{{ __('Back') }}</span>
                 </a>
             </div>
