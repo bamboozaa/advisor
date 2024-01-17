@@ -97,12 +97,13 @@
                                                 {{ $iscount > 0 ? $iscount : '' }}
                                             </td>
                                             <td class="text-success text-center">
-                                                @if ($iscount > 0)
-                                                    {{ floor((15 - $iscount)/3) - $thesiscount }}
+                                                @if (isset($advisor->academic['thesis']))
+                                                    {{ (($advisor->academic['thesis']  - floor(($iscount)/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - floor(($iscount)/3))- $thesiscount }}
                                                 @elseif (!isset($advisor->academic['thesis']))
-                                                    {{ floor((15 - $iscount)/3) - $thesiscount }}
-                                                @elseif (isset($advisor->academic['thesis']) && $iscount <= 0)
-                                                    {{ $advisor->academic['thesis']  - $thesiscount <= 0 ? "" : $advisor->academic['thesis']  - $thesiscount }}
+                                                    {{ ($advisor->qualification['thesis'] - floor(($iscount)/3)) - $thesiscount }}
+                                                {{-- @elseif (isset($advisor->academic['thesis']) && $iscount <= 0)
+                                                    {{ ($advisor->academic['thesis']  - floor(($iscount)/3)) - $thesiscount }} --}}
+                                                    {{-- {{ $advisor->academic['thesis']  - $thesiscount <= 0 ? "" : $advisor->academic['thesis']  - $thesiscount }} --}}
                                                 @endif
                                             </td>
                                             <td class="text-success text-center">
