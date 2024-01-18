@@ -55,14 +55,14 @@
                                     <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
                                     <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
-                                    <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
+                                    <th class="text-center text-nowrap" colspan="2" style="background-color: #addbf3">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
                                     <th class="text-center align-middle text-nowrap" rowspan="2" style="width: 1%">{{ __('Actions') }}</th>
                                 </tr>
                                 <tr>
-                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 5%">{{ __('thesis') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 5%">{{ __('is') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ (IS)') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%; background-color: #addbf3">{{ __('วิทยานิพนธ์ (Thesis)') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%; background-color: #addbf3">{{ __('การค้นคว้าอิสระ (IS)') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -96,7 +96,7 @@
                                             <td class="text-center">
                                                 {{ $iscount > 0 ? $iscount : '' }}
                                             </td>
-                                            <td class="text-success text-center">
+                                            <td class="text-success text-center" style="background-color: #addbf3">
                                                 @if (isset($advisor->academic['thesis']))
                                                     {{ (($advisor->academic['thesis']  - floor(($iscount)/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - floor(($iscount)/3))- $thesiscount }}
                                                 @elseif (!isset($advisor->academic['thesis']))
@@ -106,7 +106,7 @@
                                                     {{-- {{ $advisor->academic['thesis']  - $thesiscount <= 0 ? "" : $advisor->academic['thesis']  - $thesiscount }} --}}
                                                 @endif
                                             </td>
-                                            <td class="text-success text-center">
+                                            <td class="text-success text-center" style="background-color: #addbf3">
                                                 {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "" : (15 - $iscount) - ($thesiscount*3) }}
                                             </td>
                                             <td class="text-center text-nowrap">
