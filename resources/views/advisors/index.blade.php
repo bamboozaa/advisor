@@ -96,7 +96,7 @@
                                             <td class="text-center">
                                                 {{ $iscount > 0 ? $iscount : '' }}
                                             </td>
-                                            <td class="text-success text-center" style="background-color: #addbf3">
+                                            <td class="text-success text-center" style="background-color: #f8f9fa">
                                                 @if (isset($advisor->academic['thesis']))
                                                     {{ (($advisor->academic['thesis']  - floor(($iscount)/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - floor(($iscount)/3))- $thesiscount }}
                                                 @elseif (!isset($advisor->academic['thesis']))
@@ -106,7 +106,7 @@
                                                     {{-- {{ $advisor->academic['thesis']  - $thesiscount <= 0 ? "" : $advisor->academic['thesis']  - $thesiscount }} --}}
                                                 @endif
                                             </td>
-                                            <td class="text-success text-center" style="background-color: #addbf3">
+                                            <td class="text-success text-center" style="background-color: #f8f9fa">
                                                 {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "" : (15 - $iscount) - ($thesiscount*3) }}
                                             </td>
                                             <td class="text-center text-nowrap">
