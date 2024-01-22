@@ -97,19 +97,28 @@
                                                 {{ $iscount > 0 ? $iscount : '' }}
                                             </td>
                                             <td class="text-success text-center" style="background-color: #f8f9fa">
-                                                @if ($iscount > 0)
-                                                    {{-- {{ (($advisor->academic['thesis']  - ceil($iscount/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - ceil(($iscount)/3))- $thesiscount }} --}}
-                                                    {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }}
+                                                {{-- @if ($iscount > 0) --}}
+                                                @if (isset($advisor->academic['thesis']))
+                                                    {{ (($advisor->academic['thesis']  - ceil($iscount/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - ceil(($iscount)/3))- $thesiscount }}
+                                                    {{-- {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }} --}}
                                                 @elseif (!isset($advisor->academic['thesis']))
                                                     {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }}
-                                                @elseif (isset($advisor->academic['thesis']) && $iscount <= 0)
-                                                    {{ (($advisor->academic['thesis']  - floor($iscount/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - floor(($iscount)/3))- $thesiscount }}
+                                                    {{-- {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }} --}}
+                                                {{-- @elseif (isset($advisor->academic['thesis']) && $iscount <= 0) --}}
+                                                    {{-- {{ (($advisor->academic['thesis']  - floor($iscount/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - floor(($iscount)/3))- $thesiscount }} --}}
                                                     {{-- {{ ($advisor->academic['thesis']  - floor(($iscount)/3)) - $thesiscount }} --}}
                                                     {{-- {{ $advisor->academic['thesis']  - $thesiscount <= 0 ? "" : $advisor->academic['thesis']  - $thesiscount }} --}}
                                                 @endif
                                             </td>
                                             <td class="text-success text-center" style="background-color: #f8f9fa">
-                                                {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "" : (15 - $iscount) - ($thesiscount*3) }}
+                                                @if (isset($advisor->academic['thesis']) && $thesiscount === 0)
+                                                    {{ (15 - $iscount) <= 0 ? "" : (15 - $iscount) }}
+                                                @elseif (isset($advisor->academic['thesis']) && $thesiscount > 0)
+                                                {{ (15 - $iscount - $thesiscount) <= 0 ? "" : (15 - $iscount - $thesiscount) }}
+                                                @else
+                                                    {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "" : (15 - $iscount) - ($thesiscount*3) }}
+                                                @endif
+
                                             </td>
                                             <td class="text-center text-nowrap">
                                                 <a href="{{ route('advisors.show', $advisor->id) }}"
