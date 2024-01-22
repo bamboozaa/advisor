@@ -113,8 +113,10 @@
                                             <td class="text-success text-center" style="background-color: #f8f9fa">
                                                 @if (isset($advisor->academic['thesis']) && $thesiscount === 0)
                                                     {{ (15 - $iscount) <= 0 ? "" : (15 - $iscount) }}
-                                                @elseif (isset($advisor->academic['thesis']) && $thesiscount > 0)
-                                                {{ (15 - $iscount - $thesiscount) <= 0 ? "" : (15 - $iscount - $thesiscount) }}
+                                                @elseif (isset($advisor->academic['thesis']) && $thesiscount > 0 && $iscount !== 0)
+                                                    {{ (15 - $iscount - $thesiscount) <= 0 ? "" : (15 - $iscount - $thesiscount) }}
+                                                @elseif (isset($advisor->academic['thesis']) && $iscount === 0)
+                                                    {{ (15 - ($thesiscount*3)) <= 0 ? "" : (15 - ($thesiscount*3)) }}
                                                 @else
                                                     {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "" : (15 - $iscount) - ($thesiscount*3) }}
                                                 @endif
