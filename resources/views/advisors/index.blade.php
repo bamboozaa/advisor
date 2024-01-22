@@ -116,7 +116,7 @@
                                                 @elseif (isset($advisor->academic['thesis']) && $thesiscount > 0 && $iscount !== 0)
                                                     {{ (15 - $iscount - $thesiscount) <= 0 ? "" : (15 - $iscount - $thesiscount) }}
                                                 @elseif (isset($advisor->academic['thesis']) && $iscount === 0)
-                                                    {{ (15 - ($thesiscount*3)) <= 0 ? "" : (15 - ($thesiscount*3)) }}
+                                                    {{ (15 - ($thesiscount*3)) <= 0 ? "" : (15 - $thesiscount) }}
                                                 @else
                                                     {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "" : (15 - $iscount) - ($thesiscount*3) }}
                                                 @endif
