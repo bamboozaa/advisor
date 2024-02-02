@@ -99,10 +99,18 @@
                                             <td class="text-success text-center" style="background-color: #f8f9fa">
                                                 {{-- @if ($iscount > 0) --}}
                                                 @if (isset($advisor->academic['thesis']))
-                                                    {{ (($advisor->academic['thesis']  - ceil($iscount/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - ceil(($iscount)/3))- $thesiscount }}
+                                                    {{ (($advisor->academic['thesis']  - ceil($iscount/3)) - $thesiscount) == 0 ? "Full" : ($advisor->academic['thesis']  - ceil(($iscount)/3))- $thesiscount }}
+                                                    @php
+                                                        $quota_thesis = ($advisor->academic['thesis']  - ceil(($iscount)/3))- $thesiscount;
+                                                        // echo $quota_thesis;
+                                                    @endphp
                                                     {{-- {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }} --}}
                                                 @elseif (!isset($advisor->academic['thesis']))
                                                     {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }}
+                                                    @php
+                                                        $quota_thesis = ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount;
+                                                        // echo $quota_thesis;
+                                                    @endphp
                                                     {{-- {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }} --}}
                                                 {{-- @elseif (isset($advisor->academic['thesis']) && $iscount <= 0) --}}
                                                     {{-- {{ (($advisor->academic['thesis']  - floor($iscount/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - floor(($iscount)/3))- $thesiscount }} --}}
@@ -113,17 +121,32 @@
                                             <td class="text-success text-center" style="background-color: #f8f9fa">
                                                 @if (isset($advisor->academic['thesis']) && $thesiscount === 0)
                                                     {{ (15 - $iscount) <= 0 ? "" : (15 - $iscount) }}
+                                                    @php
+                                                        $quota_is = 15 - $iscount;
+                                                        // echo $quata_is;
+                                                    @endphp
                                                 @elseif (isset($advisor->academic['thesis']) && $thesiscount > 0 && $iscount !== 0)
-                                                    {{ (15 - $iscount - $thesiscount) <= 0 ? "" : (15 - $iscount - $thesiscount) }}
+                                                    {{ (15 - $iscount - $thesiscount) <= 0 ? "Full" : (15 - $iscount - $thesiscount) }}
+                                                    @php
+                                                        $quota_is = (15 - $iscount) - $thesiscount;
+                                                        // echo $quota_is;
+                                                    @endphp
                                                 @elseif (isset($advisor->academic['thesis']) && $iscount === 0)
-                                                    {{ (15 - ($thesiscount*3)) <= 0 ? "" : (15 - $thesiscount) }}
+                                                    {{ (15 - ($thesiscount*3)) <= 0 ? "Full" : (15 - $thesiscount) }}
+                                                    @php
+                                                        $quota_is = 15 - $thesiscount;
+                                                        // echo $quota_is;
+                                                    @endphp
                                                 @else
-                                                    {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "" : (15 - $iscount) - ($thesiscount*3) }}
+                                                    {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "Full" : (15 - $iscount) - ($thesiscount * 3) }}
+                                                    @php
+                                                        $quota_is = (15 - $iscount) - ($thesiscount * 3);
+                                                        // echo $quota_is;
+                                                    @endphp
                                                 @endif
-
                                             </td>
                                             <td class="text-center text-nowrap">
-                                                <a href="{{ route('advisors.show', $advisor->id) }}"
+                                                <a href="{{ route('advisors.show', [$advisor->id, 'quata_thesis' => $quota_thesis, 'quata_is' => $quota_is]) }}"
                                                     class="btn btn-sm btn-info"><i
                                                         class="bi bi-info-circle fs-sm me-1"></i>{{ __('Info') }}</a>
                                                 <a href="{{ route('advisors.edit', $advisor->id) }}"
