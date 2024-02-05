@@ -132,13 +132,13 @@
                                                         // echo $quota_is;
                                                     @endphp
                                                 @elseif (isset($advisor->academic['thesis']) && $iscount === 0)
-                                                    {{ (15 - ($thesiscount*3)) <= 0 ? "Full" : (15 - ($thesiscount * 3)) }}
+                                                    {{ (15 - ($thesiscount * 3)) <= 0 ? "Full" : (15 - ($thesiscount * 3)) }}
                                                     @php
                                                         $quota_is = (15 - ($thesiscount * 3)) <= 0 ? 0 : (15 - ($thesiscount * 3));
                                                         // echo $quota_is;
                                                     @endphp
                                                 @else
-                                                    {{ (15 - $iscount) - ($thesiscount*3) <= 0 ? "Full" : (15 - $iscount) - ($thesiscount * 3) }}
+                                                    {{ (15 - $iscount) - ($thesiscount * 3) <= 0 ? "Full" : (15 - $iscount) - ($thesiscount * 3) }}
                                                     @php
                                                         $quota_is = (15 - $iscount) - ($thesiscount * 3);
                                                         // echo $quota_is;
