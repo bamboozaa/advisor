@@ -48,41 +48,44 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th class="text-left" scope="col" colspan="4">
-                                            {{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</th>
+                                        <th class="text-left" scope="col" colspan="4">{{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</th>
                                     </tr>
                                     <tr>
                                         <th class="align-middle text-end" style="background-color: #0c8ccc" scope="col">
-                                            {!! Form::label('adv_title', 'คำนำหน้าชื่อ', ['class' => 'form-control-plaintext text-light']) !!}</th>
+                                            {!! Form::label('adv_title', 'คำนำหน้าชื่อ', ['class' => 'form-control-plaintext text-light']) !!}
+                                        </th>
                                         <td>
                                             {!! Form::text('adv_title', old('name', $advisor->adv_title), ['class' => 'form-control col-md-4', 'readonly']) !!}
                                         </td>
                                         <th class="align-middle text-end" style="background-color: #0c8ccc" scope="col">
-                                            {!! Form::label('adv_academic', 'ตำแหน่งทางวิชาการ', ['class' => 'form-control-plaintext text-light']) !!}</th>
-                                        <td>{!! Form::text(
-                                            'adv_academic',
-                                            !isset($advisor->academic['academic']) ? '' : old('name', $advisor->academic['academic']),
-                                            [
-                                                'class' => 'form-control',
-                                                'readonly',
-                                            ],
-                                        ) !!}</td>
+                                            {!! Form::label('adv_academic', 'ตำแหน่งทางวิชาการ', ['class' => 'form-control-plaintext text-light']) !!}
+                                        </th>
+                                        <td>
+                                            {!! Form::text(
+                                                'adv_academic', !isset($advisor->academic['academic']) ? '' : old('name', $advisor->academic['academic']),
+                                                [
+                                                    'class' => 'form-control',
+                                                    'readonly',
+                                                ],
+                                            ) !!}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th class="align-middle text-end" style="background-color: #0c8ccc" scope="col">
-                                            {!! Form::label('adv_fname', 'ชื่อ - นามสกุล', ['class' => 'form-control-plaintext text-light']) !!}</th>
-                                        <td>{!! Form::text(
-                                            'adv_fname',
-                                            old('name', $advisor->qualification['abbreviation']) .
+                                            {!! Form::label('adv_fname', 'ชื่อ - นามสกุล', ['class' => 'form-control-plaintext text-light']) !!}
+                                        </th>
+                                        <td>
+                                            {!! Form::text('adv_fname', old('name', $advisor->qualification['abbreviation']) .
                                                 ' ' .
                                                 old('name', $advisor->adv_fname) .
                                                 ' ' .
                                                 old('name', $advisor->adv_fname),
-                                            [
-                                                'class' => 'form-control',
-                                                'readonly',
-                                            ],
-                                        ) !!}</td>
+                                                [
+                                                    'class' => 'form-control',
+                                                    'readonly',
+                                                ],
+                                            ) !!}
+                                        </td>
                                         <th class="align-middle text-end" style="background-color: #0c8ccc" scope="col">
                                             {!! Form::label('abbreviation', 'ตัวย่อ', ['class' => 'form-control-plaintext text-light']) !!}</th>
                                         <td>{!! Form::text(
@@ -99,6 +102,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        @php
+            foreach ($_GET as $key => $value) :
+                ${$key} = $value;
+            endforeach;
+        @endphp
+
+        <div class="row justify-content-center mt-3">
+            <div class="d-grid gap-2 d-md-block text-center">
+                <a href="" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quata_thesis }}</a>
+                <a href="" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quata_is }}</a>
             </div>
         </div>
 

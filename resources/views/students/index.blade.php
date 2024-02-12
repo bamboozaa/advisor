@@ -44,9 +44,9 @@
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ route('students.create') }}" class="btn btn-primary mb-2">
+                {{-- <a href="{{ route('students.create') }}" class="btn btn-primary mb-2">
                     <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New') }}</span>
-                </a>
+                </a> --}}
             </div>
         </div>
         <div class="row justify-content-end">
