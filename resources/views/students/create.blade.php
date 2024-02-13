@@ -24,7 +24,7 @@
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ url('students') }}" class="btn btn-primary mb-2">
+                <a href="{{ url()->previous() }}" class="btn btn-primary mb-2">
                     <i class="bi bi-back"></i><span class="ms-2">{{ __('Back') }}</span>
                 </a>
             </div>
@@ -38,7 +38,7 @@
             ]) !!}
             <div class="card">
                 <div class="card-header">
-                    <h5><span style="color: green"><strong>เพิ่ม</strong></span> ข้อมูลนักศึกษาใหม่</h5>
+                    <h5><span style="color: green"><strong>เพิ่ม</strong></span>{{ __(' ข้อมูลนักศึกษาใหม่') }}</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -85,8 +85,8 @@
                                     <td>
                                         {!! Form::select(
                                             'semester',
-                                            [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2'],
-                                            1,
+                                            [0 => 'Please select', 1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2', 3 => 'ปีการศึกษาที่ 3'],
+                                            0,
                                             ['class' => 'form-select form-select-sm w-auto']
                                         ) !!}
                                     </td>
@@ -110,13 +110,18 @@
                                 <tr>
                                     <th class="text-end" scope="col">อาจารย์ที่ปรึกษา<span style="color: red">*</span></th>
                                     <td>
-                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), 0, ['class' => 'form-select form-select-sm w-auto']) !!}
+                                        @php
+                                            foreach ($_GET as $key => $value) :
+                                                ${$key} = $value;
+                                            endforeach;
+                                        @endphp
+                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), $adv_id, ['class' => 'form-control form-control-sm w-auto', 'disabled']) !!}
                                     </td>
-                                    <th class="text-end" scope="col">งานวิจัยทางด้านวิชาการ<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}<span style="color: red">*</span></th>
                                     <td>{!! Form::select('project',
                                         [0 => 'ยังไม่ได้เลือกประเภทงานวิจัย', 1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)'],
-                                        0,
-                                        ['class' => 'form-select form-select-sm w-auto'],
+                                        $project,
+                                        ['class' => 'form-control form-control-sm w-auto', 'disabled'],
                                     ) !!}</td>
                                 </tr>
                                 <tr>
@@ -131,12 +136,12 @@
                     <div class="row justify-content-center">
                         <div class="d-grid col-sm-3">
                             <button class="btn btn-primary" type="submit" name="submit">
-                                <i class="bi bi-floppy pe-2"></i><span>บันทึก</span>
+                                <i class="bi bi-floppy pe-2"></i><span>{{ __('บันทึก') }}</span>
                             </button>
                         </div>
                         <div class="d-grid col-sm-3">
                             <button class="btn btn-danger" type="reset">
-                                <i class="bi bi-x-circle pe-2"></i><span>ยกเลิก</span>
+                                <i class="bi bi-x-circle pe-2"></i><span>{{ __('ยกเลิก') }}</span>
                             </button>
                         </div>
                     </div>

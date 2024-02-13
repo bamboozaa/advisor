@@ -113,8 +113,8 @@
 
         <div class="row justify-content-center mt-3">
             <div class="d-grid gap-2 d-md-block text-center">
-                <a href="" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quata_thesis }}</a>
-                <a href="" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quata_is }}</a>
+                <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quata_thesis }}</a>
+                <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quata_is }}</a>
             </div>
         </div>
 
