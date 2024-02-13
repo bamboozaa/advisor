@@ -32,4 +32,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('students', App\Http\Controllers\StudentController::class);
     Route::resource('academics', App\Http\Controllers\AcademicController::class);
     Route::resource('qualifications', App\Http\Controllers\QualificationController::class);
+    Route::resource('departments', App\Http\Controllers\DepartmentController::class);
+    Route::resource('faculties', App\Http\Controllers\FacultyController::class);
+    Route::resource('majors', App\Http\Controllers\MajorController::class);
 });
