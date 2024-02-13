@@ -108,7 +108,7 @@
                                     <th class="text-start pt-4" colspan="4">ข้อมูลการทำงานวิจัย วิทยานิพนธ์/การค้นคว้าอิสระ</th>
                                 </tr>
                                 <tr>
-                                    <th class="text-end" scope="col">อาจารย์ที่ปรึกษา<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <td>
                                         @php
                                             foreach ($_GET as $key => $value) :
@@ -117,7 +117,7 @@
                                         @endphp
                                         {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), $adv_id, ['class' => 'form-control form-control-sm w-auto', 'readonly']) !!}
                                     </td>
-                                    <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}</th>
                                     <td>{!! Form::select('project',
                                         [0 => 'ยังไม่ได้เลือกประเภทงานวิจัย', 1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)'],
                                         $project,
