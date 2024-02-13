@@ -6,6 +6,19 @@
     {{ Html::style('css/custom.css') }}
 @stop
 
+@section('importjs')
+    @parent
+    <script type="module">
+        @if (session('success'))
+            Swal.fire({
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                icon: 'success'
+            });
+        @endif
+    </script>
+@stop
+
 @section('sidemenu')
     @include('layouts.sidemenu')
 @endsection

@@ -75,7 +75,8 @@ class StudentController extends Controller
 
         session()->flash('success', 'Student created successfully.');
 
-        return redirect()->route('students.index');
+        // return redirect()->route('students.index');
+        return redirect()->back();
     }
 
     /**
