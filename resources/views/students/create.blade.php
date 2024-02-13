@@ -105,7 +105,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="text-start pt-4" colspan="4">ข้อมูลการทำงานวิจัย วิทยานิพนธ์/การค้นคว้าอิสระ</th>
+                                    <th class="text-start pt-4" colspan="4">{{ __('ข้อมูลการทำงานวิจัย วิทยานิพนธ์/การค้นคว้าอิสระ') }}</th>
                                 </tr>
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('อาจารย์ที่ปรึกษา') }}</th>
@@ -125,7 +125,7 @@
                                     ) !!}</td>
                                 </tr>
                                 <tr>
-                                    <th class="align-top text-end" scope="col">หัวข้องานวิจัย<span style="color: red">*</span></th>
+                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย') }}<span style="color: red">*</span></th>
                                     <td colspan="3">{!! Form::textarea('title_research', null, ['class' => 'form-control form-control-sm align-top', 'rows' => '4']) !!}</td>
                                 </tr>
                             </thead>
