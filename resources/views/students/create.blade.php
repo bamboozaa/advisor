@@ -115,13 +115,13 @@
                                                 ${$key} = $value;
                                             endforeach;
                                         @endphp
-                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), $adv_id, ['class' => 'form-control form-control-sm w-auto', 'disabled']) !!}
+                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), $adv_id, ['class' => 'form-control form-control-sm w-auto', 'readonly']) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}<span style="color: red">*</span></th>
                                     <td>{!! Form::select('project',
                                         [0 => 'ยังไม่ได้เลือกประเภทงานวิจัย', 1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)'],
                                         $project,
-                                        ['class' => 'form-control form-control-sm w-auto', 'disabled'],
+                                        ['class' => 'form-control form-control-sm w-auto', 'readonly'],
                                     ) !!}</td>
                                 </tr>
                                 <tr>
