@@ -115,6 +115,7 @@
                                                 ${$key} = $value;
                                             endforeach;
                                         @endphp
+                                        {!! Form::hidden('id', $id) !!}
                                         {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), $adv_id, ['class' => 'form-control form-control-sm w-auto', 'readonly']) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}</th>
