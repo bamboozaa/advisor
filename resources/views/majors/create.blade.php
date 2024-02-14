@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Create New Faculty')
+@section('title', 'Create New Major')
 
 @section('importcss')
     @parent
@@ -18,13 +18,13 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('faculties') }}">{{ __('Faculties') }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ __('Create Faculty') }}</li>
+                        <li class="breadcrumb-item"><a href="{{ url('majors') }}">{{ __('Majors') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('Create Major') }}</li>
                     </ol>
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ url('faculties') }}" class="btn btn-primary mb-2">
+                <a href="{{ url('majors') }}" class="btn btn-primary mb-2">
                     <i class="bi bi-back"></i><span class="ms-2">{{ __('Back') }}</span>
                 </a>
             </div>
@@ -44,24 +44,31 @@
             <div class="col-md-12">
                 <div class="card bg-white">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('faculties.store') }}">
+                        <form method="POST" action="{{ route('majors.store') }}">
                             @csrf
                             <div class="row mb-3">
-                                <label for="fac_name" class="col-sm-3 col-form-label text-end">{{ __('ชื่อหลักสูตร/คณะ :') }}</label>
+                                <label for="major_name" class="col-sm-3 col-form-label text-end">{{ __('ชื่อสาขาวิชา/กลุ่มวิชา :') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="fac_name" class="form-control" />
+                                    <input type="text" name="major_name" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <label for="dep_id" class="col-sm-3 col-form-label text-end">
-                                    {{ __('หน่วยงาน :') }}
+                                <label for="fac_id" class="col-sm-3 col-form-label text-end">
+                                    {{ __('หลักสูตร/คณะ :') }}
                                 </label>
                                 <div class="col-sm-auto">
-                                    {!! Form::select('dep_id', $departments, null, [
+                                    {!! Form::select('fac_id', $faculties, null, [
                                     'class' => 'form-select',
                                     'placeholder' => 'Please Select ...',
                                 ]) !!}
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="major_year" class="col-sm-3 col-form-label text-end">{{ __('ปี ค.ศ. :') }}</label>
+                                <div class="col-sm-auto">
+                                    <input type="text" name="major_year" class="form-control" />
                                 </div>
                             </div>
 

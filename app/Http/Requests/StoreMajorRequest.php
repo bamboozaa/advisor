@@ -11,7 +11,7 @@ class StoreMajorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class StoreMajorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'major_name' => 'required|string|max:255',
+            'fac_id' => 'required',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'major_name.required' => 'กรุณากรอกชื่อสาขาวิชา/กลุ่มวิชา',
+            'fac_id.required' => 'กรุณาเลือกหลักสูตร/คณะ',
         ];
     }
 }

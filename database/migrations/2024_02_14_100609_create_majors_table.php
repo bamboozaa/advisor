@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('fac_id');
             $table->string('major_name');
-            $table->year('major_year');
+            $table->year('major_year')->nullable();
             $table->timestamps();
         });
     }

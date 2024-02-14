@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMajorRequest;
 use App\Http\Requests\UpdateMajorRequest;
 use App\Models\Major;
+use App\Models\Faculty;
 
 class MajorController extends Controller
 {
@@ -22,7 +23,8 @@ class MajorController extends Controller
      */
     public function create()
     {
-        //
+        $faculties = Faculty::pluck('fac_name', 'id');
+        return view('majors.create', compact('faculties'));
     }
 
     /**
@@ -30,7 +32,11 @@ class MajorController extends Controller
      */
     public function store(StoreMajorRequest $request)
     {
-        //
+        Major::create($request->all());
+
+        session()->flash('success', 'Major created successfully.');
+
+        return redirect()->route('majors.index');
     }
 
     /**
@@ -46,7 +52,8 @@ class MajorController extends Controller
      */
     public function edit(Major $major)
     {
-        //
+        $faculties = Faculty::pluck('fac_name', 'id');
+        return view('majors.edit', compact('major', 'faculties'));
     }
 
     /**
@@ -54,7 +61,11 @@ class MajorController extends Controller
      */
     public function update(UpdateMajorRequest $request, Major $major)
     {
-        //
+        $major->update($request->all());
+
+        session()->flash('success', 'Major updated successfully.');
+
+        return redirect()->route('majors.index');
     }
 
     /**
@@ -62,6 +73,10 @@ class MajorController extends Controller
      */
     public function destroy(Major $major)
     {
-        //
+        $major->delete();
+
+        session()->flash('success', 'Major deleted successfully.');
+
+        return redirect()->route('majors.index');
     }
 }

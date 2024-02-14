@@ -53,7 +53,7 @@
                                     <th scope="col" class="text-nowrap">{{ __('ชื่อสาขาวิชา/กลุ่มวิชา') }}</th>
                                     <th scope="col" class="text-nowrap">{{ __('หลักสูตร/คณะ') }}</th>
                                     <th scope="col" class="text-nowrap">{{ __('หน่วยงาน') }}</th>
-                                    <th scope="col" class="text-nowrap">{{ __('ปีที่เปิดหลักสูตร') }}</th>
+                                    <th scope="col" class="text-nowrap text-center">{{ __('ปีที่เปิดหลักสูตร') }}</th>
                                     <th scope="col" class="text-center col-md-2">{{ __('Actions') }}</th>
                                 </tr>
                             </thead>
@@ -63,10 +63,9 @@
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
                                             <td>{{ $major->major_name }}</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{ $major->faculty['fac_name'] }}</td>
+                                            <td>{{ $major->faculty->department['dep_name'] }}</td>
+                                            <td class="text-center">{{ $major->major_year === null ? "" : $major->major_year + 543 }}</td>
                                             <td class="text-center text-nowrap">
                                                 <a href="{{ route('majors.edit', $major->id) }}"
                                                     class="btn btn-warning btn-sm">
