@@ -44,7 +44,6 @@
         </div>
 
         <main role="main" class="row justify-content-center">
-
             <div class="card">
                 <div class="card-header mt-2">
                     <h5><span style="color:cornflowerblue"><strong>แสดง</strong></span> ข้อมูลนักศึกษา</h5>
@@ -74,13 +73,17 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="text-end" scope="col">{{ __('คณะ') }}</th>
+                                    <th class="text-end" scope="col">{{ __('หน่วยงาน') }}</th>
                                     <td>
-                                        {!! Form::text('facultyname', old('name', $student->facultyname), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
+                                        {!! Form::select('dep_id', $departments, old('name', $student->dep_id), [
+                                            'class' => 'form-select form-select-sm w-auto', 'disabled',
+                                            'placeholder' => 'Please Select ...',
+                                        ]) !!}
+                                        {{-- {!! Form::text('facultyname', old('name', $student->facultyname), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!} --}}
                                     </td>
-                                    <th class="text-end" scope="col">{{ __('สาขาวิชา') }}</th>
+                                    <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}</th>
                                     <td>
-                                        {!! Form::text('programname', old('name', $student->programname), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
+                                        {!! Form::text('major', old('name', $student->major), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
                                     </td>
                                 </tr>
                                 <tr>
@@ -92,7 +95,7 @@
                                     <td>
                                         {!! Form::select(
                                             'semester',
-                                            [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2'],
+                                            [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2', 3 => 'ปีการศึกษาที่ 3'],
                                             old('name', $student->semester),
                                             ['class' => 'form-select form-select-sm text-info w-auto', 'disabled']
                                         ) !!}
@@ -136,13 +139,24 @@
                                 </tr>
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('แหล่งตีพิมพ์') }}</th>
-                                    <td></td>
+                                    <td>
+                                        {!! Form::text('publisher', old('name', $student->project['publisher']), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
+                                    </td>
                                     <th class="text-end" scope="col">{{ __('ปีที่ตีพิมพ์') }}</th>
-                                    <td></td>
+                                    <td>
+                                        {!! Form::text('publishing_year', old('name', $student->project['publishing_year']), ['class' => 'form-control form-control-sm w-auto text-info', 'readonly']) !!}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('สถานะ') }}</th>
-                                    <td></td>
+                                    <td>
+                                        {!! Form::select(
+                                            'project_status',
+                                            [0 => 'อยู่ระหว่างดำเนินการ', 1 => 'ผ่าน', 2 => 'ไม่ผ่าน'],
+                                            old('name', $student->project['project_status']),
+                                            ['class' => 'form-select form-select-sm text-info w-auto', 'disabled']
+                                        ) !!}
+                                    </td>
                                     <th class="text-end" scope="col"></th>
                                     <td></td>
                                 </tr>
@@ -158,7 +172,6 @@
                     </div>
                 </div>
             </div>
-
         </main>
     </div>
 
@@ -166,7 +179,7 @@
         const d = new Date();
         // const data = document.getElementById('year').value;
         const myData = document.getElementById('year').getAttribute('data-my-data');
-        for (y = d.getFullYear()-7; y <= d.getFullYear()+5; y++) {
+        for (y = (d.getFullYear()-7) + 543; y <= (d.getFullYear()+5) + 543; y++) {
             var optn = document.createElement("OPTION");
             optn.text = y;
             optn.value = y;

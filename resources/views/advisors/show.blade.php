@@ -182,6 +182,7 @@
                                         <tbody class="bg-light">
                                             @if (count($advisor->projects) > 0)
                                                 @foreach ($advisor->projects as $key => $project)
+                                                    @if ($project->project_status == 0)
                                                     <tr>
                                                         <td class="align-top">{{ $key + 1 }}</td>
                                                         <td class="align-top">
@@ -196,6 +197,7 @@
                                                             {{ $project['project'] === 2 ? 'ค้นคว้าอิสระ' : '' }}</td>
                                                         <td class="text-left">{{ $project['title_research'] }}</td>
                                                     </tr>
+                                                    @endif
                                                 @endforeach
                                             @else
                                                 <tr>

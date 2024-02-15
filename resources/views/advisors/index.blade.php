@@ -81,11 +81,11 @@
 
                                             @foreach ($advisor->projects as $project)
 
-                                                @if ($project['project'] == 1)
+                                                @if ($project['project'] == 1 && $project['project_status'] == 0)
                                                     @php $thesiscount++; @endphp
                                                 @endif
 
-                                                @if ($project['project'] == 2)
+                                                @if ($project['project'] == 2 && $project['project_status'] == 0)
                                                     @php $iscount++; @endphp
                                                 @endif
 

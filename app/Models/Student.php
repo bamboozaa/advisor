@@ -17,8 +17,10 @@ class Student extends Model
         'std_title',
         'std_fname',
         'std_lname',
-        'facultyname',
-        'programname',
+        // 'facultyname',
+        'dep_id',
+        // 'programname',
+        'major',
         'academic_year',
         'semester',
         'status'

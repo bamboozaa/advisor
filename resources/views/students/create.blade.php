@@ -45,7 +45,8 @@
                         <table class="table table-hover table-sm">
                             <thead>
                                 <tr>
-                                    <th class="text-end" scope="col">{{ __('รหัสนักศึกษา') }}<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('รหัสนักศึกษา') }}<span
+                                            style="color: red">*</span></th>
                                     <td>
                                         <input class="form-control form-control-sm w-auto" type="text" name="student_id">
                                     </td>
@@ -65,19 +66,26 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="text-end" scope="col">คณะ<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('หน่วยงาน') }}<span
+                                            style="color: red">*</span></th>
                                     <td>
-                                        <input class="form-control form-control-sm" type="text" name="facultyname">
+                                        {!! Form::select('dep_id', $departments, null, [
+                                            'class' => 'form-select form-select-sm w-auto',
+                                            'placeholder' => 'Please Select ...',
+                                        ]) !!}
+                                        {{-- <input class="form-control form-control-sm" type="text" name="facultyname"> --}}
                                     </td>
-                                    <th class="text-end" scope="col">สาขาวิชา<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}<span style="color: red">*</span></th>
                                     <td>
-                                        <input class="form-control form-control-sm" type="text" name="programname">
+                                        <input class="form-control form-control-sm" type="text" name="major">
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}<span
+                                            style="color: red">*</span></th>
                                     <td>
-                                        <select class="form-select form-select-sm w-auto" name="academic_year" id="year">
+                                        <select class="form-select form-select-sm w-auto" name="academic_year"
+                                            id="year">
                                             <option value="">Select Year</option>
                                         </select>
                                     </td>
@@ -87,7 +95,7 @@
                                             'semester',
                                             [0 => 'Please select', 1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2', 3 => 'ปีการศึกษาที่ 3'],
                                             0,
-                                            ['class' => 'form-select form-select-sm w-auto']
+                                            ['class' => 'form-select form-select-sm w-auto'],
                                         ) !!}
                                     </td>
                                 </tr>
@@ -96,38 +104,57 @@
                                     <td></td>
                                     <th class="text-end" scope="col">สถานะนักศึกษา</th>
                                     <td>
-                                        {!! Form::select('status', [
-                                            1 => 'กำลังศึกษา',
-                                            2 => 'สำเร็จการศึกษา'
-                                        ], 1, [
-                                            'class' => 'form-select form-select-sm w-auto',
-                                        ]) !!}
+                                        {!! Form::select(
+                                            'status',
+                                            [
+                                                1 => 'กำลังศึกษา',
+                                                2 => 'สำเร็จการศึกษา',
+                                            ],
+                                            1,
+                                            [
+                                                'class' => 'form-select form-select-sm w-auto',
+                                            ],
+                                        ) !!}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="text-start pt-4" colspan="4">{{ __('ข้อมูลการทำงานวิจัย วิทยานิพนธ์/การค้นคว้าอิสระ') }}</th>
+                                    <th class="text-start pt-4" colspan="4">
+                                        {{ __('ข้อมูลการทำงานวิจัย วิทยานิพนธ์/การค้นคว้าอิสระ') }}</th>
                                 </tr>
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <td>
                                         @php
-                                            foreach ($_GET as $key => $value) :
+                                            foreach ($_GET as $key => $value):
                                                 ${$key} = $value;
                                             endforeach;
                                         @endphp
                                         {!! Form::hidden('id', $id) !!}
-                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), $adv_id, ['class' => 'form-control form-control-sm w-auto', 'readonly']) !!}
+                                        {!! Form::select('adv_id', [0 => 'Please select'] + $advisors->toArray(), $adv_id, [
+                                            'class' => 'form-control form-control-sm w-auto',
+                                            'readonly',
+                                        ]) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}</th>
-                                    <td>{!! Form::select('project',
+                                    <td>{!! Form::select(
+                                        'project',
                                         [0 => 'ยังไม่ได้เลือกประเภทงานวิจัย', 1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)'],
                                         $project,
                                         ['class' => 'form-control form-control-sm w-auto', 'readonly'],
                                     ) !!}</td>
                                 </tr>
                                 <tr>
-                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย') }}<span style="color: red">*</span></th>
+                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย (ภาษาไทย)') }}<span
+                                            style="color: red">*</span></th>
                                     <td colspan="3">{!! Form::textarea('title_research', null, ['class' => 'form-control form-control-sm align-top', 'rows' => '4']) !!}</td>
+                                </tr>
+                                <tr>
+                                    <th class="align-top text-end" scope="col">
+                                        {{ __('หัวข้องานวิจัย (ภาษาอังกฤษ)') }}<span style="color: red">*</span></th>
+                                    <td colspan="3">{!! Form::textarea('title_research_en', null, [
+                                        'class' => 'form-control form-control-sm text-info align-top',
+                                        'rows' => '4',
+                                    ]) !!}</td>
                                 </tr>
                             </thead>
                         </table>
@@ -156,7 +183,7 @@
 
     <script type="text/javascript">
         const d = new Date();
-        for (y = (d.getFullYear()-7) + 543; y <= (d.getFullYear()+7) + 543; y++) {
+        for (y = (d.getFullYear() - 7) + 543; y <= (d.getFullYear() + 7) + 543; y++) {
             var optn = document.createElement("OPTION");
             optn.text = y;
             optn.value = y;

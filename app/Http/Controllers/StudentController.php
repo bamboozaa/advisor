@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\Advisor;
 use App\Models\Project;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,13 +25,14 @@ class StudentController extends Controller
      */
     public function create()
     {
+        $departments = Department::pluck('dep_name', 'id');
         // $advisors = Advisor::selectRaw("CONCAT (adv_fname, ' ', adv_lname) as fullname, adv_id")->pluck('fullname', 'adv_id');
         $advisors = DB::table("advisors")
         ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
         ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
-        return view('students.create', compact('advisors'));
+        return view('students.create', compact('advisors', 'departments'));
     }
 
     /**
@@ -42,8 +44,10 @@ class StudentController extends Controller
             'student_id' => 'required|unique:students',
             'std_fname' => 'required',
             'std_lname' => 'required',
-            'facultyname' => 'required',
-            'programname' => 'required',
+            // 'facultyname' => 'required',
+            'dep_id' => 'required',
+            // 'programname' => 'required',
+            'major' => 'required',
             'academic_year' => 'required',
             'semester' => 'required',
             'adv_id' => 'required',
@@ -56,8 +60,10 @@ class StudentController extends Controller
             'std_title' => $request->std_title,
             'std_fname' => $request->std_fname,
             'std_lname' => $request->std_lname,
-            'facultyname' => $request->facultyname,
-            'programname' => $request->programname,
+            // 'facultyname' => $request->facultyname,
+            'dep_id' => $request->dep_id,
+            // 'programname' => $request->programname,
+            'major' => $request->major,
             'academic_year' => $request->academic_year,
             'semester' => $request->semester,
             'status' => $request->status,
@@ -84,12 +90,13 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
+        $departments = Department::pluck('dep_name', 'id');
         $advisors = DB::table("advisors")
         ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
         ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
-        return view('students.show', compact('student', 'advisors'));
+        return view('students.show', compact('student', 'advisors', 'departments'));
     }
 
     /**
@@ -97,12 +104,13 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
+        $departments = Department::pluck('dep_name', 'id');
         $advisors = DB::table("advisors")
         ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
         ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
-        return view('students.edit', compact('student', 'advisors'));
+        return view('students.edit', compact('student', 'advisors', 'departments'));
     }
 
     /**
@@ -117,8 +125,10 @@ class StudentController extends Controller
             'std_title' => $request->std_title,
             'std_fname' => $request->std_fname,
             'std_lname' => $request->std_lname,
-            'facultyname' => $request->facultyname,
-            'programname' => $request->programname,
+            // 'facultyname' => $request->facultyname,
+            'dep_id' => $request->dep_id,
+            // 'programname' => $request->programname,
+            'major' => $request->major,
             'academic_year' => $request->academic_year,
             'semester' => $request->semester,
             'status' => $request->status,
@@ -126,9 +136,13 @@ class StudentController extends Controller
 
         $data2 = [
             'student_id' => $request->student_id,
-            'adv_id' => $request->adv_id,
-            'project' => $request->project,
+            // 'adv_id' => $request->adv_id,
+            // 'project' => $request->project,
             'title_research' => $request->title_research,
+            'title_research_en' => $request->title_research_en,
+            'publisher' => $request->publisher,
+            'publishing_year' => $request->publishing_year,
+            'project_status' => $request->project_status,
         ];
 
         $student->update($data1);

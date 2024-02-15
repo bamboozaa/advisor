@@ -17,17 +17,11 @@ class Project extends Model
       'student_id',
       'project',
       'title_research',
+      'title_research_en',
+      'publisher',
+      'publishing_year',
+      'project_status',
     ];
-
-    // public function advisor(): HasOne
-    // {
-    //     return $this->hasOne(Advisor::class, 'id', 'adv_id');
-    // }
-
-    // public function advisor(): HasMany
-    // {
-    //     return $this->hasMany(Advisor::class);
-    // }
 
     public function advisors(): BelongsTo
     {

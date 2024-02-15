@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('std_title', 100)->nullable();
             $table->string('std_fname')->nullable();
             $table->string('std_lname')->nullable();
-            $table->string('facultyname');
-            $table->string('programname');
+            $table->integer('dep_id');
+            // $table->string('programname');
+            $table->string('major');
             $table->char('academic_year', 4);
             // $table->year('academic_year');
             $table->integer('semester')->default(1);

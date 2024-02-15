@@ -69,13 +69,17 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="text-end" scope="col">{{ __('คณะ') }}</th>
+                                    <th class="text-end" scope="col">{{ __('หน่วยงาน') }}</th>
                                     <td>
-                                        {!! Form::text('facultyname', old('name', $student->facultyname), ['class' => 'form-control form-control-sm text-info']) !!}
+                                        {!! Form::select('dep_id', $departments, old('name', $student->dep_id), [
+                                            'class' => 'form-select form-select-sm w-auto',
+                                            'placeholder' => 'Please Select ...',
+                                        ]) !!}
+                                        {{-- {!! Form::text('facultyname', old('name', $student->facultyname), ['class' => 'form-control form-control-sm text-info']) !!} --}}
                                     </td>
-                                    <th class="text-end" scope="col">{{ __('สาขาวิชา') }}</th>
+                                    <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}</th>
                                     <td>
-                                        {!! Form::text('programname', old('name', $student->programname), ['class' => 'form-control form-control-sm text-info']) !!}
+                                        {!! Form::text('major', old('name', $student->major), ['class' => 'form-control form-control-sm text-info']) !!}
                                     </td>
                                 </tr>
                                 <tr>
@@ -87,7 +91,7 @@
                                     <td>
                                         {!! Form::select(
                                             'semester',
-                                            [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2'],
+                                            [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2', 3 => 'ปีการศึกษาที่ 3'],
                                             old('name', $student->semester),
                                             ['class' => 'form-select form-select-sm text-info w-auto']
                                         ) !!}
@@ -112,18 +116,45 @@
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <td>
-                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), old('name', $student->project['adv_id']), ['class' => 'form-select form-select-sm text-info w-auto']) !!}
+                                        {!! Form::select('adv_id', [0 => 'Please select']+ $advisors->toArray(), old('name', $student->project['adv_id']), ['class' => 'form-select form-select-sm text-info w-auto', 'disabled']) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('งานวิจัยทางด้านวิชาการ') }}</th>
                                     <td>{!! Form::select('project',
                                         [0 => 'ยังไม่ได้เลือกประเภทงานวิจัย', 1 => 'วิทยานิพนธ์ (Thesis)', 2 => 'การค้นคว้าอิสระ (IS)'],
                                         old('name', $student->project['project']),
-                                        ['class' => 'form-select form-select-sm text-info w-auto'],
+                                        ['class' => 'form-select form-select-sm text-info w-auto', 'disabled'],
                                     ) !!}</td>
                                 </tr>
                                 <tr>
-                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย') }}</th>
+                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย (ภาษาไทย)') }}</th>
                                     <td colspan="3">{!! Form::textarea('title_research', old('name', $student->project['title_research']), ['class' => 'form-control form-control-sm text-info align-top', 'rows' => '4']) !!}</td>
+                                </tr>
+                                <tr>
+                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย (ภาษาอังกฤษ)') }}</th>
+                                    <td colspan="3">{!! Form::textarea('title_research_en', old('name', $student->project['title_research_en']), ['class' => 'form-control form-control-sm text-info align-top', 'rows' => '4']) !!}</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end" scope="col">{{ __('แหล่งตีพิมพ์') }}</th>
+                                    <td>
+                                        {!! Form::text('publisher', old('name', $student->project['publisher']), ['class' => 'form-control form-control-sm text-info']) !!}
+                                    </td>
+                                    <th class="text-end" scope="col">{{ __('ปีที่ตีพิมพ์') }}</th>
+                                    <td>
+                                        {!! Form::text('publishing_year', old('name', $student->project['publishing_year']), ['class' => 'form-control form-control-sm w-auto text-info']) !!}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end" scope="col">{{ __('สถานะ') }}</th>
+                                    <td>
+                                        {!! Form::select(
+                                            'project_status',
+                                            [0 => 'อยู่ระหว่างดำเนินการ', 1 => 'ผ่าน', 2 => 'ไม่ผ่าน'],
+                                            old('name', $student->project['project_status']),
+                                            ['class' => 'form-select form-select-sm text-info w-auto']
+                                        ) !!}
+                                    </td>
+                                    <th class="text-end" scope="col"></th>
+                                    <td></td>
                                 </tr>
                             </thead>
                         </table>
@@ -148,7 +179,7 @@
     <script type="text/javascript">
         const d = new Date();
         const myData = document.getElementById('year').getAttribute('data-my-data');
-        for (y = d.getFullYear()-7; y <= d.getFullYear()+7; y++) {
+        for (y = (d.getFullYear()-7) + 543; y <= (d.getFullYear()+7) + 543; y++) {
             var optn = document.createElement("OPTION");
             optn.text = y;
             optn.value = y;
