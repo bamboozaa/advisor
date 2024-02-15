@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('std_lname')->nullable();
             $table->integer('dep_id');
             // $table->string('programname');
-            $table->string('major');
+            $table->string('major')->nullable();
             $table->char('academic_year', 4);
             // $table->year('academic_year');
             $table->integer('semester')->default(1);

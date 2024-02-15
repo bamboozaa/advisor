@@ -6,6 +6,7 @@ use App\Models\Student;
 use App\Models\Advisor;
 use App\Models\Project;
 use App\Models\Department;
+use App\Models\Faculty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,13 +27,14 @@ class StudentController extends Controller
     public function create()
     {
         $departments = Department::pluck('dep_name', 'id');
+        $faculties = Faculty::pluck('fac_name', 'id');
         // $advisors = Advisor::selectRaw("CONCAT (adv_fname, ' ', adv_lname) as fullname, adv_id")->pluck('fullname', 'adv_id');
         $advisors = DB::table("advisors")
         ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
         ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
-        return view('students.create', compact('advisors', 'departments'));
+        return view('students.create', compact('advisors', 'departments', 'faculties'));
     }
 
     /**
@@ -46,8 +48,8 @@ class StudentController extends Controller
             'std_lname' => 'required',
             // 'facultyname' => 'required',
             'dep_id' => 'required',
+            'fac_id' => 'required',
             // 'programname' => 'required',
-            'major' => 'required',
             'academic_year' => 'required',
             'semester' => 'required',
             'adv_id' => 'required',
@@ -62,6 +64,7 @@ class StudentController extends Controller
             'std_lname' => $request->std_lname,
             // 'facultyname' => $request->facultyname,
             'dep_id' => $request->dep_id,
+            'fac_id' => $request->fac_id,
             // 'programname' => $request->programname,
             'major' => $request->major,
             'academic_year' => $request->academic_year,

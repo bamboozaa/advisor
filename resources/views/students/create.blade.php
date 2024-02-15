@@ -45,8 +45,7 @@
                         <table class="table table-hover table-sm">
                             <thead>
                                 <tr>
-                                    <th class="text-end" scope="col">{{ __('รหัสนักศึกษา') }}<span
-                                            style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('รหัสนักศึกษา') }}<span style="color: red">*</span></th>
                                     <td>
                                         <input class="form-control form-control-sm w-auto" type="text" name="student_id">
                                     </td>
@@ -75,20 +74,27 @@
                                         ]) !!}
                                         {{-- <input class="form-control form-control-sm" type="text" name="facultyname"> --}}
                                     </td>
-                                    <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('หลักสูตร/คณะ') }}<span
+                                        style="color: red">*</span></th>
                                     <td>
-                                        <input class="form-control form-control-sm" type="text" name="major">
+                                        {!! Form::select('fac_id', $faculties, null, [
+                                            'class' => 'form-select form-select-sm w-auto',
+                                            'placeholder' => 'Please Select ...',
+                                        ]) !!}
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}</th>
+                                    <td><input class="form-control form-control-sm" type="text" name="major"></td>
                                     <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}<span
-                                            style="color: red">*</span></th>
+                                        style="color: red">*</span></th>
                                     <td>
-                                        <select class="form-select form-select-sm w-auto" name="academic_year"
-                                            id="year">
+                                        <select class="form-select form-select-sm w-auto" name="academic_year" id="year">
                                             <option value="">Select Year</option>
                                         </select>
                                     </td>
+                                </tr>
+                                <tr>
                                     <th class="text-end" scope="col">ภาคการศึกษา<span style="color: red">*</span></th>
                                     <td>
                                         {!! Form::select(
@@ -98,10 +104,6 @@
                                             ['class' => 'form-select form-select-sm w-auto'],
                                         ) !!}
                                     </td>
-                                </tr>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
                                     <th class="text-end" scope="col">สถานะนักศึกษา</th>
                                     <td>
                                         {!! Form::select(
