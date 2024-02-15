@@ -46,7 +46,7 @@
         <main role="main" class="row justify-content-center">
 
             <div class="card">
-                <div class="card-header">
+                <div class="card-header mt-2">
                     <h5><span style="color:cornflowerblue"><strong>แสดง</strong></span> ข้อมูลนักศึกษา</h5>
                 </div>
                 <div class="card-body">
@@ -127,8 +127,24 @@
                                     ) !!}</td>
                                 </tr>
                                 <tr>
-                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัย') }}</th>
+                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัยภาษาไทย') }}</th>
                                     <td colspan="3">{!! Form::textarea('title_research', old('name', $student->project['title_research']), ['class' => 'form-control form-control-sm text-info align-top', 'rows' => '4', 'readonly']) !!}</td>
+                                </tr>
+                                <tr>
+                                    <th class="align-top text-end" scope="col">{{ __('หัวข้องานวิจัยภาษาอังกฤษ') }}</th>
+                                    <td colspan="3">{!! Form::textarea('title_research_en', null, ['class' => 'form-control form-control-sm text-info align-top', 'rows' => '4', 'readonly']) !!}</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end" scope="col">{{ __('แหล่งตีพิมพ์') }}</th>
+                                    <td></td>
+                                    <th class="text-end" scope="col">{{ __('ปีที่ตีพิมพ์') }}</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end" scope="col">{{ __('สถานะ') }}</th>
+                                    <td></td>
+                                    <th class="text-end" scope="col"></th>
+                                    <td></td>
                                 </tr>
                             </thead>
                         </table>
@@ -137,9 +153,7 @@
                 <div class="card-footer">
                     <div class="row justify-content-center">
                         <div class="d-grid col-sm-3">
-
                             <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning"><i class="bi bi-floppy pe-2"></i><span>{{ __('แก้ไข') }}</span></a>
-
                         </div>
                     </div>
                 </div>

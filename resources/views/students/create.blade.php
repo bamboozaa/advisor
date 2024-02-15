@@ -156,14 +156,14 @@
 
     <script type="text/javascript">
         const d = new Date();
-        for (y = d.getFullYear()-7; y <= d.getFullYear()+7; y++) {
+        for (y = (d.getFullYear()-7) + 543; y <= (d.getFullYear()+7) + 543; y++) {
             var optn = document.createElement("OPTION");
             optn.text = y;
             optn.value = y;
 
             // if year is 2015 selected
 
-            if (y == d.getFullYear()) {
+            if (y == (d.getFullYear()) + 543) {
                 optn.selected = true;
             }
 

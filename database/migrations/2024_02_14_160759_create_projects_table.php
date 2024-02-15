@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('student_id', 13);
             $table->integer('project');
             $table->text('title_research');
+            $table->text('title_research_en')->nullable();
+            $table->string('publisher')->nullable();
+            $table->char('publishing_year', 4)->nullable();
+            $table->integer('project_status')->default(0);
             $table->timestamps();
         });
     }
