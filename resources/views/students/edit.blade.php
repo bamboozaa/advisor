@@ -41,7 +41,7 @@
             @csrf
             @method('PATCH')
             <div class="card">
-                <div class="card-header">
+                <div class="card-header mt-2">
                     <h5><span style="color: red"><strong>{{ __('แก้ไข') }}</strong></span> {{ __('ข้อมูลนักศึกษา') }}</h5>
                 </div>
                 <div class="card-body">
@@ -77,29 +77,26 @@
                                         ]) !!}
                                         {{-- {!! Form::text('facultyname', old('name', $student->facultyname), ['class' => 'form-control form-control-sm text-info']) !!} --}}
                                     </td>
+                                    <th class="text-end" scope="col">{{ __('หลักสูตร/คณะ') }}</th>
+                                    <td>
+                                        {!! Form::select('fac_id', $faculties, null, ['class' => 'form-select form-select-sm w-auto', 'placeholder' => 'Please Select ...']) !!}
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}</th>
                                     <td>
                                         {!! Form::text('major', old('name', $student->major), ['class' => 'form-control form-control-sm text-info']) !!}
                                     </td>
-                                </tr>
-                                <tr>
                                     <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}</th>
                                     <td>
                                         {!! Form::select('academic_year', ["" => 'Select Year'], old('name', $student->academic_year), ['class' => 'form-select form-select-sm text-info w-auto', 'id' => 'year', 'data-my-data' => $student->academic_year]) !!}
                                     </td>
-                                    <th class="text-end" scope="col">{{ __('ภาคการศึกษา') }}</th>
-                                    <td>
-                                        {!! Form::select(
-                                            'semester',
-                                            [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2', 3 => 'ปีการศึกษาที่ 3'],
-                                            old('name', $student->semester),
-                                            ['class' => 'form-select form-select-sm text-info w-auto']
-                                        ) !!}
-                                    </td>
                                 </tr>
                                 <tr>
-                                    <th></th>
-                                    <td></td>
+                                    <th class="text-end" scope="col">{{ __('ภาคการศึกษา') }}</th>
+                                    <td>
+                                        {!! Form::select('semester', [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2', 3 => 'ปีการศึกษาที่ 3'], old('name', $student->semester), ['class' => 'form-select form-select-sm text-info w-auto']) !!}
+                                    </td>
                                     <th class="text-end" scope="col">{{ __('สถานะนักศึกษา') }}</th>
                                     <td>
                                         {!! Form::select('status', [

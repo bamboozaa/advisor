@@ -46,7 +46,7 @@
         <main role="main" class="row justify-content-center">
             <div class="card">
                 <div class="card-header mt-2">
-                    <h5><span style="color:cornflowerblue"><strong>แสดง</strong></span> ข้อมูลนักศึกษา</h5>
+                    <h5><span style="color:cornflowerblue"><strong>{{ __('แสดง') }}</strong></span>{{ __('ข้อมูลนักศึกษา') }}</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -81,16 +81,25 @@
                                         ]) !!}
                                         {{-- {!! Form::text('facultyname', old('name', $student->facultyname), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!} --}}
                                     </td>
+                                    <th class="text-end" scope="col">{{ __('หลักสูตร/คณะ') }}</th>
+                                    <td>
+                                        {!! Form::select('fac_id', $faculties, old('name', $student->fac_id), [
+                                            'class' => 'form-select form-select-sm w-auto', 'disabled',
+                                            'placeholder' => 'Please Select ...',
+                                        ]) !!}
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}</th>
                                     <td>
                                         {!! Form::text('major', old('name', $student->major), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
                                     </td>
-                                </tr>
-                                <tr>
                                     <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}</th>
                                     <td>
                                         {!! Form::select('academic_year', ["" => 'Select Year'], old('name', $student->academic_year), ['class' => 'form-select form-select-sm text-info w-auto', 'id' => 'year', 'disabled', 'data-my-data' => $student->academic_year]) !!}
                                     </td>
+                                </tr>
+                                <tr>
                                     <th class="text-end" scope="col">{{ __('ภาคการศึกษา') }}</th>
                                     <td>
                                         {!! Form::select(
@@ -100,10 +109,6 @@
                                             ['class' => 'form-select form-select-sm text-info w-auto', 'disabled']
                                         ) !!}
                                     </td>
-                                </tr>
-                                <tr>
-                                    <th></th>
-                                    <td></td>
                                     <th class="text-end" scope="col">{{ __('สถานะนักศึกษา') }}</th>
                                     <td>
                                         {!! Form::select('status', [

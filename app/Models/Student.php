@@ -19,6 +19,7 @@ class Student extends Model
         'std_lname',
         // 'facultyname',
         'dep_id',
+        'fac_id',
         // 'programname',
         'major',
         'academic_year',

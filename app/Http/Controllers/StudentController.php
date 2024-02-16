@@ -94,12 +94,13 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         $departments = Department::pluck('dep_name', 'id');
+        $faculties = Faculty::pluck('fac_name', 'id');
         $advisors = DB::table("advisors")
         ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
         ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
-        return view('students.show', compact('student', 'advisors', 'departments'));
+        return view('students.show', compact('student', 'advisors', 'departments', 'faculties'));
     }
 
     /**
@@ -108,12 +109,13 @@ class StudentController extends Controller
     public function edit(Student $student)
     {
         $departments = Department::pluck('dep_name', 'id');
+        $faculties = Faculty::pluck('fac_name', 'id');
         $advisors = DB::table("advisors")
         ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
         ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
-        return view('students.edit', compact('student', 'advisors', 'departments'));
+        return view('students.edit', compact('student', 'advisors', 'departments', 'faculties'));
     }
 
     /**
@@ -130,6 +132,7 @@ class StudentController extends Controller
             'std_lname' => $request->std_lname,
             // 'facultyname' => $request->facultyname,
             'dep_id' => $request->dep_id,
+            'fac_id' => $request->fac_id,
             // 'programname' => $request->programname,
             'major' => $request->major,
             'academic_year' => $request->academic_year,

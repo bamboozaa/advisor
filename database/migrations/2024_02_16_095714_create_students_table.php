@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('std_fname')->nullable();
             $table->string('std_lname')->nullable();
             $table->integer('dep_id');
+            $table->integer('fac_id')->nullable();
             // $table->string('programname');
             $table->string('major')->nullable();
             $table->char('academic_year', 4);
