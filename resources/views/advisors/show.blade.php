@@ -92,7 +92,7 @@
                                                 ' ' .
                                                 old('name', $advisor->adv_fname) .
                                                 ' ' .
-                                                old('name', $advisor->adv_fname),
+                                                old('name', $advisor->adv_lname),
                                                 [
                                                     'class' => 'form-control',
                                                     'readonly',
