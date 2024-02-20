@@ -85,7 +85,13 @@
                                 </tr>
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}</th>
-                                    <td><input class="form-control form-control-sm" type="text" name="major"></td>
+                                    <td>
+                                        {{-- <input class="form-control form-control-sm" type="text" name="major"> --}}
+                                        {!! Form::select('major_id', $majors, null, [
+                                            'class' => 'form-select form-select-sm w-auto',
+                                            'placeholder' => 'Please Select ...',
+                                        ]) !!}
+                                    </td>
                                     <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}<span
                                         style="color: red">*</span></th>
                                     <td>
@@ -95,16 +101,16 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="text-end" scope="col">ภาคการศึกษา<span style="color: red">*</span></th>
+                                    <th class="text-end" scope="col">{{ __('ภาคการศึกษา') }}<span style="color: red">*</span></th>
                                     <td>
                                         {!! Form::select(
                                             'semester',
-                                            [0 => 'Please select', 1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2', 3 => 'ปีการศึกษาที่ 3'],
+                                            [0 => 'Please select', 1 => 'ภาคการศึกษาที่ 1', 2 => 'ภาคการศึกษาที่ 2', 3 => 'ภาคการศึกษาที่ 3'],
                                             0,
                                             ['class' => 'form-select form-select-sm w-auto'],
                                         ) !!}
                                     </td>
-                                    <th class="text-end" scope="col">สถานะนักศึกษา</th>
+                                    <th class="text-end" scope="col">{{ __('สถานะนักศึกษา') }}</th>
                                     <td>
                                         {!! Form::select(
                                             'status',
@@ -152,7 +158,7 @@
                                 </tr>
                                 <tr>
                                     <th class="align-top text-end" scope="col">
-                                        {{ __('หัวข้องานวิจัย (ภาษาอังกฤษ)') }}<span style="color: red">*</span></th>
+                                        {{ __('หัวข้องานวิจัย (ภาษาอังกฤษ)') }}</th>
                                     <td colspan="3">{!! Form::textarea('title_research_en', null, [
                                         'class' => 'form-control form-control-sm text-info align-top',
                                         'rows' => '4',

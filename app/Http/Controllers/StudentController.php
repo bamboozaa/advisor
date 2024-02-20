@@ -7,6 +7,7 @@ use App\Models\Advisor;
 use App\Models\Project;
 use App\Models\Department;
 use App\Models\Faculty;
+use App\Models\Major;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,13 +29,14 @@ class StudentController extends Controller
     {
         $departments = Department::pluck('dep_name', 'id');
         $faculties = Faculty::pluck('fac_name', 'id');
+        $majors = Major::pluck('major_name', 'id');
         // $advisors = Advisor::selectRaw("CONCAT (adv_fname, ' ', adv_lname) as fullname, adv_id")->pluck('fullname', 'adv_id');
         $advisors = DB::table("advisors")
         ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
         ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', qualifications.abbreviation, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
-        return view('students.create', compact('advisors', 'departments', 'faculties'));
+        return view('students.create', compact('advisors', 'departments', 'faculties', 'majors'));
     }
 
     /**
