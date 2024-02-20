@@ -21,6 +21,7 @@ class Student extends Model
         'dep_id',
         'fac_id',
         // 'programname',
+        'major_id',
         'major',
         'academic_year',
         'semester',
