@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('dep_id');
             $table->integer('fac_id')->nullable();
             // $table->string('programname');
+            $table->integer('major_id')->nullable();
             $table->string('major')->nullable();
             $table->char('academic_year', 4);
             // $table->year('academic_year');
