@@ -71,7 +71,7 @@
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
                                             <td class="text-nowrap">
-                                                {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . $advisor->qualification['abbreviation'] . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                                {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                             </td>
 
                                             @php
