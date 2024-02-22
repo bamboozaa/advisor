@@ -4,10 +4,14 @@
 @section('importcss')
     @parent
     {{ Html::style('css/custom.css') }}
+    {{ Html::style('css/dataTables.bootstrap5.min.css') }}
 @stop
 
 @section('importjs')
     @parent
+    {{ Html::script('js/jquery-3.7.0.js') }}
+    {{ Html::script('js/dataTables.bootstrap5.min.js') }}
+    {{ Html::script('js/jquery.dataTables.min.js') }}
     <script type="module">
         @if (session('success'))
             Swal.fire({
@@ -16,6 +20,7 @@
                 icon: 'success'
             });
         @endif
+        new DataTable('#example');
     </script>
 @stop
 
@@ -49,7 +54,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive mt-3">
-                        <table class="table table-bordered table-hover">
+                        <table id="example" class="table table-bordered table-hover">
                             <thead class="table-light">
                                 <tr>
                                     <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
