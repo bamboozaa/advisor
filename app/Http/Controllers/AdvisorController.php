@@ -6,6 +6,7 @@ use App\Models\Advisor;
 use App\Models\Academic;
 use App\Models\Qualification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdvisorController extends Controller
 {
@@ -74,6 +75,8 @@ class AdvisorController extends Controller
         $advisor->update($request->all());
 
         session()->flash('success', 'Advisor updated successfully.');
+
+        \Log::info("Advisor " . $request->adv_fname . " " . $request->adv_lname . " Update finished by " . Auth::user()->name);
 
         return redirect()->route('advisors.index');
     }
