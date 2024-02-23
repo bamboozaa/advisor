@@ -4,7 +4,7 @@
 @section('importcss')
     @parent
     {{ Html::style('css/custom.css') }}
-    {{-- {{ Html::style('css/bootstrap.min.css') }} --}}
+    {{ Html::style('css/bootstrap.min.css') }}
     {{ Html::style('css/dataTables.bootstrap5.min.css') }}
 @stop
 
@@ -12,9 +12,12 @@
     @parent
     {{-- <script type="module" src="js/dataTables.bootstrap5.min.js"></script>
     <script type="module" src="js/jquery.dataTables.min.js"></script> --}}
-    {{ Html::script('js/jquery-3.7.0.js') }}
-    {{ Html::script('js/dataTables.bootstrap5.min.js') }}
-    {{ Html::script('js/jquery.dataTables.min.js') }}
+    {{ Html::script('js/jquery-3.7.1.js') }}
+    {{ Html::script('js/bootstrap.bundle.min.js') }}
+    {{-- {{ Html::script('js/dataTables.bootstrap5.min.js') }} --}}
+    {{-- {{ Html::script('js/jquery.dataTables.min.js') }} --}}
+    {{ Html::script('js/dataTables.js') }}
+    {{ Html::script('js/dataTables.bootstrap5.js') }}
     <script type="module">
         @if (session('success'))
             Swal.fire({
