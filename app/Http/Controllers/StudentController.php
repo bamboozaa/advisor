@@ -10,6 +10,7 @@ use App\Models\Faculty;
 use App\Models\Major;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -86,6 +87,8 @@ class StudentController extends Controller
 
         session()->flash('success', 'Student created successfully.');
 
+        \Log::info("student id : " . $request->student_id . " Create finished by " . Auth::user()->name);
+
         // return redirect()->route('students.index');
         return redirect()->route('advisors.index');
     }
@@ -159,6 +162,8 @@ class StudentController extends Controller
         $project->update($data2);
 
         session()->flash('success', 'Student updated successfully.');
+
+        \Log::info("Student ID : " . $request->student_id . " Update finished by " . Auth::user()->name);
 
         return redirect()->route('students.show', $student);
     }
