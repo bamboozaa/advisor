@@ -65,6 +65,8 @@ class FacultyController extends Controller
 
         session()->flash('success', 'Faculty updated successfully.');
 
+        \Log::info("Faculty : " . $request->fac_name . " Create finished by " . Auth::user()->name);
+
         return redirect()->route('faculties.index');
     }
 
