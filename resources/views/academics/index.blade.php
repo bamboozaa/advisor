@@ -74,13 +74,13 @@
                                                         <span class="ms-1">{{ __('Edit') }}</span>
                                                     </a>
                                                     <form action="{{ route('academics.destroy', $academic->id) }}" method="POST" style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this department?')">
-                                                        <i class="bi bi-trash fs-sm"></i>
-                                                        <span class="ms-1">{{ __('Delete') }}</span>
-                                                    </button>
-                                                </form>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this department?')">
+                                                            <i class="bi bi-trash fs-sm"></i>
+                                                            <span class="ms-1">{{ __('Delete') }}</span>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

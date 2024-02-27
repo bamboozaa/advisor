@@ -173,6 +173,10 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+
+        session()->flash('success', 'Student deleted successfully.');
+
+        return redirect()->route('students.index');
     }
 }
