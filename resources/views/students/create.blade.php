@@ -51,7 +51,8 @@
                                     </td>
                                     <th class="text-end" scope="col">{{ __('คำนำหน้าชื่อ') }}</th>
                                     <td>
-                                        <input class="form-control form-control-sm w-auto" type="text" name="std_title">
+                                        {{-- <input class="form-control form-control-sm w-auto" type="text" name="std_title"> --}}
+                                        {!! Form::select('std_title', ['' => 'Pless Select...', 'MR.' => 'MR.', 'MRS.' => 'MRS.', 'MISS.' => 'MISS.', 'นาย' => 'นาย', 'นาง' => 'นาง', 'นางสาว' => 'นางสาว', 'ว่าที่ร้อยตรี' => 'ว่าที่ร้อยตรี'], null, ['class' => 'form-select form-select-sm w-auto']) !!}
                                     </td>
                                 </tr>
                                 <tr>
