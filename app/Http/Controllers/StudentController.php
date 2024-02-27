@@ -178,6 +178,8 @@ class StudentController extends Controller
 
         session()->flash('success', 'Student deleted successfully.');
 
+        \Log::warning("Student ID : " . $student->student_id . " Delete finished by " . Auth::user()->name);
+
         return redirect()->route('students.index');
     }
 }
