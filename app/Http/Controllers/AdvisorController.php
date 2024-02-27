@@ -17,6 +17,7 @@ class AdvisorController extends Controller
     {
         $advisors = Advisor::all();
         return view('advisors.index', compact('advisors'));
+        // return view('advisors.index', ['advisors' => $advisors->toQuery()->paginate(10)]);
     }
 
     /**

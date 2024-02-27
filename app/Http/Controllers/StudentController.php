@@ -180,6 +180,6 @@ class StudentController extends Controller
 
         \Log::warning("Student ID : " . $student->student_id . " Delete finished by " . Auth::user()->name);
 
-        return redirect()->route('students.index');
+        return redirect()->route('advisors.index');
     }
 }
