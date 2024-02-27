@@ -106,7 +106,7 @@
                                     <td>
                                         {!! Form::select(
                                             'semester',
-                                            [0 => 'Please select', 1 => 'ภาคการศึกษาที่ 1', 2 => 'ภาคการศึกษาที่ 2', 3 => 'ภาคการศึกษาที่ 3'],
+                                            [0 => 'Please select', 1 => '1', 2 => '2', 3 => '3'],
                                             0,
                                             ['class' => 'form-select form-select-sm w-auto'],
                                         ) !!}

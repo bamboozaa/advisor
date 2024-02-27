@@ -95,7 +95,7 @@
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('ภาคการศึกษา') }}</th>
                                     <td>
-                                        {!! Form::select('semester', [1 => 'ปีการศึกษาที่ 1', 2 => 'ปีการศึกษาที่ 2', 3 => 'ปีการศึกษาที่ 3'], old('name', $student->semester), ['class' => 'form-select form-select-sm text-info w-auto']) !!}
+                                        {!! Form::select('semester', [1 => '1', 2 => '2', 3 => '3'], old('name', $student->semester), ['class' => 'form-select form-select-sm text-info w-auto']) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('สถานะนักศึกษา') }}</th>
                                     <td>

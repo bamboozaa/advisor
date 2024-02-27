@@ -108,7 +108,7 @@
                                     <td>
                                         {!! Form::select(
                                             'semester',
-                                            [1 => 'ภาคการศึกษาที่ 1', 2 => 'ภาคการศึกษาที่ 2', 3 => 'ภาคการศึกษาที่ 3'],
+                                            [1 => '1', 2 => '2', 3 => '3'],
                                             old('name', $student->semester),
                                             ['class' => 'form-select form-select-sm text-info w-auto', 'disabled']
                                         ) !!}
