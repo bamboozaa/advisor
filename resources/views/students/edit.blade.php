@@ -161,8 +161,19 @@
                     <div class="row justify-content-center">
                         <div class="d-grid col-sm-3">
                             <button class="btn btn-success" type="submit" name="submit">
-                                <i class="bi bi-floppy pe-2"></i><span>{{ __('อัพเดท') }}</span>
+                                <i class="bi bi-floppy fs-sm pe-2"></i>
+                                {{ __('อัพเดท') }}
                             </button>
+                        </div>
+                        <div class="d-grid col-sm-3">
+                            <form action="{{ route('students.destroy', old('name', $student->id)) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">
+                                    <i class="bi bi-trash fs-sm pe-2"></i>
+                                    {{ __('Delete') }}
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

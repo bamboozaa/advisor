@@ -174,6 +174,7 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         $student->delete();
+        Project::where("student_id", $student->student_id)->delete();
 
         session()->flash('success', 'Student deleted successfully.');
 

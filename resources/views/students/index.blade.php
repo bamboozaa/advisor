@@ -77,7 +77,7 @@
                                         <tr>
                                             <td><a href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a></td>
                                             <td class="text-nowrap">{{ $student->std_fname . " " . $student->std_lname }}</td>
-                                            <td class="text-nowrap">{{ $student->projectAdvisor['adv_fname'] . " " . $student->projectAdvisor['adv_lname'] }}</td>
+                                            <td class="text-nowrap">{{ $student->projectAdvisor->academic['academic'] . " " . $student->projectAdvisor->qualification['abbreviation'] . " " . $student->projectAdvisor['adv_fname'] . " " . $student->projectAdvisor['adv_lname'] }}</td>
                                             <td class="text-center">{{ $student->project['project'] === 1 ? "Thesis" : "IS"}}</td>
                                             <td>{{ $student->project['title_research'] }}</td>
                                         </tr>
