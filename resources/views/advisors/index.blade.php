@@ -4,14 +4,14 @@
 @section('importcss')
     @parent
     {{ Html::style('css/custom.css') }}
-    {{ Html::style('css/bootstrap.min.css') }}
+    {{-- {{ Html::style('css/bootstrap.min.css') }} --}}
     {{ Html::style('css/dataTables.bootstrap5.min.css') }}
 @stop
 
 @section('importjs')
     @parent
     {{ Html::script('js/jquery-3.7.1.js') }}
-    {{ Html::script('js/bootstrap.bundle.min.js') }}
+    {{-- {{ Html::script('js/bootstrap.bundle.min.js') }} --}}
     {{ Html::script('js/dataTables.js') }}
     {{ Html::script('js/dataTables.bootstrap5.js') }}
     <script type="module">
