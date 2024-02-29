@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -38,7 +38,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
 
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -47,9 +47,18 @@
                         <form method="POST" action="{{ route('faculties.store') }}">
                             @csrf
                             <div class="row mb-3">
-                                <label for="fac_name" class="col-sm-3 col-form-label text-end">{{ __('ชื่อหลักสูตร/คณะ :') }}</label>
+                                <label for="fac_name"
+                                    class="col-sm-3 col-form-label text-end">{{ __('ชื่อหลักสูตร/คณะ :') }}</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="fac_name" class="form-control" />
+                                    <input type="text" name="fac_name"
+                                        class="form-control @error('fac_name') is-invalid @enderror" />
+
+                                    @error('fac_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
                                 </div>
                             </div>
 
@@ -59,9 +68,23 @@
                                 </label>
                                 <div class="col-sm-auto">
                                     {!! Form::select('dep_id', $departments, null, [
-                                    'class' => 'form-select',
-                                    'placeholder' => 'Please Select ...',
-                                ]) !!}
+                                        'class' => 'form-select',
+                                        'placeholder' => 'Please Select ...',
+                                    ]) !!}
+
+                                    {{-- <select class="form-select @error('dep_id') is-invalid @enderror" name="dep_id"
+                                        aria-label="Select Department">
+                                        <option value="">Open this select menu</option>
+                                        @foreach ($departments as $department)
+                                            <option value="{{ $department->id }}">{{ $department->dep_name }}</option>
+                                        @endforeach
+                                    </select> --}}
+
+                                    @error('dep_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
 
