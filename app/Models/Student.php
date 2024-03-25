@@ -48,4 +48,9 @@ class Student extends Model
     //     return $this->hasOneThrough(Academic::class, Project::class, 'student_id', 'id', 'student_id', 'id');
     // }
 
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Department::class, 'dep_id');
+    }
+
 }

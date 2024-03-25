@@ -65,6 +65,7 @@
                                     <th class="text-center text-nowrap align-middle">{{ __('รหัสนักศึกษา') }}</th>
                                     <th class="text-nowrap align-middle text-center">
                                         {{ __('ชื่อ - นามสกุล') }}</th>
+                                        <th class="text-nowrap align-middle text-center">{{ __('คณะวิชา') }}</th>
                                     <th class="text-center text-nowrap">
                                         {{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <th class="text-center text-nowrap align-middle">{{ __('งานวิจัย') }}</th>
@@ -77,6 +78,7 @@
                                         <tr>
                                             <td><a href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a></td>
                                             <td class="text-nowrap">{{ $student->std_fname . " " . $student->std_lname }}</td>
+                                            <td class="text-nowrap">{{ $student->department['dep_name'] }}</td>
                                             <td class="text-nowrap">{{ $student->projectAdvisor->academic['academic'] . " " . $student->projectAdvisor->qualification['abbreviation'] . " " . $student->projectAdvisor['adv_fname'] . " " . $student->projectAdvisor['adv_lname'] }}</td>
                                             <td class="text-center">{{ $student->project['project'] === 1 ? "Thesis" : "IS"}}</td>
                                             <td>{{ $student->project['title_research'] }}</td>

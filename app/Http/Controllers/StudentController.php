@@ -20,6 +20,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
+        // $students = Student::where('dep_id', $id)->get();
         return view('students.index', compact('students'));
     }
 
