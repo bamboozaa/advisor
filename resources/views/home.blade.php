@@ -27,7 +27,7 @@
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     <div class="col">
-                        <div class="card bg-white">
+                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #2e3191;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card bg-white">
+                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #2e3191;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
@@ -111,7 +111,7 @@
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-md-5 g-2">
                     <div class="col">
-                        <div class="card bg-white">
+                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #f58c6c;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
@@ -135,7 +135,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card bg-white">
+                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #ffc809;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
@@ -157,7 +157,7 @@
                     </div>
 
                     <div class="col">
-                        <div class="card bg-white">
+                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #53b7e8;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
@@ -179,7 +179,7 @@
                     </div>
 
                     <div class="col">
-                        <div class="card bg-white">
+                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #054463;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
@@ -200,7 +200,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card bg-white">
+                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #523996;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
