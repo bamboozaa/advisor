@@ -22,12 +22,10 @@
     </nav>
 
     <!-- Card -->
-
     <div class="row px-3">
         <div class="card bg-white">
             <div class="card-body">
-
-                <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="row row-cols-1 row-cols-md-2 g-4">
                     <div class="col">
                         <div class="card bg-white">
                             <div class="card-body">
@@ -77,7 +75,7 @@
                     </div>
 
                     <div class="col">
-                        <div class="card bg-white">
+                        {{-- <div class="card bg-white">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
@@ -95,15 +93,137 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
 
+    <nav aria-label="breadcrumb" class="pt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page"><span class="ms-1">{{ __('จำนวนนักศึกษาแยกตามคณะวิชา') }}</span></li>
+        </ol>
+    </nav>
+
+    <div class="row px-3">
+        <div class="card bg-white">
+            <div class="card-body">
+                <div class="row row-cols-1 row-cols-md-5 g-2">
+                    <div class="col">
+                        <div class="card bg-white">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <i class="bi bi-people fs-2"></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <span class="right">
+                                            <div>
+                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                    <span>{{ count($gs) }}</span>
+
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <span>{{ __('บัณฑิตวิทยาลัย') }}</span>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card bg-white">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <i class="bi bi-people fs-2"></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <span class="right">
+                                            <div>
+                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                    <span>{{ count($ism) }}</span>
+                                                </a>
+                                            </div>
+                                            <div>{{ __('วิทยาลัยนานาชาติ') }}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card bg-white">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <i class="bi bi-people fs-2" ></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <span class="right">
+                                            <div>
+                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                    <span>{{ count($exs) }}</span>
+                                                </a>
+                                            </div>
+                                            <div>{{ __('วิทยพัฒน์') }}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card bg-white">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <i class="bi bi-people fs-2" ></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <span class="right">
+                                            <div>
+                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                    <span>{{ count($tcism) }}</span>
+                                                </a>
+                                            </div>
+                                            <div>{{ __('วิทยาลัยฯ ไทย-จีน') }}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card bg-white">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 text-center">
+                                        <i class="bi bi-people fs-2" ></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <span class="right">
+                                            <div>
+                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                    <span>{{ count($harbour) }}</span>
+                                                </a>
+                                            </div>
+                                            <div>{{ __('Harbour Space') }}</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
 

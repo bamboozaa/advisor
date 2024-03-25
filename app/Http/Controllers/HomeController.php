@@ -29,6 +29,11 @@ class HomeController extends Controller
         $academics = Academic::all();
         $advisors = Advisor::all();
         $students = Student::all();
-        return view('home', compact('academics', 'advisors', 'students'));
+        $gs = Student::where('dep_id', 1)->get();
+        $ism = Student::where('dep_id', 2)->get();
+        $exs = Student::where('dep_id', 3)->get();
+        $tcism = Student::where('dep_id', 4)->get();
+        $harbour = Student::where('dep_id', 5)->get();
+        return view('home', compact('academics', 'advisors', 'students', 'gs', 'ism', 'exs', 'tcism', 'harbour'));
     }
 }
