@@ -115,7 +115,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-diagram-3 fs-1"></i>
+                                        <i class="bi bi-diagram-3 fs-1" style="color: #f58c6c !important;"></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
@@ -139,7 +139,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-diagram-3 fs-1"></i>
+                                        <i class="bi bi-diagram-3 fs-1" style="color: #ffc809 !important;"></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
@@ -161,7 +161,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-diagram-3 fs-1" ></i>
+                                        <i class="bi bi-diagram-3 fs-1" style="color: #53b7e8 !important;"></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
@@ -183,7 +183,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-diagram-3 fs-1" ></i>
+                                        <i class="bi bi-diagram-3 fs-1" style="color: #054463 !important;"></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
