@@ -109,13 +109,13 @@
     <div class="row px-3">
         <div class="card bg-white">
             <div class="card-body">
-                <div class="row row-cols-1 row-cols-md-5 g-2">
+                <div class="row row-cols-1 row-cols-md-4 g-3">
                     <div class="col">
                         <div class="card bg-white" style="border-left-width: thick; border-left-color: #f58c6c;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-people fs-2"></i>
+                                        <i class="bi bi-diagram-3 fs-1"></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
@@ -139,7 +139,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-people fs-2"></i>
+                                        <i class="bi bi-diagram-3 fs-1"></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
@@ -161,7 +161,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-people fs-2" ></i>
+                                        <i class="bi bi-diagram-3 fs-1" ></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
@@ -183,7 +183,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-people fs-2" ></i>
+                                        <i class="bi bi-diagram-3 fs-1" ></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
@@ -199,12 +199,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    {{-- <div class="col">
                         <div class="card bg-white" style="border-left-width: thick; border-left-color: #523996;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 text-center">
-                                        <i class="bi bi-people fs-2" ></i>
+                                        <i class="bi bi-diagram-3 fs-2" ></i>
                                     </div>
                                     <div class="col-8 text-right">
                                         <span class="right">
@@ -219,7 +219,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
