@@ -27,8 +27,8 @@
             });
         @endif
 
-        DataTable.ext.errMode = 'throw';
-        new DataTable('#example');
+        // DataTable.ext.errMode = 'throw';
+        // new DataTable('#example');
     </script>
 @stop
 
