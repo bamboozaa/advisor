@@ -176,11 +176,11 @@
                                                 <a href="{{ route('advisors.show', [$advisor->id, 'quata_thesis' => $quota_thesis, 'quata_is' => $quota_is]) }}"
                                                     class="btn btn-sm btn-info"><i
                                                         class="bi bi-info-circle fs-sm me-1"></i>{{ __('Info') }}</a>
-                                                <a href="{{ route('advisors.edit', $advisor->id) }}"
+                                                {{-- <a href="{{ route('advisors.edit', $advisor->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="bi bi-pencil-square fs-sm"></i>
                                                     <span class="ms-1">{{ __('Edit') }}</span>
-                                                </a>
+                                                </a> --}}
                                             </td>
                                         </tr>
                                     @endforeach
