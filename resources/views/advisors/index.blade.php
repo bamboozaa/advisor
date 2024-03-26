@@ -55,8 +55,8 @@
                         class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive mt-3">
-                        <table id="example" class="table table-bordered table-hover">
+                    <div class="table-responsive mt-3" style="overflow-x: hidden">
+                        <table id="example" class="table table-bordered table-hover" style="width: 97%">
                             <thead class="table-light">
                                 <tr>
                                     <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
