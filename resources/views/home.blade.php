@@ -120,7 +120,7 @@
                                     <div class="col-8 text-right">
                                         <span class="right">
                                             <div>
-                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                <a href="{{ route('students.show_dep', 1) }}" style="font-size: 26px; text-decoration:none;">
                                                     <span>{{ count($gs) }}</span>
 
                                                 </a>
@@ -144,7 +144,7 @@
                                     <div class="col-8 text-right">
                                         <span class="right">
                                             <div>
-                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                <a href="{{ route('students.show_dep', 2) }}" style="font-size: 26px; text-decoration:none;">
                                                     <span>{{ count($ism) }}</span>
                                                 </a>
                                             </div>
@@ -166,7 +166,7 @@
                                     <div class="col-8 text-right">
                                         <span class="right">
                                             <div>
-                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                <a href="{{ route('students.show_dep', 3) }}" style="font-size: 26px; text-decoration:none;">
                                                     <span>{{ count($exs) }}</span>
                                                 </a>
                                             </div>
@@ -188,7 +188,7 @@
                                     <div class="col-8 text-right">
                                         <span class="right">
                                             <div>
-                                                <a href="{{ url('students') }}" style="font-size: 26px; text-decoration:none;">
+                                                <a href="{{ route('students.show_dep', 4) }}" style="font-size: 26px; text-decoration:none;">
                                                     <span>{{ count($tcism) }}</span>
                                                 </a>
                                             </div>

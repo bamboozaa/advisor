@@ -35,4 +35,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('departments', App\Http\Controllers\DepartmentController::class);
     Route::resource('faculties', App\Http\Controllers\FacultyController::class);
     Route::resource('majors', App\Http\Controllers\MajorController::class);
+    Route::get('students/{id}/show_dep', [App\Http\Controllers\StudentController::class, 'show_dep'])->name('students.show_dep');
 });

@@ -86,7 +86,7 @@
                                     @endforeach
                                 @else
                                 <tr>
-                                    <td colspan="5"></td>
+                                    <td colspan="5">ไม่พบข้อมูลที่ท่านต้องการค้นหา</td>
                                 </tr>
                                 @endif
 
