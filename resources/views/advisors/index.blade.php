@@ -56,7 +56,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive mt-3" style="overflow-x: hidden">
-                        <table id="example" class="table table-bordered table-hover" style="width: 97%">
+                        <table id="example" class="table table-bordered table-hover">
                             <thead class="table-light">
                                 <tr>
                                     <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
