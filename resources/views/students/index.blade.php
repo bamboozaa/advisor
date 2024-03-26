@@ -64,6 +64,7 @@
                         <table id="example" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
+                                    <th class="text-center text-nowrap align-middle">{{ __('#') }}</th>
                                     <th class="text-center text-nowrap align-middle">{{ __('รหัสนักศึกษา') }}</th>
                                     <th class="text-nowrap align-middle text-center">
                                         {{ __('ชื่อ - นามสกุล') }}</th>
@@ -76,8 +77,9 @@
                             </thead>
                             <tbody>
                                 @if (count($students) > 0)
-                                    @foreach ($students as $student)
+                                    @foreach ($students as $key => $student)
                                         <tr>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td><a
                                                     href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a>
                                             </td>
