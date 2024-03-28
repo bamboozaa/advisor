@@ -147,26 +147,22 @@
                     </div>
 
                     <div class="col">
-                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #054463;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <i class="bi bi-diagram-3 fs-1" style="color: #054463 !important;"></i>
-                                    </div>
-                                    <div class="col-8 text-right">
-                                        <span class="right">
-                                            <div>
-                                                <a href="{{ route('students.show_dep', 4) }}"
-                                                    style="font-size: 1.5rem; text-decoration:none;">
-                                                    <span>{{ count($tcism) }}</span>
-                                                </a>
-                                            </div>
-                                            <div>{{ __('วิทยาลัยฯ ไทย-จีน') }}</div>
-                                        </span>
+                        <a href="{{ route('students.show_dep', 4) }}" style="text-decoration:none;">
+                            <div class="card bg-white" style="border-left-width: thick; border-left-color: #054463;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <i class="bi bi-diagram-3" style="color: #054463 !important; font-size: 3rem;"></i>
+                                        </div>
+                                        <div class="col-8 text-center">
+                                            <span style="font-size: 1.5rem;">{{ count($tcism) }}</span>
+                                            <br />
+                                            <span style="font-size: 1rem">{{ __('วิทยาลัยฯ ไทย-จีน') }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
