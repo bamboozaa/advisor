@@ -35,12 +35,14 @@
                                         <div class="col-4 text-center">
                                             <i class="bi bi-people text-primary" style="font-size: 3rem"></i>
                                         </div>
-                                        <div class="col-8 text-end" style="color: #2e3191 !important;">
-                                            <span style="font-size: 2rem;">
+                                        <div class="col-8 text-end">
+                                            <span style="color: #2e3191 !important; font-size: 1.875rem; line-height: 2.25rem; letter-spacing: 0.05em;">
                                                 {{ count($advisors) }}
                                             </span>
                                             <br>
-                                            <span style="font-size: 1.25rem;">{{ __('จำนวนอาจารย์ที่ปรึกษา') }}</span>
+                                            <span style="color: #2e3191 !important; font-size: 1.25rem; line-height: 1.75rem;">
+                                                {{ __('จำนวนอาจารย์ที่ปรึกษา') }}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -57,9 +59,13 @@
                                             <i class="bi bi-people text-success" style="font-size: 3rem"></i>
                                         </div>
                                         <div class="col-8 text-end">
-                                            <span style="font-size: 2rem;">{{ count($students) }}</span>
+                                            <span style="color: #2e3191 !important; font-size: 1.875rem; line-height: 2.25rem; letter-spacing: 0.05em;">
+                                                {{ count($students) }}
+                                            </span>
                                             <br>
-                                            <span style="color: #2e3191 !important; font-size: 1.25rem;">{{ __('จำนวนนักศึกษา') }}</span>
+                                            <span style="color: #2e3191 !important; font-size: 1.25rem; line-height: 1.75rem;">
+                                                {{ __('จำนวนนักศึกษา') }}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
