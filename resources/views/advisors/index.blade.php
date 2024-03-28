@@ -53,8 +53,6 @@
             <div class="card bg-white">
                 <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
                     <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2596be; font-size: 1.25rem;">{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
-                {{-- <div class="card-header mt-1"><i
-                        class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }} --}}
                 </div>
                 <div class="card-body" style="padding: 0rem !important;">
                     <div class="table-responsive mt-3" style="overflow-x: hidden">
