@@ -26,49 +26,45 @@
         <div class="card bg-white">
             <div class="card-body">
                 <div class="row row-cols-1 row-cols-md-2 g-4">
+
                     <div class="col">
-                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #2e3191;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <i class="bi bi-people text-primary" style="font-size: 3rem"></i>
-                                    </div>
-                                    <div class="col-8 text-right">
-                                        <span class="right">
-                                            <div>
-                                                <a href="{{ url('advisors') }}"
-                                                    style="font-size: 2rem; text-decoration:none;">
-                                                    <span>{{ count($advisors) }}</span>
-                                                </a>
-                                            </div>
-                                            <span style="color: #2e3191 !important; font-size: 1.25rem;">{{ __('จำนวนอาจารย์ที่ปรึกษา') }}</span>
-                                        </span>
+                        <a href="{{ url('advisors') }}" style="text-decoration:none;">
+                            <div class="card bg-white" style="border-left-width: thick; border-left-color: #2e3191;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <i class="bi bi-people text-primary" style="font-size: 3rem"></i>
+                                        </div>
+                                        <div class="col-8 text-end" style="color: #2e3191 !important;">
+                                            <span style="font-size: 2rem;">
+                                                {{ count($advisors) }}
+                                            </span>
+                                            <br>
+                                            <span style="font-size: 1.25rem;">{{ __('จำนวนอาจารย์ที่ปรึกษา') }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
+
                     <div class="col">
-                        <div class="card bg-white" style="border-left-width: thick; border-left-color: #2e3191;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <i class="bi bi-people text-success" style="font-size: 3rem"></i>
-                                    </div>
-                                    <div class="col-8 text-right">
-                                        <span class="right">
-                                            <div>
-                                                <a href="{{ url('students') }}"
-                                                    style="font-size: 2rem; text-decoration:none;">
-                                                    <span>{{ count($students) }}</span>
-                                                </a>
-                                            </div>
+                        <a href="{{ url('students') }}" style="text-decoration:none;">
+                            <div class="card bg-white" style="border-left-width: thick; border-left-color: #2e3191;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <i class="bi bi-people text-success" style="font-size: 3rem"></i>
+                                        </div>
+                                        <div class="col-8 text-end">
+                                            <span style="font-size: 2rem;">{{ count($students) }}</span>
+                                            <br>
                                             <span style="color: #2e3191 !important; font-size: 1.25rem;">{{ __('จำนวนนักศึกษา') }}</span>
-                                        </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                 </div>
@@ -93,7 +89,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <i class="bi bi-diagram-3" style="color: #f58c6c !important; font-size: 3rem;"></i>
+                                            <i class="bi bi-diagram-3"
+                                                style="color: #f58c6c !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">{{ count($gs) }}</span>
@@ -112,7 +109,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <i class="bi bi-diagram-3" style="color: #ffc809 !important; font-size: 3rem;"></i>
+                                            <i class="bi bi-diagram-3"
+                                                style="color: #ffc809 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">{{ count($ism) }}</span>
@@ -131,11 +129,12 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <i class="bi bi-diagram-3" style="color: #53b7e8 !important; font-size: 3rem;"></i>
+                                            <i class="bi bi-diagram-3"
+                                                style="color: #53b7e8 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">
-                                                  {{ count($exs) }}
+                                                {{ count($exs) }}
                                             </span>
                                             <br>
                                             <span style="font-size: 1rem">{{ __('วิทยพัฒน์') }}</span>
@@ -152,7 +151,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <i class="bi bi-diagram-3" style="color: #054463 !important; font-size: 3rem;"></i>
+                                            <i class="bi bi-diagram-3"
+                                                style="color: #054463 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">{{ count($tcism) }}</span>
