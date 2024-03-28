@@ -39,9 +39,9 @@
                                 </a> --}}
                                 <a class="navbar-brand" href="{{ route('home') }}">
                                     <img src="{{ URL::asset('images/logo-utcc60th.png') }}" alt=""
-                                        width="50" height="44" class="d-inline-block align-text-middle">
+                                        width="60" height="54" class="d-inline-block align-text-middle">
                                     {{-- {{ Str::upper(__('ระบบอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ')) }} --}}
-                                    {{ __('ระบบอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}
+                                    <span style="font-size: 1.5rem; color: #2e3191 !important;">{{ __('ระบบอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
                                 </a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

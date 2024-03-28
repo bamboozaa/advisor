@@ -41,7 +41,7 @@
                                                     <span>{{ count($advisors) }}</span>
                                                 </a>
                                             </div>
-                                            <span style="font-size: 1.25rem;">{{ __('จำนวนอาจารย์ที่ปรึกษา') }}</span>
+                                            <span style="color: #2e3191 !important; font-size: 1.25rem;">{{ __('จำนวนอาจารย์ที่ปรึกษา') }}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                                     <span>{{ count($students) }}</span>
                                                 </a>
                                             </div>
-                                            <span style="font-size: 1.25rem;">{{ __('จำนวนนักศึกษา') }}</span>
+                                            <span style="color: #2e3191 !important; font-size: 1.25rem;">{{ __('จำนวนนักศึกษา') }}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                         <div class="col-4 text-center">
                                             <i class="bi bi-diagram-3" style="color: #f58c6c !important; font-size: 3rem;"></i>
                                         </div>
-                                        <div class="col-8 text-center">
+                                        <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">{{ count($gs) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('บัณฑิตวิทยาลัย') }}</span>
@@ -114,7 +114,7 @@
                                         <div class="col-4 text-center">
                                             <i class="bi bi-diagram-3" style="color: #ffc809 !important; font-size: 3rem;"></i>
                                         </div>
-                                        <div class="col-8 text-center">
+                                        <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">{{ count($ism) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('วิทยาลัยนานาชาติ') }}</span>
@@ -133,7 +133,7 @@
                                         <div class="col-4 text-center">
                                             <i class="bi bi-diagram-3" style="color: #53b7e8 !important; font-size: 3rem;"></i>
                                         </div>
-                                        <div class="col-8 text-center">
+                                        <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">
                                                   {{ count($exs) }}
                                             </span>
@@ -154,7 +154,7 @@
                                         <div class="col-4 text-center">
                                             <i class="bi bi-diagram-3" style="color: #054463 !important; font-size: 3rem;"></i>
                                         </div>
-                                        <div class="col-8 text-center">
+                                        <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">{{ count($tcism) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('วิทยาลัยฯ ไทย-จีน') }}</span>
