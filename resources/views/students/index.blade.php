@@ -57,7 +57,7 @@
         <div class="row justify-content-end">
             <div class="card bg-white">
                 <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
-                    <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2596be; font-size: 1.25rem; line-height: 1.75rem;">{{ __('ข้อมูลนักศึกษา') }}</span>
+                    <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('ข้อมูลนักศึกษา') }}</span>
                 </div>
                 <div class="card-body" style="padding: 0rem !important;">
                     <div class="table-responsive mt-3">
