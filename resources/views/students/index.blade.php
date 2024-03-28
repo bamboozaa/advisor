@@ -40,7 +40,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-end">
-            <div class="col-md-9">
+            <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/home">{{ __('Home') }}</a></li>
@@ -48,7 +48,7 @@
                     </ol>
                 </nav>
             </div>
-            <div class="col-md-3" style="text-align: right!important;">
+            <div class="col" style="text-align: right!important;">
                 {{-- <a href="{{ route('students.create') }}" class="btn btn-primary mb-2">
                     <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New') }}</span>
                 </a> --}}
@@ -56,8 +56,8 @@
         </div>
         <div class="row justify-content-end">
             <div class="card bg-white">
-                <div class="card-header mt-1">
-                    <i class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลนักศึกษา') }}
+                <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
+                    <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2596be; font-size: 1.25rem;">{{ __('ข้อมูลนักศึกษา') }}</span>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive mt-3">

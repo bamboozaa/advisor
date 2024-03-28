@@ -34,7 +34,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-end">
-            <div class="col-md-9">
+            <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
@@ -42,19 +42,21 @@
                     </ol>
                 </nav>
             </div>
-            <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ route('advisors.create') }}" class="btn btn-primary mb-2">
+            <div class="col-" style="text-align: right!important;">
+                {{-- <a href="{{ route('advisors.create') }}" class="btn btn-primary mb-2">
                     <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New') }}</span>
-                </a>
+                </a> --}}
             </div>
         </div>
         <div class="row justify-content-end">
 
             <div class="card bg-white">
-                <div class="card-header mt-1"><i
-                        class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}
+                <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
+                    <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2596be; font-size: 1.25rem;">{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
+                {{-- <div class="card-header mt-1"><i
+                        class="bi bi-border-all fs-6 me-2"></i>{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }} --}}
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="padding: 0rem !important;">
                     <div class="table-responsive mt-3" style="overflow-x: hidden">
                         <table id="example" class="table table-bordered table-hover">
                             <thead class="table-light">
