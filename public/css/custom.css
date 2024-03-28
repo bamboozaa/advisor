@@ -23,7 +23,7 @@ input[type="text"]:read-only {
     background-image: url(../images/19.png) !important;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center left;
+    background-position: center right;
     background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
