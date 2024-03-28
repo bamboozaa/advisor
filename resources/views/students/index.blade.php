@@ -59,7 +59,7 @@
                 <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
                     <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2596be; font-size: 1.25rem;">{{ __('ข้อมูลนักศึกษา') }}</span>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="padding: 0rem !important;">
                     <div class="table-responsive mt-3">
                         <table id="example" class="table table-bordered table-hover">
                             <thead>
