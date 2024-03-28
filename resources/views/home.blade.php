@@ -12,8 +12,7 @@
 
 @section('content')
     {{-- Banner Image --}}
-    <div class="px-10 d-flex justify-content-cente" style="height: 220px; background-color: blue; border-radius: 1rem;">
-    XXX
+    <div class="px-10 d-flex justify-content-cente banner-image" style="height: 250px; background-color: blue; border-radius: 1rem;">
 
    </div>
     {{-- /  Banner Image --}}
@@ -84,7 +83,7 @@
         </div>
     </div>
 
-    <nav aria-label="breadcrumb" class="pt-3">
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
         </ol>

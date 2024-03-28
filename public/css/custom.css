@@ -71,3 +71,10 @@ input[type="text"]:read-only {
     font-size: 0.75rem;
     opacity: 0.8;
 }
+
+.banner-image {
+    background-image: url(../images/35.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
