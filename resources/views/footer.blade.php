@@ -3,7 +3,7 @@
 
     <footer class="text-center" style="color: #2e2f82">
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: transparent;">
+        <div class="p-3 custom-footer mx-auto" style="background-color: transparent;">
             © 2023 Copyright: สำนักบริการคอมพิวเตอร์ มหาวิทยาลัยหอการค้าไทย
         </div>
         <!-- Copyright -->

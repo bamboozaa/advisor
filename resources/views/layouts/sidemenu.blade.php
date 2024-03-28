@@ -1,5 +1,8 @@
-<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #2e2f82; font-size: 1.25rem; line-height: 1.75rem;">
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-sidemenu" style="background-color: #2e3191; font-size: 1rem; line-height: 1.5rem;">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+        <a class="navbar-brand mx-auto mt-4" href="{{ route('home') }}">
+            <img src="{{ URL::asset('images/logo-UTCC_SubMain-3.png') }}" alt="" height="100" class="d-inline-block" style="border-radius: 50%">
+        </a>
         <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li>
                 <a href="{{ route('home') }}" class="nav-link px-0 align-middle text-white {{ request()->routeIs('home') ? 'active' : '' }}">

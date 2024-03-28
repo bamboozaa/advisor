@@ -4,6 +4,11 @@
     --bs-table-bg: #fff !important;
 }
 
+body {
+    position:relative;
+}
+
+
 input[type="text"],
 .form-select,
 textarea.form-control {
@@ -12,4 +17,57 @@ textarea.form-control {
 
 input[type="text"]:read-only {
     background-color: #f3f3f3 !important;
+}
+
+.bg-sidemenu {
+    background-image: url(../images/19.png) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.custom-navbar {
+
+    background: #0575E6;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #021B79, #0575E6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #021B79, #0575E6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+
+}
+
+.custom-navbar::before {
+    content: "";
+    background-image: url(../images/bg-water-01.png) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    width:auto;
+    height:auto;
+    opacity: 0.2;
+
+}
+
+.custom-navbar-brand {
+
+    color: #fff;
+
+}
+
+
+.custom-footer {
+    position: absolute;
+    bottom: 0;
+    font-size: 0.75rem;
+    opacity: 0.8;
 }

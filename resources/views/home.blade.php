@@ -11,13 +11,18 @@
 @endsection
 
 @section('content')
+    {{-- Banner Image --}}
+    <div class="px-10 d-flex justify-content-cente" style="height: 220px; background-color: blue; border-radius: 1rem;">
+    XXX
 
+   </div>
+    {{-- /  Banner Image --}}
 
 
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page"><span class="ms-1">{{ __('Dashboard') }}</span></li>
+            <li class="breadcrumb-item active" aria-current="page"><span class="ms-1"><h2>{{ __('Dashboard') }}</h2></span></li>
         </ol>
     </nav>
 
@@ -30,19 +35,20 @@
                     <div class="col">
                         <a href="{{ url('advisors') }}" style="text-decoration:none;">
                             <div class="card bg-white" style="border-left-width: thick; border-left-color: #2e3191;">
-                                <div class="card-body">
+                                <div class="card-body flex items-center">
                                     <div class="row">
-                                        <div class="col-4 text-center">
+                                        <div class="col text-center">
                                             <i class="bi bi-people text-primary" style="font-size: 3rem"></i>
-                                        </div>
-                                        <div class="col-8 text-end">
-                                            <span style="color: #2e3191 !important; font-size: 1.875rem; line-height: 2.25rem; letter-spacing: 0.05em;">
-                                                {{ count($advisors) }}
-                                            </span>
                                             <br>
-                                            <span style="color: #2e3191 !important; font-size: 1.25rem; line-height: 1.75rem;">
+                                            <span style="color: #333 !important; font-size: 1.25rem; line-height: 1.75rem;">
                                                 {{ __('จำนวนอาจารย์ที่ปรึกษา') }}
                                             </span>
+                                        </div>
+                                        <div class="col text-end py-8">
+                                            <span style="color: #2e3191; font-size: 4rem; padding: 2rem 1rem;">
+                                                {{ count($advisors) }}
+                                            </span>
+
                                         </div>
                                     </div>
                                 </div>
@@ -55,16 +61,16 @@
                             <div class="card bg-white" style="border-left-width: thick; border-left-color: #2e3191;">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-4 text-center">
+                                        <div class="col text-center">
                                             <i class="bi bi-people text-success" style="font-size: 3rem"></i>
-                                        </div>
-                                        <div class="col-8 text-end">
-                                            <span style="color: #2e3191 !important; font-size: 1.875rem; line-height: 2.25rem; letter-spacing: 0.05em;">
-                                                {{ count($students) }}
-                                            </span>
                                             <br>
-                                            <span style="color: #2e3191 !important; font-size: 1.25rem; line-height: 1.75rem;">
+                                            <span style="color: #333 !important; font-size: 1.25rem; line-height: 1.75rem;">
                                                 {{ __('จำนวนนักศึกษา') }}
+                                            </span>
+                                        </div>
+                                        <div class="col text-end">
+                                            <span style="color: #2e3191; font-size: 4rem; padding: 2rem 1rem;">
+                                                {{ count($students) }}
                                             </span>
                                         </div>
                                     </div>
@@ -81,7 +87,8 @@
     <nav aria-label="breadcrumb" class="pt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
-                <span class="ms-1">{{ __('จำนวนนักศึกษาแยกตามคณะวิชา') }}</span>
+        </ol>
+                <span class="ms-1"><h2>{{ __('จำนวนนักศึกษาแยกตามคณะวิชา') }}</h2></span>
             </li>
         </ol>
     </nav>
@@ -99,7 +106,8 @@
                                             <i class="bi bi-diagram-3" style="color: #f58c6c !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
-                                            <span style="font-size: 2rem;">{{ count($gs) }}</span>
+
+                                            <span style="font-size: 3rem;">{{ count($gs) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('บัณฑิตวิทยาลัย') }}</span>
                                         </div>
@@ -119,7 +127,7 @@
                                                 style="color: #ffc809 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
-                                            <span style="font-size: 2rem;">{{ count($ism) }}</span>
+                                            <span style="font-size: 3rem;">{{ count($ism) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('วิทยาลัยนานาชาติ') }}</span>
                                         </div>
@@ -139,7 +147,7 @@
                                                 style="color: #53b7e8 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
-                                            <span style="font-size: 2rem;">
+                                            <span style="font-size: 3rem;">
                                                 {{ count($exs) }}
                                             </span>
                                             <br>
@@ -161,7 +169,7 @@
                                                 style="color: #054463 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
-                                            <span style="font-size: 2rem;">{{ count($tcism) }}</span>
+                                            <span style="font-size: 3rem;">{{ count($tcism) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('วิทยาลัยฯ ไทย-จีน') }}</span>
                                         </div>
