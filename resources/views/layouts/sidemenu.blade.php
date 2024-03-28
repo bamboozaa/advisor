@@ -1,4 +1,4 @@
-<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #2e2f82;">
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #2e2f82; font-size: 1.25rem; line-height: 1.75rem;">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
         <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li>
