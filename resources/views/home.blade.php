@@ -74,8 +74,9 @@
 
     <nav aria-label="breadcrumb" class="pt-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page"><span
-                    class="ms-1">{{ __('จำนวนนักศึกษาแยกตามคณะวิชา') }}</span></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <span class="ms-1">{{ __('จำนวนนักศึกษาแยกตามคณะวิชา') }}</span>
+            </li>
         </ol>
     </nav>
 
@@ -89,8 +90,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <i class="bi bi-diagram-3"
-                                                style="color: #f58c6c !important; font-size: 3rem;"></i>
+                                            <i class="bi bi-diagram-3" style="color: #f58c6c !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 2rem;">{{ count($gs) }}</span>
