@@ -131,7 +131,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <i class="bi bi-diagram-3 fs-1" style="color: #53b7e8 !important;"></i>
+                                            <i class="bi bi-diagram-3" style="color: #53b7e8 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center">
                                             <span style="font-size: 2rem;">
@@ -155,7 +155,7 @@
                                             <i class="bi bi-diagram-3" style="color: #054463 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center">
-                                            <span style="font-size: 1.5rem;">{{ count($tcism) }}</span>
+                                            <span style="font-size: 2rem;">{{ count($tcism) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('วิทยาลัยฯ ไทย-จีน') }}</span>
                                         </div>
