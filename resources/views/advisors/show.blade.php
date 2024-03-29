@@ -172,11 +172,12 @@
                                         <thead class="bg-light">
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th class="text-nowrap" scope="col">รหัสนักศึกษา</th>
-                                                <th scope="col" class="text-nowrap">ชื่อ - นามสกุล</th>
-                                                <th style="white-space:nowrap" scope="col">ปีการศึกษา/ภาค</th>
-                                                <th style="white-space:nowrap" scope="col">งานวิจัยทางวิชาการ</th>
-                                                <th width="100%" scope="col">หัวข้องานวิจัยเรื่อง</th>
+                                                <th class="text-nowrap" scope="col">{{ __('รหัสนักศึกษา') }}</th>
+                                                <th scope="col" class="text-nowrap">{{ __('ชื่อ - นามสกุล') }}</th>
+                                                <th scope="col" class="text-nowrap">{{ __('คณะวิชา') }}</th>
+                                                <th style="white-space:nowrap" scope="col">{{ __('ปีการศึกษา/ภาค') }}</th>
+                                                <th style="white-space:nowrap" scope="col">{{ __('งานวิจัยทางวิชาการ') }}</th>
+                                                <th width="100%" scope="col">{{ __('หัวข้องานวิจัยเรื่อง') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody class="bg-light">
@@ -190,6 +191,9 @@
                                                         </td>
                                                         <td class="text-nowrap">
                                                             {{ $project->student['std_title'] . ' ' . $project->student['std_fname'] . ' ' . $project->student['std_lname'] }}
+                                                        </td>
+                                                        <td class="align-top text-nowrap">
+                                                            {{ $project->student->department['dep_name'] }}
                                                         </td>
                                                         <td class="text-center">{{ $project->student['academic_year'] . '/' . $project->student['semester'] }}</td>
                                                         <td style="white-space:nowrap" class="align-top text-left">
