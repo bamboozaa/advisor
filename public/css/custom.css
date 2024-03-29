@@ -20,11 +20,21 @@ input[type="text"]:read-only {
 }
 
 .bg-sidemenu {
+    content: "";
+    /* position:absolute; */
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    width:auto;
+    height:auto;
+    /* opacity: 0.5; */
     background-image: url(../images/19.png) !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center right;
     background-color: rgba(0, 0, 0, 0.1) !important;
+
 }
 
 .custom-navbar {
