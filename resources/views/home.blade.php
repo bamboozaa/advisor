@@ -12,7 +12,7 @@
 
 @section('content')
     {{-- Banner Image --}}
-    <div class="px-10 d-flex justify-content-cente banner-image" style="height: 250px; background-color: blue; border-radius: 1rem;">
+    <div class="px-10 d-flex justify-content-cente banner-image" style="height: calc(100vh - 765px); background-color: blue; border-radius: 1rem;">
 
    </div>
     {{-- /  Banner Image --}}
@@ -39,12 +39,12 @@
                                         <div class="col text-center">
                                             <i class="bi bi-people text-primary" style="font-size: 3rem"></i>
                                             <br>
-                                            <span style="color: #333 !important; font-size: 1.25rem; line-height: 1.75rem;">
+                                            <span class="text-nowrap" style="color: #333 !important; font-size: 1rem;">
                                                 {{ __('จำนวนอาจารย์ที่ปรึกษา') }}
                                             </span>
                                         </div>
                                         <div class="col text-end py-8">
-                                            <span style="color: #2e3191; font-size: 4rem; padding: 2rem 1rem;">
+                                            <span style="color: #2e3191; font-size: 3rem;">
                                                 {{ count($advisors) }}
                                             </span>
 
@@ -63,12 +63,12 @@
                                         <div class="col text-center">
                                             <i class="bi bi-people text-success" style="font-size: 3rem"></i>
                                             <br>
-                                            <span style="color: #333 !important; font-size: 1.25rem; line-height: 1.75rem;">
+                                            <span style="color: #333 !important; font-size: 1rem;">
                                                 {{ __('จำนวนนักศึกษา') }}
                                             </span>
                                         </div>
                                         <div class="col text-end">
-                                            <span style="color: #2e3191; font-size: 4rem; padding: 2rem 1rem;">
+                                            <span style="color: #2e3191; font-size: 3rem;">
                                                 {{ count($students) }}
                                             </span>
                                         </div>
