@@ -16,7 +16,7 @@
 
                     <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <img src="{{ URL::asset('/images/logo-utcc60th.png') }}" class="img-fluid">
+                            <img src="{{ URL::asset('/images/logo_UTCC_Vertical-1.png') }}" class="img-fluid">
                         </div>
                     </div>
 
