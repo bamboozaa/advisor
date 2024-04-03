@@ -111,18 +111,12 @@
                                                         $quota_thesis = ($advisor->academic['thesis']  - ceil(($iscount)/3))- $thesiscount;
                                                         // echo $quota_thesis;
                                                     @endphp
-                                                    {{-- {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }} --}}
                                                 @elseif (!isset($advisor->academic['thesis']))
                                                     {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }}
                                                     @php
                                                         $quota_thesis = ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount;
                                                         // echo $quota_thesis;
                                                     @endphp
-                                                    {{-- {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }} --}}
-                                                {{-- @elseif (isset($advisor->academic['thesis']) && $iscount <= 0) --}}
-                                                    {{-- {{ (($advisor->academic['thesis']  - floor($iscount/3)) - $thesiscount) == 0 ? "" : ($advisor->academic['thesis']  - floor(($iscount)/3))- $thesiscount }} --}}
-                                                    {{-- {{ ($advisor->academic['thesis']  - floor(($iscount)/3)) - $thesiscount }} --}}
-                                                    {{-- {{ $advisor->academic['thesis']  - $thesiscount <= 0 ? "" : $advisor->academic['thesis']  - $thesiscount }} --}}
                                                 @endif
                                             </td>
                                             <td class="text-success text-center" style="background-color: #f8f9fa">
