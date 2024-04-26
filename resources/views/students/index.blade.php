@@ -103,6 +103,10 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="d-flex">
+                        {{ $students->links() }}
+                    </div>
+
                 </div>
             </div>
         </div>
