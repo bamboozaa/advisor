@@ -98,7 +98,8 @@ class StudentController extends Controller
         \Log::info("student id : " . $request->student_id . " Create finished by " . Auth::user()->name);
 
         // return redirect()->route('students.index');
-        return redirect()->route('advisors.index');
+        // return redirect()->route('advisors.index');
+        return back()->withInput();
     }
 
     /**
