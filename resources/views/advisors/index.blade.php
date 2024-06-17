@@ -112,9 +112,9 @@
                                                         // echo $quota_thesis;
                                                     @endphp
                                                 @elseif (!isset($advisor->academic['thesis']))
-                                                    {{ ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount }}
+                                                    {{ ($advisor->qualification['thesis'] - ceil($iscount/3)) - $thesiscount }}
                                                     @php
-                                                        $quota_thesis = ($advisor->qualification['thesis'] - floor($iscount/3)) - $thesiscount;
+                                                        $quota_thesis = ($advisor->qualification['thesis'] - ceil($iscount/3)) - $thesiscount;
                                                         // echo $quota_thesis;
                                                     @endphp
                                                 @endif
@@ -182,9 +182,8 @@
                                                 @endif
                                             </td>
                                             <td class="text-center text-nowrap">
-                                                <a href="{{ route('advisors.show', [$advisor->id, 'quata_thesis' => $quota_thesis, 'quata_is' => $quota_is]) }}"
-                                                    class="btn btn-sm btn-info"><i
-                                                        class="bi bi-info-circle fs-sm me-1"></i>{{ __('Info') }}</a>
+                                                <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
+                                                    <i class="bi bi-info-circle fs-sm me-1"></i>{{ __('Info') }}</a>
                                                 {{-- <a href="{{ route('advisors.edit', $advisor->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="bi bi-pencil-square fs-sm"></i>

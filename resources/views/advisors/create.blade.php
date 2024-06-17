@@ -11,7 +11,11 @@
 @endsection
 
 @section('content')
-
+@php
+    foreach ($_GET as $key => $value) :
+        ${$key} = $value;
+    endforeach;
+@endphp
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-9">
@@ -48,6 +52,7 @@
                                         <label for="adv_id" class="form-label">{{ __('รหัสอาจารย์ที่ปรึกษา') }}<span
                                                 style="color: red">*</span></label>
                                         <input type="text" name="adv_id" class="form-control text-info" required />
+                                        {!! Form::hidden('id', $id) !!}
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="adv_title" class="form-label">{{ __('คำนำหน้าชื่อตามบัตรประชาชน') }}</label>

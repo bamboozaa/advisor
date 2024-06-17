@@ -119,23 +119,24 @@
         </div>
 
         @php
-            foreach ($_GET as $key => $value) :
-                ${$key} = $value;
-            endforeach;
+            // foreach ($_GET as $key => $value) :
+            //     ${$key} = $value;
+            // endforeach;
         @endphp
 
         <div class="row justify-content-center mt-3">
             <div class="d-grid gap-2 d-md-block text-center">
-                @if ($quata_thesis == 0)
-                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1, 'id' => $advisor->id]) }}" class="btn btn-outline-primary disabled me-1" tabindex="-1" aria-disabled="true" role="button" data-bs-toggle="button">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quata_thesis }}</a>
+                @if ($quota_thesis <= 0)
+                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1, 'id' => $advisor->id]) }}" class="btn btn-outline-primary disabled me-1" tabindex="-1" aria-disabled="true" role="button" data-bs-toggle="button">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quota_thesis }}</a>
                 @else
-                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1, 'id' => $advisor->id]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quata_thesis }}</a>
+                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1, 'id' => $advisor->id]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quota_thesis }}</a>
                 @endif
 
-                @if ($quata_is == 0)
-                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}" class="btn btn-outline-primary disabled me-1" tabindex="-1" aria-disabled="true" role="button" data-bs-toggle="button">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quata_is }}</a>
+                @if ($quota_is <= 0)
+                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}" class="btn btn-outline-primary disabled me-1" tabindex="-1" aria-disabled="true" role="button" data-bs-toggle="button">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quota_is }}</a>
                 @else
-                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quata_is }}</a>
+                    {{-- <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quata_is }}</a> --}}
+                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quota_is }}</a>
                 @endif
 
             </div>

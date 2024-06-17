@@ -53,6 +53,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->id;
         $request->validate([
             'student_id' => 'required|unique:students',
             'std_fname' => 'required',
@@ -98,8 +99,8 @@ class StudentController extends Controller
         \Log::info("student id : " . $request->student_id . " Create finished by " . Auth::user()->name);
 
         // return redirect()->route('students.index');
-        // return redirect()->route('advisors.index');
-        return back()->withInput();
+        return redirect()->route('advisors.show', $request->id);
+        // return back()->withInput();
     }
 
     /**
