@@ -19,7 +19,7 @@
                     <i class="bi bi-people fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('ข้อมูลนักศึกษา') }}</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                     <i class="bi bi-gear fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('ตั้งค่าระบบ') }}</span> <i
                         class="bi bi-caret-down"></i>
@@ -56,7 +56,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>
