@@ -39,7 +39,7 @@
                 </nav>
             </div>
             <div class="col-md-3" style="text-align: right!important;">
-                <a href="{{ url('advisors') }}" class="btn btn-primary mb-2">
+                <a href="{{ URL::previous() }}" class="btn btn-primary mb-2">
                     <i class="bi bi-back"></i><span class="ms-2">{{ __('Back') }}</span>
                 </a>
             </div>
