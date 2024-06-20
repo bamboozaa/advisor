@@ -47,6 +47,8 @@ class AdvisorController extends Controller
 
         Advisor::create($request->all());
 
+        \Log::info("Advisor ID : " . $request->adv_id . " Created by " . Auth::user()->name);
+
         session()->flash('success', 'Advisor created successfully.');
 
         return redirect()->route('advisors.index');
