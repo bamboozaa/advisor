@@ -60,7 +60,7 @@
                     <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('ข้อมูลนักศึกษา') }}</span>
                 </div>
                 <div class="card-body" style="padding: 0rem !important;">
-                    <div class="table-responsive mt-3">
+                    <div class="table-responsive mt-3" style="overflow-x: hidden">
                         <table id="tbl_students" class="table table-striped table-bordered table-hover" style="width: 100%">
                             <thead>
                                 <tr>
