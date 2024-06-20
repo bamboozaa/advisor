@@ -5,19 +5,19 @@
     @parent
     {{ Html::style('css/custom.css') }}
     {{-- {{ Html::style('css/bootstrap.min.css') }} --}}
-    {{ Html::style('css/dataTables.bootstrap5.min.css') }}
+    {{-- {{ Html::style('css/dataTables.bootstrap5.min.css') }} --}}
 @stop
 
 @section('importjs')
     @parent
     {{-- <script type="module" src="js/dataTables.bootstrap5.min.js"></script>
     <script type="module" src="js/jquery.dataTables.min.js"></script> --}}
-    {{ Html::script('js/jquery-3.7.1.js') }}
+    {{-- {{ Html::script('js/jquery-3.7.1.js') }} --}}
     {{-- {{ Html::script('js/bootstrap.bundle.min.js') }} --}}
     {{-- {{ Html::script('js/dataTables.bootstrap5.min.js') }} --}}
     {{-- {{ Html::script('js/jquery.dataTables.min.js') }} --}}
-    {{ Html::script('js/dataTables.js') }}
-    {{ Html::script('js/dataTables.bootstrap5.js') }}
+    {{-- {{ Html::script('js/dataTables.js') }}
+    {{ Html::script('js/dataTables.bootstrap5.js') }} --}}
     <script type="module">
         @if (session('success'))
             Swal.fire({
@@ -54,17 +54,17 @@
                 </a> --}}
             </div>
         </div>
-        <div class="row justify-content-end">
+        <div class="row justify-content-center">
             <div class="card bg-white">
-                <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
+                <div class="card-header mt-1 text-center">
                     <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('ข้อมูลนักศึกษา') }}</span>
                 </div>
                 <div class="card-body" style="padding: 0rem !important;">
                     <div class="table-responsive mt-3">
-                        <table id="example" class="table table-bordered table-hover" style="font-size: 1rem; line-height: 1.5rem;">
+                        <table id="tbl_students" class="table table-striped table-bordered table-hover" style="width: 100%">
                             <thead>
                                 <tr>
-                                    <th class="text-center text-nowrap align-middle">{{ __('#') }}</th>
+                                    {{-- <th class="text-center text-nowrap align-middle">{{ __('#') }}</th> --}}
                                     <th class="text-center text-nowrap align-middle">{{ __('รหัสนักศึกษา') }}</th>
                                     <th class="text-nowrap align-middle text-center">
                                         {{ __('ชื่อ - นามสกุล') }}</th>
@@ -79,7 +79,7 @@
                                 @if (count($students) > 0)
                                     @foreach ($students as $key => $student)
                                         <tr>
-                                            <td class="text-center">{{ $key + 1 }}</td>
+                                            {{-- <td class="text-center">{{ $key + 1 }}</td> --}}
                                             <td><a
                                                     href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a>
                                             </td>
@@ -103,9 +103,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="d-flex">
+                    {{-- <div class="d-flex">
                         {{ $students->links() }}
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

@@ -19,7 +19,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::paginate(10);
+        $students = Student::all()->sortByDesc('created_at')->sortByDesc('updated_at');
+        // $students = Student::paginate(10);
         // $students = Student::select(['id', 'student_id', 'std_title', 'std_fname', 'std_lname', 'dep_id'])->get();
         return view('students.index', compact('students'));
     }
