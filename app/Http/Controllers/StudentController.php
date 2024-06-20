@@ -127,12 +127,13 @@ class StudentController extends Controller
     {
         $departments = Department::pluck('dep_name', 'id');
         $faculties = Faculty::pluck('fac_name', 'id');
+        $majors = Major::pluck('major_name', 'id');
         $advisors = DB::table("advisors")
         ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
         ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
         ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', CASE WHEN qualifications.abbreviation IS NULL THEN '' ELSE qualifications.abbreviation END, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
         ->pluck('fullname', 'advisors.adv_id');
-        return view('students.edit', compact('student', 'advisors', 'departments', 'faculties'));
+        return view('students.edit', compact('student', 'advisors', 'departments', 'faculties', 'majors'));
     }
 
     /**

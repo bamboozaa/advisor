@@ -93,7 +93,7 @@
                                     <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}</th>
                                     <td>
                                         @if (is_null($student->major))
-                                            {!! Form::select('major_id', $majors, old('name', $student->major_id), ['class' => 'form-select form-select-sm text-info w-auto', 'disabled']) !!}
+                                            {!! Form::select('major_id', $majors, old('name', $student->major), ['class' => 'form-select form-select-sm text-info w-auto', 'placeholder' => 'Please Select ...', 'disabled']) !!}
                                         @else
                                             {!! Form::text('major', old('name', $student->major), ['class' => 'form-control form-control-sm text-info', 'readonly']) !!}
                                         @endif

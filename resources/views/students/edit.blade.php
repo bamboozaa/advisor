@@ -85,7 +85,8 @@
                                 <tr>
                                     <th class="text-end" scope="col">{{ __('สาขาวิชา/กลุ่มวิชา') }}</th>
                                     <td>
-                                        {!! Form::text('major', old('name', $student->major), ['class' => 'form-control form-control-sm text-info']) !!}
+                                        {{-- {!! Form::text('major', old('name', $student->major), ['class' => 'form-control form-control-sm text-info']) !!} --}}
+                                        {!! Form::select('major_id', $majors, old('name', $student->major), ['class' => 'form-select form-select-sm text-info w-auto', 'placeholder' => 'Please Select ...']) !!}
                                     </td>
                                     <th class="text-end" scope="col">{{ __('ปีการศึกษา') }}</th>
                                     <td>
