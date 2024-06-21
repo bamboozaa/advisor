@@ -185,6 +185,8 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
+        $advisor = Project::select('adv_id')->where('student_id', $student->student_id)->get();
+        $advisor_id = Advisor::select('id')->where('adv_id', '=', $advisor[0]['adv_id'])->get();
         $student->delete();
         Project::where("student_id", $student->student_id)->delete();
 
@@ -193,6 +195,6 @@ class StudentController extends Controller
         \Log::warning("Student ID : " . $student->student_id . " Delete finished by " . Auth::user()->name);
 
         // return redirect()->route('advisors.index');
-        return redirect()->route('students.index');
+        return redirect()->route('advisors.show', $advisor_id[0]['id']);
     }
 }
