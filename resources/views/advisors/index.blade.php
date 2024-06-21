@@ -63,7 +63,7 @@
                                     <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
-                                    <th class="text-center align-middle text-nowrap" rowspan="2" style="width: 1%">{{ __('Actions') }}</th>
+                                    <th rowspan="2"></th>
                                 </tr>
                                 <tr>
                                     <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}</th>
@@ -78,9 +78,10 @@
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
                                             <td class="text-nowrap">
-                                                {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                                <a href="{{ route('advisors.show', $advisor->id) }}" class="link-offset-2 link-underline link-underline-opacity-0">
+                                                    {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                                </a>
                                             </td>
-
                                             @php
                                                 $thesiscount = 0;
                                                 $iscount = 0;
@@ -181,9 +182,18 @@
                                                     @endphp
                                                 @endif
                                             </td>
-                                            <td class="text-center text-nowrap">
-                                                <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
-                                                    <i class="bi bi-info-circle fs-sm me-1"></i>{{ __('Info') }}</a>
+                                            <td class="text-center">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button"
+                                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a href="{{ route('advisors.show', $advisor) }}" class="dropdown-item text-info">info</a>
+                                                    </div>
+                                                </div>
+                                                {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
+                                                    <i class="bi bi-info-circle"></i></a> --}}
                                                 {{-- <a href="{{ route('advisors.edit', $advisor->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="bi bi-pencil-square fs-sm"></i>
