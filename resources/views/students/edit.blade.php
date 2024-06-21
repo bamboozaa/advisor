@@ -166,7 +166,7 @@
                                 {{ __('อัพเดท') }}
                             </button>
                         </div>
-                        <div class="d-grid col-sm-3">
+                        {{-- <div class="d-grid col-sm-3">
                             <form action="{{ route('students.destroy', old('name', $student->id)) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
@@ -175,7 +175,7 @@
                                     {{ __('Delete') }}
                                 </button>
                             </form>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
