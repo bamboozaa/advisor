@@ -73,7 +73,7 @@
                                         {{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <th class="text-center text-nowrap align-middle">{{ __('งานวิจัย') }}</th>
                                     <th class="text-center align-middle">{{ __('เรื่อง') }}</th>
-                                    <th class="text-center align-middle">{{ __('Status') }}</th>
+                                    <th class="text-center align-middle">{{ __('Status') }}</th>vxczvxzcvxzc
                                 </tr>
                             </thead>
                             <tbody>
