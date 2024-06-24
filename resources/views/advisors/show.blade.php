@@ -186,7 +186,7 @@
                                                 @foreach ($advisor->projects as $key => $project)
                                                     @if ($project->project_status == 0)
                                                     <tr>
-                                                        <td class="align-top">{{ $key + 1 }}</td>
+                                                        <td class="align-top">{{ 1 + $key++ }}</td>
                                                         <td class="align-top">
                                                             <a href="{{ route('students.show', $project->student['id']) }}">{{ $project->student_id }}</a>
                                                         </td>

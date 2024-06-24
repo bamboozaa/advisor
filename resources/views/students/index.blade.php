@@ -64,7 +64,7 @@
                         <table id="tbl_students" class="table table-striped table-bordered table-hover" style="width: 100%">
                             <thead>
                                 <tr>
-                                    {{-- <th class="text-center text-nowrap align-middle">{{ __('#') }}</th> --}}
+                                    <th class="text-center text-nowrap align-middle">{{ __('#') }}</th>
                                     <th class="text-center text-nowrap align-middle">{{ __('รหัสนักศึกษา') }}</th>
                                     <th class="text-nowrap align-middle text-center">
                                         {{ __('ชื่อ - นามสกุล') }}</th>
@@ -73,13 +73,14 @@
                                         {{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <th class="text-center text-nowrap align-middle">{{ __('งานวิจัย') }}</th>
                                     <th class="text-center align-middle">{{ __('เรื่อง') }}</th>
+                                    <th class="text-center align-middle">{{ __('Status') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if (count($students) > 0)
                                     @foreach ($students as $key => $student)
                                         <tr>
-                                            {{-- <td class="text-center">{{ $key + 1 }}</td> --}}
+                                            <td class="text-center">{{ 1 + $key++ }}</td>
                                             <td><a
                                                     href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a>
                                             </td>
@@ -92,6 +93,15 @@
                                             <td class="text-center">
                                                 {{ $student->project['project'] === 1 ? 'Thesis' : 'IS' }}</td>
                                             <td>{{ $student->project['title_research'] }}</td>
+                                            <td class="text-center text-nowrap">
+                                                @if ($student->project['project_status'] === 0)
+                                                    <span class="badge rounded-pill bg-primary">{{ __('อยู่ระหว่างดำเนินการ') }}</span>
+                                                @elseif ($student->project['project_status'] === 1)
+                                                    <span class="badge rounded-pill bg-success">{{ __('ผ่าน') }}</span>
+                                                @elseif ($student->project['project_status'] === 2)
+                                                    <span class="badge rounded-pill bg-danger">{{ __('ไม่ผ่าน') }}</span>
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @else
