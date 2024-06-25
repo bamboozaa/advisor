@@ -24,7 +24,7 @@ Auth::routes([
 ]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/report-advisor', [App\Http\Controllers\AdvisorController::class, 'index2']);
+Route::get('/report-advisor', [App\Http\Controllers\AdvisorController::class, 'index2'])->name('advisors.index2');
 Route::get('/report-advisor/{advisor}', [App\Http\Controllers\AdvisorController::class, 'show2'])->name('advisors.show2');
 
 
