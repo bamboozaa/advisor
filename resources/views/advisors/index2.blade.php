@@ -134,7 +134,7 @@
                                                         <i class="bi bi-three-dots-vertical"></i>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a href="{{ route('advisors.show', $advisor) }}" class="dropdown-item text-info">info</a>
+                                                        <a href="{{ route('advisors.show2', $advisor) }}" class="dropdown-item text-info">info</a>
                                                     </div>
                                                 </div>
                                                 {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
