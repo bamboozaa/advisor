@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Academic;
 use App\Models\Advisor;
 use App\Models\Student;
+use App\Models\Project;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $projects = Project::groupBy('adv_id');
         $academics = Academic::all();
         $advisors = Advisor::all();
         $students = Student::all();
@@ -34,6 +36,6 @@ class HomeController extends Controller
         $exs = Student::where('dep_id', 3)->get();
         $tcism = Student::where('dep_id', 4)->get();
         $harbour = Student::where('dep_id', 5)->get();
-        return view('home', compact('academics', 'advisors', 'students', 'gs', 'ism', 'exs', 'tcism', 'harbour'));
+        return view('home', compact('academics', 'advisors', 'students', 'gs', 'ism', 'exs', 'tcism', 'harbour', 'projects'));
     }
 }

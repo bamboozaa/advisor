@@ -12,16 +12,19 @@
 
 @section('content')
     {{-- Banner Image --}}
-    <div class="px-10 d-flex justify-content-cente banner-image" style="height: calc(100vh - 765px); background-color: blue; border-radius: 1rem;">
+    <div class="px-10 d-flex justify-content-cente banner-image"
+        style="height: calc(100vh - 765px); background-color: blue; border-radius: 1rem;">
 
-   </div>
+    </div>
     {{-- /  Banner Image --}}
 
 
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page"><span class="ms-1"><h2>{{ __('Dashboard') }}</h2></span></li>
+            <li class="breadcrumb-item active" aria-current="page"><span class="ms-1">
+                    <h2>{{ __('Dashboard') }}</h2>
+                </span></li>
         </ol>
     </nav>
 
@@ -87,8 +90,10 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
         </ol>
-                <span class="ms-1"><h2>{{ __('จำนวนนักศึกษาแยกตามคณะวิชา') }}</h2></span>
-            </li>
+        <span class="ms-1">
+            <h2>{{ __('จำนวนนักศึกษาแยกตามคณะวิชา') }}</h2>
+        </span>
+        </li>
         </ol>
     </nav>
 
@@ -102,7 +107,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <i class="bi bi-diagram-3" style="color: #f58c6c !important; font-size: 3rem;"></i>
+                                            <i class="bi bi-diagram-3"
+                                                style="color: #f58c6c !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
 

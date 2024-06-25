@@ -22,6 +22,13 @@ class AdvisorController extends Controller
         // return view('advisors.index', ['advisors' => $advisors->toQuery()->paginate(10)]);
     }
 
+    public function index2()
+    {
+        $advisors = Advisor::all();
+        return view('advisors.index2', compact('advisors'));
+        // return view('advisors.index', ['advisors' => $advisors->toQuery()->paginate(10)]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
