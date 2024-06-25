@@ -185,7 +185,7 @@
                                         <tbody class="bg-light">
                                             @if (count($advisor->projects) > 0)
                                                 @foreach ($advisor->projects as $key => $project)
-                                                    @if ($project->project_status == 0)
+                                                    {{-- @if ($project->project_status == 0) --}}
                                                     <tr>
                                                         <td class="align-top">{{ 1 + $key++ }}</td>
                                                         <td class="align-top">
@@ -212,7 +212,7 @@
                                                             @endif
                                                         </td>
                                                     </tr>
-                                                    @endif
+                                                    {{-- @endif --}}
                                                 @endforeach
                                             @else
                                                 <tr>
