@@ -81,7 +81,7 @@
                                         <tr>
                                             <td class="text-center">{{ 1 + $key++ }}</td>
                                             <td class="text-nowrap">
-                                                <a href="{{ route('advisors.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
+                                                <a href="{{ route('advisors.show2', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
                                                     {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                                 </a>
                                             </td>
