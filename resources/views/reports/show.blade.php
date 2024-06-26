@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Edit Advisor')
+@section('title', 'Display Advisor')
 
 @section('importcss')
     @parent

@@ -183,10 +183,13 @@
                                         </thead>
                                         <tbody class="bg-light">
                                             @if (count($advisor->projects) > 0)
+                                                @php
+                                                    $i = 1;
+                                                @endphp
                                                 @foreach ($advisor->projects as $key => $project)
                                                     @if ($project->project_status == 0)
                                                     <tr>
-                                                        <td class="align-top">{{ 1 + $key++ }}</td>
+                                                        <td class="align-top">{{ $i++ }}</td>
                                                         <td class="align-top">
                                                             <a href="{{ route('students.show', $project->student['id']) }}">{{ $project->student_id }}</a>
                                                         </td>

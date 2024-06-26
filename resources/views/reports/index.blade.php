@@ -22,7 +22,7 @@
                 icon: 'success'
             });
         @endif
-        new DataTable('#example');
+        // new DataTable('#example');
     </script>
 @stop
 
@@ -77,11 +77,14 @@
                             </thead>
                             <tbody>
                                 @if (count($advisors) > 0)
+                                    @php
+                                        $x = 1;
+                                    @endphp
                                     @foreach ($advisors as $key => $advisor)
                                         <tr>
-                                            <td class="text-center">{{ 1 + $key++ }}</td>
+                                            <td class="text-center">{{ $x++ }}</td>
                                             <td class="text-nowrap">
-                                                <a href="{{ route('advisors.show2', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
+                                                <a href="{{ route('reports.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
                                                     {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                                 </a>
                                             </td>
@@ -134,7 +137,7 @@
                                                         <i class="bi bi-three-dots-vertical"></i>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a href="{{ route('advisors.show2', $advisor) }}" class="dropdown-item text-info">info</a>
+                                                        <a href="{{ route('reports.show', $advisor) }}" class="dropdown-item text-info">info</a>
                                                     </div>
                                                 </div>
                                                 {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">

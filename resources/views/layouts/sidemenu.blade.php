@@ -24,10 +24,10 @@
                     <i class="bi bi-gear fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('รายงาน') }}</span> <i
                         class="bi bi-caret-down"></i>
                 </a>
-                <ul class="collapse nav flex-column ms-1 {{ request()->routeIs('advisors.index2') || request()->routeIs('advisors.show2') ? 'show' : '' }}" id="submenu4" data-bs-parent="#menu">
+                <ul class="collapse nav flex-column ms-1 {{ request()->routeIs('reports.*') ? 'show' : '' }}" id="submenu4" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="{{ route('advisors.index2') }}" class="nav-link px-0 text-white ms-2 {{ request()->routeIs('advisors.index2') ? 'active' : '' }}">
-                            <i class="bi bi-sliders fs-5"></i>
+                        <a href="{{ route('reports.index') }}" class="nav-link px-0 text-white ms-2 {{ request()->routeIs('reports.index') ? 'active' : '' }}">
+                            <i class="bi bi-clipboard-data fs-5"></i>
                             <span class="d-none d-sm-inline ms-2">{{ __('อาจารย์ที่ปรึกษา') }}</span>
                         </a>
                     </li>

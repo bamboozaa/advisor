@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('aca_id')->nullable();
             $table->integer('qua_id')->nullable();
             // $table->string('image')->nullable();
-            // $table->integer('status')->default(1);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
