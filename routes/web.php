@@ -26,7 +26,8 @@ Auth::routes([
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/report-advisor', [App\Http\Controllers\ReportController::class, 'index'])->name('reports.index');
 Route::get('/report-advisor/{advisor}', [App\Http\Controllers\ReportController::class, 'show'])->name('reports.show');
-
+Route::get('/report-advisor/{advisor}/edit', [App\Http\Controllers\ReportController::class, 'edit'])->name('reports.edit');
+Route::post('/report-advisor/{advisor}', [App\Http\Controllers\ReportController::class, 'update'])->name('reports.update');
 
 
 Route::group(['middleware' => 'auth'], function() {

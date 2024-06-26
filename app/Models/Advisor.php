@@ -18,6 +18,7 @@ class Advisor extends Model
         'adv_lname',
         'aca_id',
         'qua_id',
+        'status',
     ];
 
     public function qualification(): BelongsTo

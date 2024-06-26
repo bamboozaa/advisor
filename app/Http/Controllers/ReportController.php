@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Advisor;
 use App\Models\Project;
+use App\Models\Qualification;
+use App\Models\Academic;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
@@ -86,5 +89,23 @@ class ReportController extends Controller
         }
 
         return view('reports.show', compact('advisor', 'quota_is', 'quota_thesis'));
+    }
+
+    public function edit(Advisor $advisor)
+    {
+        $academics = Academic::pluck('academic', 'id');
+        $qualifications = Qualification::pluck('qualification', 'id');
+        return view('reports.edit', compact('advisor', 'academics', 'qualifications'));
+    }
+
+    public function update(Request $request, Advisor $advisor)
+    {
+        $advisor->update($request->all());
+
+        session()->flash('success', 'Advisor updated successfully.');
+
+        \Log::info("Advisor " . $request->adv_fname . " " . $request->adv_lname . " Update finished by " . Auth::user()->name);
+
+        return redirect()->route('reports.index');
     }
 }

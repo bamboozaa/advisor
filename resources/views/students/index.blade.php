@@ -78,9 +78,12 @@
                             </thead>
                             <tbody>
                                 @if (count($students) > 0)
+                                    @php
+                                        $i = 1;
+                                    @endphp
                                     @foreach ($students as $key => $student)
                                         <tr>
-                                            <td class="text-center">{{ 1 + $key++ }}</td>
+                                            <td class="text-center">{{ $i++ }}</td>
                                             <td><a
                                                     href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a>
                                             </td>

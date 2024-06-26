@@ -31,7 +31,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url('advisors') }}">{{ __('Advisors') }}</a></li>
+                        {{-- <li class="breadcrumb-item"><a href="{{ url('advisors') }}">{{ __('Advisors') }}</a></li> --}}
                         <li class="breadcrumb-item active" aria-current="page">
                             {{ (!isset($advisor->academic['abbreviation']) ? '' : old('name', $advisor->academic['abbreviation']) . ' ') . old('name', $advisor->qualification['abbreviation']) . ' ' . old('name', $advisor->adv_fname) . ' ' . old('name', $advisor->adv_lname) }}
                         </li>

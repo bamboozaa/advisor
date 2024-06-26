@@ -5,15 +5,15 @@
     @parent
     {{ Html::style('css/custom.css') }}
     {{-- {{ Html::style('css/bootstrap.min.css') }} --}}
-    {{ Html::style('css/dataTables.bootstrap5.min.css') }}
+    {{-- {{ Html::style('css/dataTables.bootstrap5.min.css') }} --}}
 @stop
 
 @section('importjs')
     @parent
-    {{ Html::script('js/jquery-3.7.1.js') }}
+    {{-- {{ Html::script('js/jquery-3.7.1.js') }} --}}
     {{-- {{ Html::script('js/bootstrap.bundle.min.js') }} --}}
-    {{ Html::script('js/dataTables.js') }}
-    {{ Html::script('js/dataTables.bootstrap5.js') }}
+    {{-- {{ Html::script('js/dataTables.js') }}
+    {{ Html::script('js/dataTables.bootstrap5.js') }} --}}
     <script type="module">
         @if (session('success'))
             Swal.fire({
@@ -64,6 +64,7 @@
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
 
                                     <th class="text-center text-nowrap" colspan="3">{{ __('สถานะ') }}</th>
+                                    <th rowspan="2"></th>
                                     <th rowspan="2"></th>
                                 </tr>
                                 <tr>
@@ -131,6 +132,16 @@
                                             <td class="text-center">{{ $p > 0 ? $p : '' }}</td>
                                             <td class="text-center">{{ $f > 0 ? $f : '' }}</td>
                                             <td class="text-center">
+                                                @if ($advisor->status === 1)
+                                                    <span class="badge badge-success">{{ __('Active') }}</span>
+                                                @endif
+
+                                                @if ($advisor->status === 0)
+                                                    <span class="badge badge-danger">{{ __('Not Active') }}</span>
+                                                @endif
+
+                                            </td>
+                                            <td class="text-center">
                                                 <div class="dropdown">
                                                     <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button"
                                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -138,15 +149,12 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a href="{{ route('reports.show', $advisor) }}" class="dropdown-item text-info">info</a>
+                                                        <a href="{{ route('reports.edit', $advisor) }}" class="dropdown-item text-warning">{{ __('Edit') }}</a>
                                                     </div>
                                                 </div>
                                                 {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
                                                     <i class="bi bi-info-circle"></i></a> --}}
-                                                {{-- <a href="{{ route('advisors.edit', $advisor->id) }}"
-                                                    class="btn btn-warning btn-sm">
-                                                    <i class="bi bi-pencil-square fs-sm"></i>
-                                                    <span class="ms-1">{{ __('Edit') }}</span>
-                                                </a> --}}
+
                                             </td>
                                         </tr>
                                     @endforeach
