@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="col text-end py-8">
                                             <span style="color: #2e3191; font-size: 3rem;">
-                                                {{ count($advisors) }}
+                                                {{ count($advisors) . " / " . count($advisors_project) }}
                                             </span>
 
                                         </div>
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="col text-end">
                                             <span style="color: #2e3191; font-size: 3rem;">
-                                                {{ count($students) }}
+                                                {{ count($students) . " / " . count($students_pass) }}
                                             </span>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
 
-                                            <span style="font-size: 3rem;">{{ count($gs) }}</span>
+                                            <span style="font-size: 3rem;">{{ count($gs) . "/" . count($gs_pass) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('บัณฑิตวิทยาลัย') }}</span>
                                         </div>
@@ -132,7 +132,7 @@
                                                 style="color: #ffc809 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
-                                            <span style="font-size: 3rem;">{{ count($ism) }}</span>
+                                            <span style="font-size: 3rem;">{{ count($ism) . "/" . count($ism_pass) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('วิทยาลัยนานาชาติ') }}</span>
                                         </div>
@@ -153,7 +153,7 @@
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
                                             <span style="font-size: 3rem;">
-                                                {{ count($exs) }}
+                                                {{ count($exs) . "/" . count($exs_pass) }}
                                             </span>
                                             <br>
                                             <span style="font-size: 1rem">{{ __('วิทยพัฒน์') }}</span>
@@ -174,7 +174,7 @@
                                                 style="color: #054463 !important; font-size: 3rem;"></i>
                                         </div>
                                         <div class="col-8 text-center" style="color: #2e3191 !important;">
-                                            <span style="font-size: 3rem;">{{ count($tcism) }}</span>
+                                            <span style="font-size: 3rem;">{{ count($tcism) . "/" . count($tcism_pass) }}</span>
                                             <br />
                                             <span style="font-size: 1rem">{{ __('วิทยาลัยฯ ไทย-จีน') }}</span>
                                         </div>
