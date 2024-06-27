@@ -19,6 +19,8 @@ class ReportController extends Controller
 
         if (!is_null($request->input('project_status'))) $advisors = Advisor::join('projects', 'advisors.adv_id', '=', 'projects.adv_id')->where('projects.project_status', $request->input('project_status'))->select('advisors.*', 'projects.adv_id')->distinct()->get();
 
+        if (!is_null($request->input('project'))) $advisors = Advisor::join('projects', 'advisors.adv_id', '=', 'projects.adv_id')->where('projects.project', $request->input('project'))->select('advisors.*', 'projects.adv_id')->distinct()->get();
+
         return view('reports.index', compact('advisors'));
         // return view('advisors.index', ['advisors' => $advisors->toQuery()->paginate(10)]);
     }

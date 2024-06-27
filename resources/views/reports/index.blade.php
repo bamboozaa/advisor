@@ -98,7 +98,7 @@
                             <div class="col-lg-3">
                                 <div class="form-floating">
                                     <select name="project_status" class="form-select" id="project_status" aria-label="Floating label select project_status">
-                                        <option selected>Open this select menu</option>
+                                        <option value="" selected>Open this select menu</option>
                                         <option value="0">อยู่ระหว่างดำเนินการ</option>
                                         <option value="1">ผ่าน</option>
                                         <option value="2">ไม่ผ่าน</option>
@@ -106,11 +106,18 @@
                                     <label for="project_status">สถานะโครงการ</label>
                                 </div>
                             </div>
-                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 300px">
-                                <button type="submit" class="btn btn-primary rounded" type="button">{{ __('ค้นหา') }}</button>
+                            <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select name="project" class="form-select" id="project" aria-label="Floating label select project">
+                                        <option value="" selected>Open this select menu</option>
+                                        <option value="1">วิทยานิพนธ์</option>
+                                        <option value="2">การค้นคว้าอิสระ</option>
+                                    </select>
+                                    <label for="project">ประเภทโครงการ</label>
+                                </div>
                             </div>
                             <div class="col-lg-3 d-grid mx-auto text-center" style="width: 300px">
-
+                                <button type="submit" class="btn btn-primary rounded" type="button">{{ __('ค้นหา') }}</button>
                             </div>
                         </div>
                     </section>
