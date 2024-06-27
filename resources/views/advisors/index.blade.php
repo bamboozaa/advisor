@@ -63,7 +63,7 @@
                                     <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
-                                    <th rowspan="2"></th>
+                                    {{-- <th rowspan="2"></th> --}}
                                 </tr>
                                 <tr>
                                     <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}</th>
@@ -182,7 +182,7 @@
                                                     @endphp
                                                 @endif
                                             </td>
-                                            <td class="text-center">
+                                            {{-- <td class="text-center">
                                                 <div class="dropdown">
                                                     <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button"
                                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -192,14 +192,14 @@
                                                         <a href="{{ route('advisors.show', $advisor) }}" class="dropdown-item text-info">info</a>
                                                     </div>
                                                 </div>
-                                                {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
-                                                    <i class="bi bi-info-circle"></i></a> --}}
-                                                {{-- <a href="{{ route('advisors.edit', $advisor->id) }}"
+                                                <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
+                                                    <i class="bi bi-info-circle"></i></a>
+                                                <a href="{{ route('advisors.edit', $advisor->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="bi bi-pencil-square fs-sm"></i>
                                                     <span class="ms-1">{{ __('Edit') }}</span>
-                                                </a> --}}
-                                            </td>
+                                                </a>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 @else
