@@ -78,7 +78,7 @@
                     <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span
                         style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('รายงานข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
                 </div>
-                <form method="GET" action="#" enctype="multipart/form-data">
+                <form method="GET" action="{{ route('reports.index') }}" enctype="multipart/form-data">
                     @csrf
                     <section class="py-3">
                         <div class="row">
@@ -89,7 +89,10 @@
                                         <option value="0">Not Active</option>
                                         <option value="1">Active</option>
                                     </select>
-                                    <label for="floatingSelectGrid">สถานะอาจารย์ที่ปรึกษา</label>
+                                    <label for="floatingSelectGrid">สถานะอาจารย์ที่ปรึกษา<span class="position-absolute start-300 translate-middle badge rounded-pill bg-danger">
+                                        {{ count($advisors) }}
+                                        <span class="visually-hidden">unread messages</span>
+                                      </span></label>
                                 </div>
                             </div>
                             <div class="col-lg-3">
