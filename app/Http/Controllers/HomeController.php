@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $advisors_project = Project::select('adv_id')->distinct()->get();
         $academics = Academic::all();
-        $advisors = Advisor::all();
+        $advisors = Advisor::where('status', 1)->get();
         $students = Student::all();
         $students_pass = Project::select('student_id')->where('project_status', 1)->get();
         $gs = Student::where('dep_id', 1)->get();

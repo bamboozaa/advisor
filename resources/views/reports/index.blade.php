@@ -88,9 +88,11 @@
                                         <tr>
                                             <td class="text-center">{{ $x++ }}</td>
                                             <td class="text-nowrap">
-                                                <a href="{{ route('reports.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
+                                                {{-- <a href="{{ route('reports.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
                                                     {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
-                                                </a>
+                                                </a> --}}
+
+                                                {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                             </td>
                                             @php
                                                 $thesiscount = 0;
