@@ -27,7 +27,7 @@
         Swal.fire({
             title: "Please wait...!",
             // html: "I will close in <b></b> milliseconds.",
-            timer: 2000,
+            timer: 1000,
             timerProgressBar: true,
             didOpen: () => {
                 Swal.showLoading();
@@ -73,19 +73,50 @@
             </div>
         </div>
         <div class="row justify-content-end">
-
             <div class="card bg-white">
                 <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
                     <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span
                         style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('รายงานข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
                 </div>
+                <form method="GET" action="#" enctype="multipart/form-data">
+                    @csrf
+                    <section class="py-3">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-floating">
+                                    <select name="status" class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="0">Not Active</option>
+                                        <option value="1">Active</option>
+                                    </select>
+                                    <label for="floatingSelectGrid">สถานะอาจารย์ที่ปรึกษา</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 300px">
+                                <button type="submit" class="btn btn-primary rounded"
+                                    type="button">{{ __('ค้นหา') }}</button>
+                            </div>
+                            <div class="col-lg-3">
+                                {{-- <div class="form-floating">
+                                    <input type="date" class="form-control rounded shadow" name="end_date"
+                                        id="end_date">
+                                    <label for="end_date">{{ __('Expired Date') }}</label>
+                                </div> --}}
+                            </div>
+                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 300px">
+
+                            </div>
+                        </div>
+                    </section>
+                </form>
                 <div class="card-body" style="padding: 0rem !important;">
                     <div class="table-responsive mt-3" style="overflow-x: hidden">
                         <table id="example" class="table table-bordered table-hover"
                             style="font-size: 1rem; line-height: 1.5rem;">
                             <thead class="table-light">
                                 <tr>
-                                    <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
+                                    <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}
+                                    </th>
                                     <th class="text-nowrap align-middle text-center" rowspan="2">
                                         {{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">

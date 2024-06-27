@@ -11,9 +11,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $advisors = Advisor::all();
+
+        if (!is_null($request->input('status'))) $advisors = Advisor::where('status', $request->input('status'))->get();
+
         return view('reports.index', compact('advisors'));
         // return view('advisors.index', ['advisors' => $advisors->toQuery()->paginate(10)]);
     }
