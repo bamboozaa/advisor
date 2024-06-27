@@ -116,7 +116,7 @@
                                     <label for="project">ประเภทโครงการ</label>
                                 </div>
                             </div>
-                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 300px">
+                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 200px">
                                 <button type="submit" class="btn btn-primary rounded" type="button">{{ __('ค้นหา') }}</button>
                             </div>
                         </div>
