@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('adv_id', 10);
             $table->string('student_id', 13);
             $table->integer('project');
-            $table->text('title_research');
+            $table->text('title_research')->nullable();
             $table->text('title_research_en')->nullable();
             $table->string('publisher')->nullable();
             $table->char('publishing_year', 4)->nullable();
