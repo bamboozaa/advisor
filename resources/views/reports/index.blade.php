@@ -92,16 +92,19 @@
                                     <label for="floatingSelectGrid">สถานะอาจารย์ที่ปรึกษา</label>
                                 </div>
                             </div>
-                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 300px">
-                                <button type="submit" class="btn btn-primary rounded"
-                                    type="button">{{ __('ค้นหา') }}</button>
-                            </div>
                             <div class="col-lg-3">
-                                {{-- <div class="form-floating">
-                                    <input type="date" class="form-control rounded shadow" name="end_date"
-                                        id="end_date">
-                                    <label for="end_date">{{ __('Expired Date') }}</label>
-                                </div> --}}
+                                <div class="form-floating">
+                                    <select name="project_status" class="form-select" id="project_status" aria-label="Floating label select project_status">
+                                        <option selected>Open this select menu</option>
+                                        <option value="0">อยู่ระหว่างดำเนินการ</option>
+                                        <option value="1">ผ่าน</option>
+                                        <option value="2">ไม่ผ่าน</option>
+                                    </select>
+                                    <label for="project_status">สถานะโครงการ</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 300px">
+                                <button type="submit" class="btn btn-primary rounded" type="button">{{ __('ค้นหา') }}</button>
                             </div>
                             <div class="col-lg-3 d-grid mx-auto text-center" style="width: 300px">
 
