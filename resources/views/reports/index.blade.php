@@ -148,7 +148,7 @@
                                     <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ (IS)') }}
                                     </th>
 
-                                    <th class="text-center text-nowrap" style="width: 10%;">{{ __('ระหว่าง') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%;">{{ __('อยู่ระหว่างดำเนินการ') }}</th>
                                     <th class="text-center text-nowrap" style="width: 10%;">{{ __('ผ่าน') }}</th>
                                     <th class="text-center text-nowrap" style="width: 10%;">{{ __('ไม่ผ่าน') }}</th>
                                 </tr>
