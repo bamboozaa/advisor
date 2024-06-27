@@ -84,6 +84,7 @@
                             <thead class="table-light">
                                 <tr>
                                     <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
+                                    <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('รหัสอาจารย์ที่ปรึกษา') }}</th>
                                     <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
@@ -98,13 +99,21 @@
                             </thead>
                             <tbody>
                                 @if (count($advisors) > 0)
+                                    @php $no = 1; @endphp
                                     @foreach ($advisors as $key => $advisor)
                                         <tr>
-                                            <td class="text-center">{{ $key + 1 }}</td>
-                                            <td class="text-nowrap">
+                                            <td class="text-center">{{ $no++ }}</td>
+                                            <td class="text-center">
                                                 <a href="{{ route('advisors.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
-                                                    {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                                    {{ $advisor['adv_id'] }}
                                                 </a>
+                                            </td>
+
+                                            <td class="text-nowrap">
+                                                {{-- <a href="{{ route('advisors.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
+                                                    {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                                </a> --}}
+                                                {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                             </td>
                                             @php
                                                 $thesiscount = 0;
