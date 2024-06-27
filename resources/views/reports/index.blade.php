@@ -110,7 +110,7 @@
                     </section>
                 </form>
                 <div class="card-body" style="padding: 0rem !important;">
-                    <div class="table-responsive mt-3" style="overflow-x: hidden">
+                    <div class="table-responsive" style="overflow-x: hidden">
                         <table id="example" class="table table-bordered table-hover"
                             style="font-size: 1rem; line-height: 1.5rem;">
                             <thead class="table-light">
