@@ -31,7 +31,7 @@
         Swal.fire({
             title: "Please wait...!",
             // html: "I will close in <b></b> milliseconds.",
-            timer: 2000,
+            timer: 1000,
             timerProgressBar: true,
             didOpen: () => {
                 Swal.showLoading();
