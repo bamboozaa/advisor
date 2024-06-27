@@ -22,6 +22,30 @@
                 icon: 'success'
             });
         @endif
+
+        let timerInterval;
+        Swal.fire({
+            title: "Auto close alert!",
+            html: "I will close in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    // timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+
         // new DataTable('#example');
     </script>
 @stop
@@ -52,16 +76,20 @@
 
             <div class="card bg-white">
                 <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
-                    <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('รายงานข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
+                    <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span
+                        style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('รายงานข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
                 </div>
                 <div class="card-body" style="padding: 0rem !important;">
                     <div class="table-responsive mt-3" style="overflow-x: hidden">
-                        <table id="example" class="table table-bordered table-hover" style="font-size: 1rem; line-height: 1.5rem;">
+                        <table id="example" class="table table-bordered table-hover"
+                            style="font-size: 1rem; line-height: 1.5rem;">
                             <thead class="table-light">
                                 <tr>
                                     <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
-                                    <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
-                                    <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
+                                    <th class="text-nowrap align-middle text-center" rowspan="2">
+                                        {{ __('ชื่อ - นามสกุล') }}</th>
+                                    <th class="text-center text-nowrap" colspan="2">
+                                        {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
 
                                     <th class="text-center text-nowrap" colspan="3">{{ __('สถานะ') }}</th>
                                     <th rowspan="2"></th>
@@ -71,8 +99,10 @@
 
                                 </tr>
                                 <tr>
-                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ (IS)') }}</th>
+                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}
+                                    </th>
+                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ (IS)') }}
+                                    </th>
 
                                     <th class="text-center text-nowrap" style="width: 10%;">{{ __('ระหว่าง') }}</th>
                                     <th class="text-center text-nowrap" style="width: 10%;">{{ __('ผ่าน') }}</th>
@@ -88,7 +118,8 @@
                                         <tr>
                                             <td class="text-center">{{ $n++ }}</td>
                                             <td class="text-nowrap">
-                                                <a href="{{ route('reports.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
+                                                <a href="{{ route('reports.show', $advisor) }}"
+                                                    class="link-offset-2 link-underline link-underline-opacity-0">
                                                     {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                                 </a>
 
@@ -103,27 +134,25 @@
                                             @endphp
 
                                             @foreach ($advisor->projects as $project)
-
-                                                @if ($project['project'] == 1 )
+                                                @if ($project['project'] == 1)
                                                     @php $thesiscount++; @endphp
                                                 @endif
 
-                                                @if ($project['project'] == 2 )
+                                                @if ($project['project'] == 2)
                                                     @php $iscount++; @endphp
                                                 @endif
 
-                                                @if ($project['project_status'] == 0 )
+                                                @if ($project['project_status'] == 0)
                                                     @php $i++; @endphp
                                                 @endif
 
-                                                @if ($project['project_status'] == 1 )
+                                                @if ($project['project_status'] == 1)
                                                     @php $p++; @endphp
                                                 @endif
 
-                                                @if ($project['project_status'] == 2 )
+                                                @if ($project['project_status'] == 2)
                                                     @php $f++; @endphp
                                                 @endif
-
                                             @endforeach
                                             <td class="text-center">
                                                 {{ $thesiscount > 0 ? $thesiscount : '' }}
@@ -142,20 +171,24 @@
                                                 @endif
 
                                                 @if ($advisor->status === 0)
-                                                    <span class="badge rounded-pill bg-danger">{{ __('Not Active') }}</span>
+                                                    <span
+                                                        class="badge rounded-pill bg-danger">{{ __('Not Active') }}</span>
                                                 @endif
 
                                             </td>
                                             @if (Auth::user()->role == 1)
                                                 <td class="text-center">
                                                     <div class="dropdown">
-                                                        <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button"
-                                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button class="btn btn-transparent p-0 dark:text-high-emphasis"
+                                                            type="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
                                                             <i class="bi bi-three-dots-vertical"></i>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
-                                                            <a href="{{ route('reports.show', $advisor) }}" class="dropdown-item text-info">info</a>
-                                                            <a href="{{ route('reports.edit', $advisor) }}" class="dropdown-item text-warning">{{ __('Edit') }}</a>
+                                                            <a href="{{ route('reports.show', $advisor) }}"
+                                                                class="dropdown-item text-info">info</a>
+                                                            <a href="{{ route('reports.edit', $advisor) }}"
+                                                                class="dropdown-item text-warning">{{ __('Edit') }}</a>
                                                         </div>
                                                     </div>
                                                     {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
