@@ -293,7 +293,7 @@ return [
 
         'email' => 'userprincipalname',
         'username' => 'samaccountname',
-        'role' => 0,
+        // 'role' => 0,
         'name' => 'cn',
         'fullname' => 'description',
         'department' => 'department',
