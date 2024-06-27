@@ -21,13 +21,13 @@
             </li>
             <li>
                 <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
-                    <i class="bi bi-gear fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('รายงาน') }}</span> <i
+                    <i class="bi bi-clipboard-data fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('รายงาน') }}</span> <i
                         class="bi bi-caret-down"></i>
                 </a>
                 <ul class="collapse nav flex-column ms-1 {{ request()->routeIs('reports.*') ? 'show' : '' }}" id="submenu4" data-bs-parent="#menu">
                     <li class="w-100">
                         <a href="{{ route('reports.index') }}" class="nav-link px-0 text-white ms-2 {{ request()->routeIs('reports.index') || request()->routeIs('reports.show') || request()->routeIs('reports.edit') ? 'active' : '' }}">
-                            <i class="bi bi-clipboard-data fs-5"></i>
+                            <i class="bi bi-file-bar-graph fs-5"></i>
                             <span class="d-none d-sm-inline ms-2">{{ __('อาจารย์ที่ปรึกษา') }}</span>
                         </a>
                     </li>
