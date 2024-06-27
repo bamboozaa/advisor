@@ -65,7 +65,10 @@
 
                                     <th class="text-center text-nowrap" colspan="3">{{ __('สถานะ') }}</th>
                                     <th rowspan="2"></th>
-                                    <th rowspan="2"></th>
+                                    @if (Auth::user()->role == 1)
+                                        <th rowspan="2"></th>
+                                    @endif
+
                                 </tr>
                                 <tr>
                                     <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}</th>
@@ -133,29 +136,32 @@
                                             <td class="text-center">{{ $f > 0 ? $f : '' }}</td>
                                             <td class="text-center">
                                                 @if ($advisor->status === 1)
-                                                    <span class="badge badge-success">{{ __('Active') }}</span>
+                                                    <span class="badge rounded-pill bg-success">{{ __('Active') }}</span>
                                                 @endif
 
                                                 @if ($advisor->status === 0)
-                                                    <span class="badge badge-danger">{{ __('Not Active') }}</span>
+                                                    <span class="badge rounded-pill bg-danger">{{ __('Not Active') }}</span>
                                                 @endif
 
                                             </td>
-                                            <td class="text-center">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button"
-                                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="bi bi-three-dots-vertical"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a href="{{ route('reports.show', $advisor) }}" class="dropdown-item text-info">info</a>
-                                                        <a href="{{ route('reports.edit', $advisor) }}" class="dropdown-item text-warning">{{ __('Edit') }}</a>
+                                            @if (Auth::user()->role == 1)
+                                                <td class="text-center">
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a href="{{ route('reports.show', $advisor) }}" class="dropdown-item text-info">info</a>
+                                                            <a href="{{ route('reports.edit', $advisor) }}" class="dropdown-item text-warning">{{ __('Edit') }}</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
-                                                    <i class="bi bi-info-circle"></i></a> --}}
+                                                    {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
+                                                        <i class="bi bi-info-circle"></i></a> --}}
 
-                                            </td>
+                                                </td>
+                                            @endif
+
                                         </tr>
                                     @endforeach
                                 @else
