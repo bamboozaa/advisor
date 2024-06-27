@@ -89,10 +89,9 @@
                                         <option value="0">Not Active</option>
                                         <option value="1">Active</option>
                                     </select>
-                                    <label for="floatingSelectGrid">สถานะอาจารย์ที่ปรึกษา<span class="position-absolute start-300 translate-middle badge rounded-pill bg-danger">
-                                        {{ count($advisors) }}
-                                        <span class="visually-hidden">unread messages</span>
-                                      </span></label>
+                                    <label for="floatingSelectGrid">
+                                        สถานะอาจารย์ที่ปรึกษา
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -116,8 +115,8 @@
                                     <label for="project">ประเภทโครงการ</label>
                                 </div>
                             </div>
-                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 200px">
-                                <button type="submit" class="btn btn-primary rounded" type="button">{{ __('ค้นหา') }}</button>
+                            <div class="col-lg-3 d-grid mx-auto text-center position-relative" style="width: 200px">
+                                <button type="submit" class="btn btn-primary rounded" type="button">{{ __('ค้นหา') }} <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ count($advisors) }} <span class="visually-hidden">unread messages</span></span></button>
                             </div>
                         </div>
                     </section>
