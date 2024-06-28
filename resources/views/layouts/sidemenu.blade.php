@@ -31,6 +31,12 @@
                             <span class="d-none d-sm-inline ms-2">{{ __('อาจารย์ที่ปรึกษา') }}</span>
                         </a>
                     </li>
+                    <li class="w-100">
+                        <a href="{{ route('reports.index_students') }}" class="nav-link px-0 text-white ms-2 {{ request()->routeIs('reports.index_students') ? 'active' : '' }}">
+                            <i class="bi bi-file-bar-graph fs-5"></i>
+                            <span class="d-none d-sm-inline ms-2">{{ __('นักศึกษา') }}</span>
+                        </a>
+                    </li>
                     {{-- <li>
                         <a href="{{ route('qualifications.index') }}" class="nav-link px-0 text-white ms-2 {{ request()->routeIs('qualifications.*') ? 'active' : '' }}">
                             <i class="bi bi-sliders fs-5"></i>

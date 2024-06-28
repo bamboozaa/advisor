@@ -61,7 +61,8 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th class="text-left" scope="col" colspan="4">{{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</th>
+                                        <th class="text-left" scope="col" colspan="4">
+                                            {{ __('ข้อมูลอาจารย์ที่ปรึกษา') }}</th>
                                     </tr>
                                     <tr>
                                         <th class="align-middle text-end" style="background-color: #0c8ccc" scope="col">
@@ -75,7 +76,8 @@
                                         </th>
                                         <td>
                                             {!! Form::text(
-                                                'adv_academic', !isset($advisor->academic['academic']) ? '' : old('name', $advisor->academic['academic']),
+                                                'adv_academic',
+                                                !isset($advisor->academic['academic']) ? '' : old('name', $advisor->academic['academic']),
                                                 [
                                                     'class' => 'form-control',
                                                     'readonly',
@@ -88,11 +90,13 @@
                                             {!! Form::label('adv_fname', 'ชื่อ - นามสกุล', ['class' => 'form-control-plaintext text-light']) !!}
                                         </th>
                                         <td>
-                                            {!! Form::text('adv_fname', old('name', $advisor->qualification['abbreviation']) .
-                                                ' ' .
-                                                old('name', $advisor->adv_fname) .
-                                                ' ' .
-                                                old('name', $advisor->adv_lname),
+                                            {!! Form::text(
+                                                'adv_fname',
+                                                old('name', $advisor->qualification['abbreviation']) .
+                                                    ' ' .
+                                                    old('name', $advisor->adv_fname) .
+                                                    ' ' .
+                                                    old('name', $advisor->adv_lname),
                                                 [
                                                     'class' => 'form-control',
                                                     'readonly',
@@ -123,20 +127,58 @@
             //     ${$key} = $value;
             // endforeach;
         @endphp
+        {{-- <div class="row justify-content-center gx-5 mt-3">
+            <div class="col-md-4">
+                <div class="card p-3 mb-2">
+                    <div class="mt-3">
+                        <h3 class="heading">Senior Product<br>Designer-Singapore</h3>
+                        <div class="mt-3">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="{{ $quota_thesis }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="mt-3">
+                                <span class="text1">{{ $quota_thesis }} Applied <span class="text2">of 50 capacity</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 mb-2">
+                    <div class="mt-3">
+                        <h3 class="heading">Senior Product<br>Designer-Singapore</h3>
+                        <div class="mt-3">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="{{ $quota_is }}" aria-valuemin="0" aria-valuemax="15"></div>
+                            </div>
+                            <div class="mt-3">
+                                <span class="text1">{{ $quota_is }} Applied <span class="text2">of 50 capacity</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
 
         <div class="row justify-content-center mt-3">
             <div class="d-grid gap-2 d-md-block text-center">
                 @if ($quota_thesis <= 0)
-                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1, 'id' => $advisor->id]) }}" class="btn btn-outline-primary disabled me-1" tabindex="-1" aria-disabled="true" role="button" data-bs-toggle="button">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quota_thesis }}</a>
+                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1, 'id' => $advisor->id]) }}"
+                        class="btn btn-outline-primary disabled me-1" tabindex="-1" aria-disabled="true" role="button"
+                        data-bs-toggle="button">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quota_thesis }}</a>
                 @else
-                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1, 'id' => $advisor->id]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quota_thesis }}</a>
+                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 1, 'id' => $advisor->id]) }}"
+                        class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือวิทยานิพนธ์ :') . $quota_thesis }}</a>
                 @endif
 
                 @if ($quota_is <= 0)
-                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}" class="btn btn-outline-primary disabled me-1" tabindex="-1" aria-disabled="true" role="button" data-bs-toggle="button">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quota_is }}</a>
+                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}"
+                        class="btn btn-outline-primary disabled me-1" tabindex="-1" aria-disabled="true" role="button"
+                        data-bs-toggle="button">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quota_is }}</a>
                 @else
                     {{-- <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quata_is }}</a> --}}
-                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}" class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quota_is }}</a>
+                    <a href="{{ route('students.create', ['adv_id' => $advisor->adv_id, 'project' => 2, 'id' => $advisor->id]) }}"
+                        class="btn btn-outline-primary me-1">{{ __('โค้วต้าคงเหลือค้นคว้าอิสระ :') . $quota_is }}</a>
                 @endif
 
             </div>
@@ -150,8 +192,8 @@
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-home" type="button" role="tab"
-                                        aria-controls="nav-home" aria-selected="true">{{ __('รายชื่อนักศึกษา') }}
+                                        data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">{{ __('รายชื่อนักศึกษา') }}
                                     </button>
                                     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-profile" type="button" role="tab"
@@ -159,7 +201,8 @@
                                     </button>
                                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-contact" type="button" role="tab"
-                                        aria-controls="nav-contact" aria-selected="false">{{ __('หลักสูตรที่ประจำหรือสอน') }}
+                                        aria-controls="nav-contact"
+                                        aria-selected="false">{{ __('หลักสูตรที่ประจำหรือสอน') }}
                                     </button>
                                     <button class="nav-link" id="nav-contact2-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-contact2" type="button" role="tab"
@@ -168,7 +211,8 @@
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
                                     <table class="table table-hover table-sm">
                                         <thead class="bg-light">
                                             <tr>
@@ -176,8 +220,10 @@
                                                 <th class="text-nowrap" scope="col">{{ __('รหัสนักศึกษา') }}</th>
                                                 <th scope="col" class="text-nowrap">{{ __('ชื่อ - นามสกุล') }}</th>
                                                 <th scope="col" class="text-nowrap">{{ __('คณะวิชา') }}</th>
-                                                <th style="white-space:nowrap" scope="col">{{ __('ปีการศึกษา/ภาค') }}</th>
-                                                <th style="white-space:nowrap" scope="col">{{ __('งานวิจัยทางวิชาการ') }}</th>
+                                                <th style="white-space:nowrap" scope="col">{{ __('ปีการศึกษา/ภาค') }}
+                                                </th>
+                                                <th style="white-space:nowrap" scope="col">
+                                                    {{ __('งานวิจัยทางวิชาการ') }}</th>
                                                 <th width="100%" scope="col">{{ __('หัวข้องานวิจัยเรื่อง') }}</th>
                                             </tr>
                                         </thead>
@@ -188,23 +234,26 @@
                                                 @endphp
                                                 @foreach ($advisor->projects as $key => $project)
                                                     @if ($project->project_status == 0)
-                                                    <tr>
-                                                        <td class="align-top">{{ $n++ }}</td>
-                                                        <td class="align-top">
-                                                            <a href="{{ route('students.show', $project->student['id']) }}">{{ $project->student_id }}</a>
-                                                        </td>
-                                                        <td class="text-nowrap">
-                                                            {{ $project->student['std_title'] . ' ' . $project->student['std_fname'] . ' ' . $project->student['std_lname'] }}
-                                                        </td>
-                                                        <td class="align-top text-nowrap">
-                                                            {{ $project->student->department['dep_name'] }}
-                                                        </td>
-                                                        <td class="text-center">{{ $project->student['academic_year'] . '/' . $project->student['semester'] }}</td>
-                                                        <td style="white-space:nowrap" class="align-top text-left">
-                                                            {{ $project['project'] === 1 ? 'วิทยานิพนธ์' : '' }}
-                                                            {{ $project['project'] === 2 ? 'ค้นคว้าอิสระ' : '' }}</td>
-                                                        <td class="text-left">{{ $project['title_research'] }}</td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td class="align-top">{{ $n++ }}</td>
+                                                            <td class="align-top">
+                                                                <a
+                                                                    href="{{ route('students.show', $project->student['id']) }}">{{ $project->student_id }}</a>
+                                                            </td>
+                                                            <td class="text-nowrap">
+                                                                {{ $project->student['std_title'] . ' ' . $project->student['std_fname'] . ' ' . $project->student['std_lname'] }}
+                                                            </td>
+                                                            <td class="align-top text-nowrap">
+                                                                {{ $project->student->department['dep_name'] }}
+                                                            </td>
+                                                            <td class="text-center">
+                                                                {{ $project->student['academic_year'] . '/' . $project->student['semester'] }}
+                                                            </td>
+                                                            <td style="white-space:nowrap" class="align-top text-left">
+                                                                {{ $project['project'] === 1 ? 'วิทยานิพนธ์' : '' }}
+                                                                {{ $project['project'] === 2 ? 'ค้นคว้าอิสระ' : '' }}</td>
+                                                            <td class="text-left">{{ $project['title_research'] }}</td>
+                                                        </tr>
                                                     @endif
                                                 @endforeach
                                             @else
@@ -223,7 +272,7 @@
                                 <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">...
                                 </div>
-                                    <div class="tab-pane fade" id="nav-contact2" role="tabpanel"
+                                <div class="tab-pane fade" id="nav-contact2" role="tabpanel"
                                     aria-labelledby="nav-contact2-tab">
                                     contact2
                                 </div>
