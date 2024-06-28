@@ -43,6 +43,10 @@ class ReportController extends Controller
             $students = Student::where('academic_year', $request->input('academic_year'))->get();
         }
 
+        if (!is_null($request->input('fac_id')) && !is_null($request->input('academic_year'))) {
+            $students = Student::where('fac_id', $request->input('fac_id'))->where('academic_year', $request->input('academic_year'))->get();
+        }
+
         return view('reports.students.index', compact('students', 'faculties', 'minYear', 'maxYear'));
     }
 
