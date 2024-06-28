@@ -143,7 +143,8 @@ return [
                 |
                 */
 
-                'hosts' => explode(' ', env('LDAP_HOSTS', 'cdc1.utcc-net.utcc-domain.local')),
+                // 'hosts' => explode(' ', env('LDAP_HOSTS', 'cdc1.utcc-net.utcc-domain.local')),
+                'hosts' => explode(' ', env('LDAP_HOSTS', 'look.utcc.ac.th')),
 
                 /*
                 |--------------------------------------------------------------------------

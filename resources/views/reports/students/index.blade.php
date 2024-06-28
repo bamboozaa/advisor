@@ -113,17 +113,6 @@
                                     <label for="project">ประเภทโครงการ</label>
                                 </div> --}}
                             </div>
-                            <div class="col-lg-2">
-                                {{-- <div class="form-floating">
-                                    <select name="project" class="form-select" id="project"
-                                        aria-label="Floating label select project">
-                                        <option value="" selected>Open this select menu</option>
-                                        <option value="1">วิทยานิพนธ์</option>
-                                        <option value="2">การค้นคว้าอิสระ</option>
-                                    </select>
-                                    <label for="project">ประเภทโครงการ</label>
-                                </div> --}}
-                            </div>
                             <div class="col-lg-3 d-grid mx-auto text-center" style="width: 200px">
                                 <button type="submit" class="btn btn-primary rounded"
                                     type="button">{{ __('ค้นหา') }}</button>
@@ -133,7 +122,7 @@
                 </form>
                 <div class="card-body" style="padding: 0rem !important;">
                     <div class="table-responsive mt-3" style="overflow-x: hidden">
-                        <table class="table table-striped table-bordered table-hover" style="width: 100%">
+                        <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th class="text-center text-nowrap align-middle">
@@ -146,14 +135,14 @@
                                             </span>
                                         </div>
                                     </th>
-                                    <th class="text-center text-nowrap align-middle">{{ __('รหัสนักศึกษา') }}</th>
+                                    {{-- <th class="text-center text-nowrap align-middle">{{ __('รหัสนักศึกษา') }}</th> --}}
                                     <th class="text-nowrap align-middle text-center">{{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-nowrap align-middle text-center">{{ __('หลักสูตร') }}</th>
                                     <th class="text-nowrap align-middle text-center">{{ __('คณะวิชา') }}</th>
-                                    <th class="text-center text-nowrap">{{ __('อาจารย์ที่ปรึกษา') }}</th>
+                                    {{-- <th class="text-center text-nowrap">{{ __('อาจารย์ที่ปรึกษา') }}</th> --}}
                                     <th class="text-center text-nowrap align-middle">{{ __('งานวิจัย') }}</th>
                                     <th class="text-center text-nowrap align-middle">{{ __('ปีการศึกษา') }}</th>
-                                    <th class="text-center align-middle">{{ __('เรื่อง') }}</th>
+                                    {{-- <th class="text-center align-middle">{{ __('เรื่อง') }}</th> --}}
                                     <th class="text-center align-middle">{{ __('สถานะ') }}</th>
                                 </tr>
                             </thead>
@@ -165,22 +154,22 @@
                                     @foreach ($students as $key => $student)
                                         <tr>
                                             <td class="text-center">{{ $n++ }}</td>
-                                            <td>
-                                                {{-- <a href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a> --}}
+                                            {{-- <td>
+                                                <a href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a>
                                                 {{ $student->student_id }}
-                                            </td>
+                                            </td> --}}
                                             <td class="text-nowrap">{{ $student->std_fname . ' ' . $student->std_lname }}
                                             </td>
                                             <td class="text-nowrap">
                                                 {{ !isset($student->faculty['fac_name']) ? '' : $student->faculty['fac_name'] }}
                                             </td>
                                             <td class="text-nowrap">{{ $student->department['dep_name'] }}</td>
-                                            <td class="text-nowrap">
+                                            {{-- <td class="text-nowrap">
                                                 {{ $student->projectAdvisor->academic['academic'] . ' ' . $student->projectAdvisor->qualification['abbreviation'] . ' ' . $student->projectAdvisor['adv_fname'] . ' ' . $student->projectAdvisor['adv_lname'] }}
-                                            </td>
+                                            </td> --}}
                                             <td class="text-center">{{ $student->project['project'] === 1 ? 'Thesis' : 'IS' }}</td>
                                             <td class="text-center">{{ $student->academic_year }}</td>
-                                            <td>{{ $student->project['title_research'] }}</td>
+                                            {{-- <td>{{ $student->project['title_research'] }}</td> --}}
                                             <td class="text-center text-nowrap">
                                                 @if ($student->project['project_status'] === 0)
                                                     <span
