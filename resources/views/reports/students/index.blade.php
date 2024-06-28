@@ -74,13 +74,13 @@
                     @csrf
                     <section class="py-3">
                         <div class="row">
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <div class="form-floating">
                                     {!! Form::select('fac_id', [null => 'Open this select menu'] + $faculties->toArray(), null, ['class' => 'form-select', 'id' => 'floatingSelectGrid',]) !!}
                                     <label for="floatingSelectGrid">หลักสูตร</label>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <div class="form-floating">
                                     <select class = "form-select" name="academic_year" aria-label="Floating label select academic_year">
                                         <option value="" selected>{{ __('Open this select menu') }}</option>
@@ -91,18 +91,7 @@
                                     <label for="academic_year">ปีการศึกษา</label>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
-                                {{-- <div class="form-floating">
-                                    <select name="project" class="form-select" id="project"
-                                        aria-label="Floating label select project">
-                                        <option value="" selected>Open this select menu</option>
-                                        <option value="1">วิทยานิพนธ์</option>
-                                        <option value="2">การค้นคว้าอิสระ</option>
-                                    </select>
-                                    <label for="project">ประเภทโครงการ</label>
-                                </div> --}}
-                            </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 {{-- <div class="form-floating">
                                     <select name="project" class="form-select" id="project"
                                         aria-label="Floating label select project">
