@@ -165,8 +165,9 @@
                                     @foreach ($students as $key => $student)
                                         <tr>
                                             <td class="text-center">{{ $n++ }}</td>
-                                            <td><a
-                                                    href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a>
+                                            <td>
+                                                {{-- <a href="{{ route('students.show', $student->id) }}">{{ $student->student_id }}</a> --}}
+                                                {{ $student->student_id }}
                                             </td>
                                             <td class="text-nowrap">{{ $student->std_fname . ' ' . $student->std_lname }}
                                             </td>
