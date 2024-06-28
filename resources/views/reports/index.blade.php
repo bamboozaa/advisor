@@ -84,7 +84,8 @@
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-floating">
-                                    <select name="status" class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                    <select name="status" class="form-select" id="floatingSelectGrid"
+                                        aria-label="Floating label select example">
                                         <option selected>Open this select menu</option>
                                         <option value="0">Not Active</option>
                                         <option value="1">Active</option>
@@ -96,7 +97,8 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-floating">
-                                    <select name="project_status" class="form-select" id="project_status" aria-label="Floating label select project_status">
+                                    <select name="project_status" class="form-select" id="project_status"
+                                        aria-label="Floating label select project_status">
                                         <option value="" selected>Open this select menu</option>
                                         <option value="0">อยู่ระหว่างดำเนินการ</option>
                                         <option value="1">ผ่าน</option>
@@ -107,7 +109,8 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-floating">
-                                    <select name="project" class="form-select" id="project" aria-label="Floating label select project">
+                                    <select name="project" class="form-select" id="project"
+                                        aria-label="Floating label select project">
                                         <option value="" selected>Open this select menu</option>
                                         <option value="1">วิทยานิพนธ์</option>
                                         <option value="2">การค้นคว้าอิสระ</option>
@@ -115,8 +118,9 @@
                                     <label for="project">ประเภทโครงการ</label>
                                 </div>
                             </div>
-                            <div class="col-lg-3 d-grid mx-auto text-center position-relative" style="width: 200px">
-                                <button type="submit" class="btn btn-primary rounded" type="button">{{ __('ค้นหา') }} <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ count($advisors) }} <span class="visually-hidden">unread messages</span></span></button>
+                            <div class="col-lg-3 d-grid mx-auto text-center" style="width: 200px">
+                                <button type="submit" class="btn btn-primary rounded"
+                                    type="button">{{ __('ค้นหา') }}</button>
                             </div>
                         </div>
                     </section>
@@ -127,7 +131,15 @@
                             style="font-size: 1rem; line-height: 1.5rem;">
                             <thead class="table-light">
                                 <tr>
-                                    <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}
+                                    <th class="text-center text-nowrap align-middle" rowspan="2">
+                                        <div class="position-relative">
+                                            {{ __('No.') }}
+                                            <span
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                {{ count($advisors) }}
+                                                <span class="visually-hidden">unread messages</span>
+                                            </span>
+                                        </div>
                                     </th>
                                     <th class="text-nowrap align-middle text-center" rowspan="2">
                                         {{ __('ชื่อ - นามสกุล') }}</th>
