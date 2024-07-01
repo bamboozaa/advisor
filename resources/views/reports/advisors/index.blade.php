@@ -101,7 +101,7 @@
                     <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span
                         style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('รายงานข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
                 </div>
-                <form method="GET" action="{{ route('reports.index') }}" enctype="multipart/form-data">
+                <form method="GET" action="{{ route('report-advisors.index') }}" enctype="multipart/form-data">
                     @csrf
                     <section class="py-3">
                         <div class="row">
