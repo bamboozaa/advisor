@@ -32,9 +32,9 @@
 
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <form method="POST" action="{{ route('reports.update', old('name', $advisor->id)) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('report-advisors.update', old('name', $report_advisor->id)) }}" enctype="multipart/form-data">
                     @csrf
-                    {{-- @method('UPDATE') --}}
+                    @method('PATCH')
                     <div class="card bg-white">
                         <div class="card-header">
                             <h5 class="mb-0">
@@ -47,22 +47,22 @@
                                 <div class="row mb-3">
                                     <div class="col-lg-6">
                                         <label for="adv_id" class="form-label">{{ __('รหัสอาจารย์ที่ปรึกษา') }}</label>
-                                        <input type="text" name="adv_id" class="form-control text-info" value="{{ old('name', $advisor->adv_id) }}" />
+                                        <input type="text" name="adv_id" class="form-control text-info" value="{{ old('name', $report_advisor->adv_id) }}" />
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="adv_title" class="form-label">{{ __('คำนำหน้าชื่อตามบัตรประชาชน') }}</label>
-                                        <input type="text" name="adv_title" class="form-control text-info" value="{{ old('name', $advisor->adv_title) }}" />
+                                        <input type="text" name="adv_title" class="form-control text-info" value="{{ old('name', $report_advisor->adv_title) }}" />
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-lg-6">
                                         <label for="adv_fname" class="form-label">{{ __('ชื่อ') }}</label>
-                                        <input type="text" name="adv_fname" class="form-control text-info" value="{{ old('name', $advisor->adv_fname) }}" />
+                                        <input type="text" name="adv_fname" class="form-control text-info" value="{{ old('name', $report_advisor->adv_fname) }}" />
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="adv_lname" class="form-label">{{ __('นามสกุล') }}</label>
-                                        <input type="text" name="adv_lname" class="form-control text-info" value="{{ old('name', $advisor->adv_lname) }}" />
+                                        <input type="text" name="adv_lname" class="form-control text-info" value="{{ old('name', $report_advisor->adv_lname) }}" />
                                     </div>
                                 </div>
 
@@ -71,13 +71,13 @@
                                         <label for="academic" class="form-label">
                                             {{ __('ตำแหน่งทางวิชาการ') }}
                                         </label>
-                                        {!! Form::select('aca_id', $academics, old('name', $advisor->aca_id), ['class' => 'form-select text-info', 'placeholder' => 'Please Select ...']) !!}
+                                        {!! Form::select('aca_id', $academics, old('name', $report_advisor->aca_id), ['class' => 'form-select text-info', 'placeholder' => 'Please Select ...']) !!}
                                     </div>
                                     <div class="col-lg-6">
                                         <label for="qualification" class="form-label">
                                             {{ __('วุฒิการศึกษา') }}
                                         </label>
-                                        {!! Form::select('qua_id', $qualifications, old('name', $advisor->qua_id), [
+                                        {!! Form::select('qua_id', $qualifications, old('name', $report_advisor->qua_id), [
                                             'class' => 'form-select text-info',
                                             'placeholder' => 'Please Select ...',
                                         ]) !!}
@@ -89,7 +89,7 @@
                                         <label for="academic" class="form-label">
                                             {{ __('Status') }}
                                         </label>
-                                        {!! Form::select('status', [1 => 'Active', 0 => 'Not Active'], old('name', $advisor->status), ['class' => 'form-select text-info', 'placeholder' => 'Please Select ...']) !!}
+                                        {!! Form::select('status', [1 => 'Active', 0 => 'Not Active'], old('name', $report_advisor->status), ['class' => 'form-select text-info', 'placeholder' => 'Please Select ...']) !!}
                                     </div>
                                     <div class="col-lg-6">
 

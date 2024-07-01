@@ -29,6 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => 'auth'], function() {
     Route::resource('advisors', App\Http\Controllers\AdvisorController::class);
+    Route::resource('report-advisors', App\Http\Controllers\Report_advisorController::class);
     Route::resource('students', App\Http\Controllers\StudentController::class);
     Route::resource('academics', App\Http\Controllers\AcademicController::class);
     Route::resource('qualifications', App\Http\Controllers\QualificationController::class);

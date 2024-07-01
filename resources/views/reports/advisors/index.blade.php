@@ -20,31 +20,54 @@
                 title: 'Success!',
                 text: '{{ session('success') }}',
                 icon: 'success'
+            }).then((result) => {
+                let timerInterval;
+                Swal.fire({
+                    title: "Please wait...!",
+                    // html: "I will close in <b></b> milliseconds.",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            // timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log("I was closed by the timer");
+                    }
+                });
+            });
+        @elseif (!session('error'))
+            let timerInterval;
+            Swal.fire({
+                title: "Please wait...!",
+                // html: "I will close in <b></b> milliseconds.",
+                timer: 1000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timer = Swal.getPopup().querySelector("b");
+                    timerInterval = setInterval(() => {
+                        // timer.textContent = `${Swal.getTimerLeft()}`;
+                    }, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log("I was closed by the timer");
+                }
             });
         @endif
-
-        let timerInterval;
-        Swal.fire({
-            title: "Please wait...!",
-            // html: "I will close in <b></b> milliseconds.",
-            timer: 1000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading();
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    // timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
-            },
-            willClose: () => {
-                clearInterval(timerInterval);
-            }
-        }).then((result) => {
-            /* Read more about handling dismissals below */
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-            }
-        });
 
         // new DataTable('#example');
     </script>
@@ -173,7 +196,7 @@
                                         <tr>
                                             <td class="text-center">{{ $n++ }}</td>
                                             <td class="text-nowrap">
-                                                <a href="{{ route('reports.show', $advisor) }}"
+                                                <a href="{{ route('report-advisors.show', $advisor) }}"
                                                     class="link-offset-2 link-underline link-underline-opacity-0">
                                                     {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                                 </a>
@@ -240,10 +263,16 @@
                                                             <i class="bi bi-three-dots-vertical"></i>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
-                                                            <a href="{{ route('reports.show', $advisor) }}"
-                                                                class="dropdown-item text-info">info</a>
-                                                            <a href="{{ route('reports.edit', $advisor) }}"
-                                                                class="dropdown-item text-warning">{{ __('Edit') }}</a>
+                                                            <a href="{{ route('report-advisors.show', $advisor) }}" class="dropdown-item text-info">info</a>
+                                                            <a href="{{ route('report-advisors.edit', $advisor) }}" class="dropdown-item text-warning">{{ __('Edit') }}</a>
+                                                            <form action="{{ route('report-advisors.destroy', $advisor) }}" method="POST" style="display: inline;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="dropdown-item text-danger"
+                                                                    onclick="return confirm('Are you sure you want to delete this department?')">
+                                                                    {{ __('Delete') }}
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                     {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">

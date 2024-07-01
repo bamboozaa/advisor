@@ -33,7 +33,7 @@
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
                         {{-- <li class="breadcrumb-item"><a href="{{ url('advisors') }}">{{ __('Advisors') }}</a></li> --}}
                         <li class="breadcrumb-item active" aria-current="page">
-                            {{ (!isset($advisor->academic['abbreviation']) ? '' : old('name', $advisor->academic['abbreviation']) . ' ') . old('name', $advisor->qualification['abbreviation']) . ' ' . old('name', $advisor->adv_fname) . ' ' . old('name', $advisor->adv_lname) }}
+                            {{ (!isset($report_advisor->academic['abbreviation']) ? '' : old('name', $report_advisor->academic['abbreviation']) . ' ') . old('name', $report_advisor->qualification['abbreviation']) . ' ' . old('name', $report_advisor->adv_fname) . ' ' . old('name', $report_advisor->adv_lname) }}
                         </li>
                     </ol>
                 </nav>
@@ -68,14 +68,14 @@
                                             {!! Form::label('adv_title', 'คำนำหน้าชื่อ', ['class' => 'form-control-plaintext text-light']) !!}
                                         </th>
                                         <td>
-                                            {!! Form::text('adv_title', old('name', $advisor->adv_title), ['class' => 'form-control col-md-4', 'readonly']) !!}
+                                            {!! Form::text('adv_title', old('name', $report_advisor->adv_title), ['class' => 'form-control col-md-4', 'readonly']) !!}
                                         </td>
                                         <th class="align-middle text-end" style="background-color: #0c8ccc" scope="col">
                                             {!! Form::label('adv_academic', 'ตำแหน่งทางวิชาการ', ['class' => 'form-control-plaintext text-light']) !!}
                                         </th>
                                         <td>
                                             {!! Form::text(
-                                                'adv_academic', !isset($advisor->academic['academic']) ? '' : old('name', $advisor->academic['academic']),
+                                                'adv_academic', !isset($report_advisor->academic['academic']) ? '' : old('name', $report_advisor->academic['academic']),
                                                 [
                                                     'class' => 'form-control',
                                                     'readonly',
@@ -88,11 +88,11 @@
                                             {!! Form::label('adv_fname', 'ชื่อ - นามสกุล', ['class' => 'form-control-plaintext text-light']) !!}
                                         </th>
                                         <td>
-                                            {!! Form::text('adv_fname', old('name', $advisor->qualification['abbreviation']) .
+                                            {!! Form::text('adv_fname', old('name', $report_advisor->qualification['abbreviation']) .
                                                 ' ' .
-                                                old('name', $advisor->adv_fname) .
+                                                old('name', $report_advisor->adv_fname) .
                                                 ' ' .
-                                                old('name', $advisor->adv_lname),
+                                                old('name', $report_advisor->adv_lname),
                                                 [
                                                     'class' => 'form-control',
                                                     'readonly',
@@ -103,7 +103,7 @@
                                             {!! Form::label('abbreviation', 'ตัวย่อ', ['class' => 'form-control-plaintext text-light']) !!}</th>
                                         <td>{!! Form::text(
                                             'abbreviation',
-                                            !isset($advisor->academic['abbreviation']) ? '' : old('name', $advisor->academic['abbreviation']),
+                                            !isset($report_advisor->academic['abbreviation']) ? '' : old('name', $report_advisor->academic['abbreviation']),
                                             [
                                                 'class' => 'form-control',
                                                 'readonly',
@@ -183,8 +183,8 @@
                                             </tr>
                                         </thead>
                                         <tbody class="bg-light">
-                                            @if (count($advisor->projects) > 0)
-                                                @foreach ($advisor->projects as $key => $project)
+                                            @if (count($report_advisor->projects) > 0)
+                                                @foreach ($report_advisor->projects as $key => $project)
                                                     {{-- @if ($project->project_status == 0) --}}
                                                     <tr>
                                                         <td class="align-top">{{ 1 + $key++ }}</td>
