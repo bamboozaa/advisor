@@ -128,7 +128,7 @@
                                     <th class="text-nowrap align-middle text-center">{{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-nowrap align-middle text-center">{{ __('หลักสูตร') }}</th>
                                     <th class="text-nowrap align-middle text-center">{{ __('คณะวิชา') }}</th>
-                                    {{-- <th class="text-center text-nowrap">{{ __('อาจารย์ที่ปรึกษา') }}</th> --}}
+                                    <th class="text-center text-nowrap">{{ __('อาจารย์ที่ปรึกษา') }}</th>
                                     <th class="text-center text-nowrap align-middle">{{ __('งานวิจัย') }}</th>
                                     <th class="text-center text-nowrap align-middle">{{ __('ปีการศึกษา') }}</th>
                                     {{-- <th class="text-center align-middle">{{ __('เรื่อง') }}</th> --}}
@@ -153,9 +153,9 @@
                                                 {{ !isset($student->faculty['fac_name']) ? '' : $student->faculty['fac_name'] }}
                                             </td>
                                             <td class="text-nowrap">{{ $student->department['dep_name'] }}</td>
-                                            {{-- <td class="text-nowrap">
+                                            <td class="text-nowrap">
                                                 {{ $student->projectAdvisor->academic['academic'] . ' ' . $student->projectAdvisor->qualification['abbreviation'] . ' ' . $student->projectAdvisor['adv_fname'] . ' ' . $student->projectAdvisor['adv_lname'] }}
-                                            </td> --}}
+                                            </td>
                                             <td class="text-center">{{ $student->project['project'] === 1 ? 'Thesis' : 'IS' }}</td>
                                             <td class="text-center">{{ $student->academic_year }}</td>
                                             {{-- <td>{{ $student->project['title_research'] }}</td> --}}
