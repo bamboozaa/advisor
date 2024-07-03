@@ -10,6 +10,8 @@ use App\Models\Faculty;
 use App\Models\Qualification;
 use App\Models\Academic;
 use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\DB;
+use DB;
 
 class ReportController extends Controller
 {
@@ -28,13 +30,19 @@ class ReportController extends Controller
 
     public function index_students(Request $request)
     {
-        // dd($request->input('fac_id'));
+        // return $request->input('fac_id');
         $students = Student::all()->sortByDesc('created_at')->sortByDesc('updated_at');
 
         $minYear = Student::select('academic_year')->orderBy('academic_year', 'ASC') ->first();
         $maxYear = Student::select('academic_year')->orderBy('academic_year', 'DESC') ->first();
 
         $faculties = Faculty::pluck('fac_name', 'id');
+        $advisors = DB::table("advisors")
+        ->leftJoin('academics', 'academics.id' , '=', 'advisors.aca_id')
+        ->join('qualifications', 'qualifications.id', '=', 'advisors.qua_id')
+        ->selectRaw("CONCAT (CASE WHEN academics.academic IS NULL THEN '' ELSE academics.academic END, ' ', CASE WHEN qualifications.abbreviation IS NULL THEN '' ELSE qualifications.abbreviation END, ' ', adv_fname, ' ', adv_lname) as fullname, advisors.adv_id")
+        ->where('advisors.status', 1)
+        ->pluck('fullname', 'advisors.adv_id');
         if (!is_null($request->input('fac_id'))) {
             $students = Student::where('fac_id', $request->input('fac_id'))->get();
         }
@@ -43,11 +51,16 @@ class ReportController extends Controller
             $students = Student::where('academic_year', $request->input('academic_year'))->get();
         }
 
+        if (!is_null($request->input('adv_id'))) {
+            $adv_id = $request->input('adv_id');
+            $students = Student::join('projects', 'students.student_id', '=', 'projects.student_id')->where('projects.adv_id', $adv_id)->get();
+        }
+
         if (!is_null($request->input('fac_id')) && !is_null($request->input('academic_year'))) {
             $students = Student::where('fac_id', $request->input('fac_id'))->where('academic_year', $request->input('academic_year'))->get();
         }
 
-        return view('reports.students.index', compact('students', 'faculties', 'minYear', 'maxYear'));
+        return view('reports.students.index', compact('students', 'faculties', 'minYear', 'maxYear', 'advisors'));
     }
 
     public function show(Advisor $advisor)

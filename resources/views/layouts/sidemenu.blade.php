@@ -24,7 +24,7 @@
                     <i class="bi bi-clipboard-data fs-4"></i><span class="ms-2 d-none d-sm-inline">{{ __('รายงาน') }}</span> <i
                         class="bi bi-caret-down"></i>
                 </a>
-                <ul class="collapse nav flex-column ms-1 {{ request()->routeIs('report-advisors.*') ? 'show' : '' }}" id="submenu4" data-bs-parent="#menu">
+                <ul class="collapse nav flex-column ms-1 {{ request()->routeIs('report-advisors.*') || request()->routeIs('reports.*') ? 'show' : '' }}" id="submenu4" data-bs-parent="#menu">
                     <li class="w-100">
                         <a href="{{ route('report-advisors.index') }}" class="nav-link px-0 text-white ms-2 {{ request()->routeIs('report-advisors.index') || request()->routeIs('reports.show') || request()->routeIs('reports.edit') ? 'active' : '' }}">
                             <i class="bi bi-file-bar-graph fs-5"></i>

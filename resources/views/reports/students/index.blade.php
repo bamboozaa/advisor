@@ -48,7 +48,7 @@
 @endsection
 
 @section('content')
-
+{{-- {{ dd($students) }} --}}
     <div class="container-fluid">
         <div class="row justify-content-end">
             <div class="col">
@@ -92,15 +92,10 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                {{-- <div class="form-floating">
-                                    <select name="project" class="form-select" id="project"
-                                        aria-label="Floating label select project">
-                                        <option value="" selected>Open this select menu</option>
-                                        <option value="1">วิทยานิพนธ์</option>
-                                        <option value="2">การค้นคว้าอิสระ</option>
-                                    </select>
-                                    <label for="project">ประเภทโครงการ</label>
-                                </div> --}}
+                                <div class="form-floating">
+                                    {!! Form::select('adv_id', [null => 'Open this select menu'] + $advisors->toArray(), null, ['class' => 'form-select', 'id' => 'adv_id',]) !!}
+                                    <label for="adv_id">อาจารย์ที่ปรึกษา</label>
+                                </div>
                             </div>
                             <div class="col-lg-3 d-grid mx-auto text-center" style="width: 200px">
                                 <button type="submit" class="btn btn-primary rounded"
@@ -156,18 +151,44 @@
                                             <td class="text-nowrap">
                                                 {{ $student->projectAdvisor->academic['academic'] . ' ' . $student->projectAdvisor->qualification['abbreviation'] . ' ' . $student->projectAdvisor['adv_fname'] . ' ' . $student->projectAdvisor['adv_lname'] }}
                                             </td>
-                                            <td class="text-center">{{ $student->project['project'] === 1 ? 'Thesis' : 'IS' }}</td>
+                                            <td class="text-center">
+                                                @if ($student->project)
+                                                    @if ($student->project === 1)
+                                                        Thesis
+                                                    @else
+                                                        IS
+                                                    @endif
+                                                @else
+                                                    @if ($student->project['project'] === 1)
+                                                        Thesis
+                                                    @else
+                                                        IS
+                                                    @endif
+                                                @endif
+                                                {{-- {{ $student->project['project'] === 1 ? 'Thesis' : 'IS' }} --}}
+                                            </td>
                                             <td class="text-center">{{ $student->academic_year }}</td>
                                             {{-- <td>{{ $student->project['title_research'] }}</td> --}}
                                             <td class="text-center text-nowrap">
-                                                @if ($student->project['project_status'] === 0)
-                                                    <span
-                                                        class="badge rounded-pill bg-primary">{{ __('อยู่ระหว่างดำเนินการ') }}</span>
-                                                @elseif ($student->project['project_status'] === 1)
-                                                    <span class="badge rounded-pill bg-success">{{ __('ผ่าน') }}</span>
-                                                @elseif ($student->project['project_status'] === 2)
-                                                    <span class="badge rounded-pill bg-danger">{{ __('ไม่ผ่าน') }}</span>
+
+                                                @if ($student->project_status)
+                                                    @if ($student->project_status === 0)
+                                                        <span class="badge rounded-pill bg-primary">{{ __('อยู่ระหว่างดำเนินการ') }}</span>
+                                                    @elseif ($student->project_status === 1)
+                                                        <span class="badge rounded-pill bg-success">{{ __('ผ่าน') }}</span>
+                                                    @elseif ($student->project_status === 2)
+                                                        <span class="badge rounded-pill bg-danger">{{ __('ไม่ผ่าน') }}</span>
+                                                    @endif
+                                                @else
+                                                    @if ($student->project['project_status'] === 0)
+                                                        <span class="badge rounded-pill bg-primary">{{ __('อยู่ระหว่างดำเนินการ') }}</span>
+                                                    @elseif ($student->project['project_status'] === 1)
+                                                        <span class="badge rounded-pill bg-success">{{ __('ผ่าน') }}</span>
+                                                    @elseif ($student->project['project_status'] === 2)
+                                                        <span class="badge rounded-pill bg-danger">{{ __('ไม่ผ่าน') }}</span>
+                                                    @endif
                                                 @endif
+
                                             </td>
                                         </tr>
                                     @endforeach
