@@ -170,8 +170,9 @@
                                             <td class="text-center">{{ $student->academic_year }}</td>
                                             {{-- <td>{{ $student->project['title_research'] }}</td> --}}
                                             <td class="text-center text-nowrap">
-
-                                                @if ($student->project_status)
+                                                {{-- {{ gettype($student->project_status) }}
+                                                {{ $student->project_status }} --}}
+                                                @if ($student->project_status || $student->project_status === 0)
                                                     @if ($student->project_status === 0)
                                                         <span class="badge rounded-pill bg-primary">{{ __('อยู่ระหว่างดำเนินการ') }}</span>
                                                     @elseif ($student->project_status === 1)
