@@ -18,7 +18,6 @@
     </div>
     {{-- /  Banner Image --}}
 
-
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">

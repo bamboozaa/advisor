@@ -7,6 +7,8 @@ use App\Models\Academic;
 use App\Models\Advisor;
 use App\Models\Student;
 use App\Models\Project;
+use App\Models\User;
+use DB;
 
 class HomeController extends Controller
 {
@@ -41,6 +43,16 @@ class HomeController extends Controller
         $tcism = Student::where('dep_id', 4)->get();
         $tcism_pass = Student::join('projects', 'students.student_id', '=', 'projects.student_id')->where('dep_id', 4)->where('projects.project_status', 1)->get();
         $harbour = Student::where('dep_id', 5)->get();
+
+        $users = User::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
+                    ->whereYear('created_at', date('Y'))
+                    ->groupBy(DB::raw("Month(created_at)"))
+                    ->pluck('count', 'month_name');
+
+        $labels = $users->keys();
+        $data = $users->values();
+
+
         return view('home', compact('academics', 'advisors', 'students', 'gs', 'ism', 'exs', 'tcism', 'harbour', 'advisors_project', 'students_pass', 'gs_pass', 'ism_pass', 'exs_pass', 'tcism_pass'));
     }
 }
