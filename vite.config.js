@@ -16,4 +16,7 @@ export default defineConfig({
             '$': 'jQuery'
         },
     },
+    build: {
+        chunkSizeWarningLimit: 1600,
+    }
 });

@@ -6,6 +6,9 @@ window.$ = jQuery;
 import swal from 'sweetalert2';
 window.Swal = swal;
 
+import Chart from 'chart.js/auto';
+window.Chart = Chart;
+
 import DataTable from 'datatables.net-bs5';
 
 let table = new DataTable('#tbl_students', {
