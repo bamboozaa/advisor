@@ -93,7 +93,7 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-floating">
-                                    {!! Form::select('adv_id', [null => 'Open this select menu'] + $advisors->toArray(), null, ['class' => 'form-select', 'id' => 'adv_id',]) !!}
+                                    {!! Form::select('adv_id', [null => 'Open this select menu'] + $advisors->toArray(), null, ['class' => 'form-select', 'id' => 'adv_id', 'data-live-search' => 'true']) !!}
                                     <label for="adv_id">อาจารย์ที่ปรึกษา</label>
                                 </div>
                             </div>
