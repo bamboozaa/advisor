@@ -89,10 +89,9 @@
                     </ol>
                 </nav>
             </div>
-            <div class="col-" style="text-align: right!important;">
-                {{-- <a href="{{ route('advisors.create') }}" class="btn btn-primary mb-2">
-                    <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New') }}</span>
-                </a> --}}
+            <div class="col text-end">
+                <a href="#" class="text-success"><i class="bi bi-file-earmark-excel-fill fs-4 shadow"></i></a>
+                <a href="#" class="text-danger"><i class="bi bi-file-pdf-fill fs-4 shadow"></i></a>
             </div>
         </div>
         <div class="row justify-content-end">
