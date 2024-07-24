@@ -69,7 +69,10 @@
             });
         @endif
 
-        new DataTable('#example');
+        let table = new DataTable('#tbl_advisors', {
+            // config options...
+            responsive: true,
+        });
     </script>
 @stop
 
@@ -99,146 +102,158 @@
 
             <div class="card bg-white">
                 <div class="card-header mt-1 text-center" style="border-bottom: 0 !important;">
-                    <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
+                    <!-- <i class="bi bi-border-all fs-6 me-2"></i> --><span
+                        style="color: #2e3191; font-size: 1.25rem; line-height: 1.75rem;">{{ __('ข้อมูลอาจารย์ที่ปรึกษาวิทยานิพนธ์ และการค้นคว้าอิสระ') }}</span>
                 </div>
                 <div class="card-body" style="padding: 0rem !important;">
-                    <div class="table-responsive mt-3" style="overflow-x: hidden">
-                        <table id="example" class="table table-bordered table-hover" style="font-size: 1rem; line-height: 1.5rem;">
-                            <thead class="table-light">
-                                <tr>
-                                    <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
-                                    <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('รหัสอาจารย์ที่ปรึกษา') }}</th>
-                                    <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}</th>
-                                    <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
-                                    <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
-                                    {{-- <th rowspan="2"></th> --}}
-                                </tr>
-                                <tr>
-                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ (IS)') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 10%;">{{ __('วิทยานิพนธ์ (Thesis)') }}</th>
-                                    <th class="text-center text-nowrap" style="width: 10%;">{{ __('การค้นคว้าอิสระ (IS)') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if (count($advisors) > 0)
-                                    @php $no = 1; @endphp
-                                    @foreach ($advisors as $key => $advisor)
-                                        <tr>
-                                            <td class="text-center">{{ $no++ }}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('advisors.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
-                                                    {{ $advisor['adv_id'] }}
-                                                </a>
-                                            </td>
+                    {{-- <div class="table-responsive mt-3" style="overflow-x: hidden"> --}}
+                    <table id="tbl_advisors" class="table table-bordered table-hover display nowrap" style="width:100%;">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="text-center text-nowrap align-middle" rowspan="2">{{ __('No.') }}</th>
+                                <th class="text-center text-nowrap align-middle" rowspan="2">
+                                    {{ __('รหัสอาจารย์ที่ปรึกษา') }}</th>
+                                <th class="text-nowrap align-middle text-center" rowspan="2">{{ __('ชื่อ - นามสกุล') }}
+                                </th>
+                                <th class="text-center text-nowrap" colspan="2">
+                                    {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
+                                <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
+                                {{-- <th rowspan="2"></th> --}}
+                            </tr>
+                            <tr>
+                                <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}
+                                </th>
+                                <th class="text-center text-nowrap" style="width: 10%">{{ __('การค้นคว้าอิสระ (IS)') }}
+                                </th>
+                                <th class="text-center text-nowrap" style="width: 10%;">{{ __('วิทยานิพนธ์ (Thesis)') }}
+                                </th>
+                                <th class="text-center text-nowrap" style="width: 10%;">{{ __('การค้นคว้าอิสระ (IS)') }}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (count($advisors) > 0)
+                                @php $no = 1; @endphp
+                                @foreach ($advisors as $key => $advisor)
+                                    <tr>
+                                        <td class="text-center">{{ $no++ }}</td>
+                                        <td class="text-center">
+                                            <a href="{{ route('advisors.show', $advisor) }}"
+                                                class="link-offset-2 link-underline link-underline-opacity-0">
+                                                {{ $advisor['adv_id'] }}
+                                            </a>
+                                        </td>
 
-                                            <td class="text-nowrap">
-                                                {{-- <a href="{{ route('advisors.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
+                                        <td class="text-nowrap">
+                                            {{-- <a href="{{ route('advisors.show', $advisor) }}" class="link-offset-2 link-underline link-underline-opacity-0">
                                                     {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
                                                 </a> --}}
-                                                {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
-                                            </td>
-                                            @php
-                                                $thesiscount = 0;
-                                                $iscount = 0;
-                                            @endphp
+                                            {{ (!isset($advisor->academic['academic']) ? '' : $advisor->academic['academic'] . ' ') . (!isset($advisor->qualification['abbreviation']) ? '' : $advisor->qualification['abbreviation'] . ' ') . $advisor->adv_fname . ' ' . $advisor->adv_lname }}
+                                        </td>
+                                        @php
+                                            $thesiscount = 0;
+                                            $iscount = 0;
+                                        @endphp
 
-                                            @foreach ($advisor->projects as $project)
+                                        @foreach ($advisor->projects as $project)
+                                            @if ($project['project'] == 1 && $project['project_status'] == 0)
+                                                @php $thesiscount++; @endphp
+                                            @endif
 
-                                                @if ($project['project'] == 1 && $project['project_status'] == 0)
-                                                    @php $thesiscount++; @endphp
-                                                @endif
-
-                                                @if ($project['project'] == 2 && $project['project_status'] == 0)
-                                                    @php $iscount++; @endphp
-                                                @endif
-
-                                            @endforeach
-                                            <td class="text-center">
-                                                {{ $thesiscount > 0 ? $thesiscount : '' }}
-                                            </td>
-                                            <td class="text-center">
-                                                {{ $iscount > 0 ? $iscount : '' }}
-                                            </td>
-                                            <td class="text-success text-center" style="background-color: #f8f9fa">
-                                                {{-- @if ($iscount > 0) --}}
-                                                @if (isset($advisor->academic['thesis']))
-                                                    {{ (($advisor->academic['thesis']  - ceil($iscount/3)) - $thesiscount) == 0 ? "Full" : ($advisor->academic['thesis']  - ceil(($iscount)/3))- $thesiscount }}
-                                                    @php
-                                                        $quota_thesis = ($advisor->academic['thesis']  - ceil(($iscount)/3))- $thesiscount;
-                                                        // echo $quota_thesis;
-                                                    @endphp
-                                                @elseif (!isset($advisor->academic['thesis']))
-                                                    {{ ($advisor->qualification['thesis'] - ceil($iscount/3)) - $thesiscount }}
-                                                    @php
-                                                        $quota_thesis = ($advisor->qualification['thesis'] - ceil($iscount/3)) - $thesiscount;
-                                                        // echo $quota_thesis;
-                                                    @endphp
-                                                @endif
-                                            </td>
-                                            <td class="text-success text-center" style="background-color: #f8f9fa">
-                                                @if (isset($advisor->academic['thesis']) && $thesiscount === 0)
-                                                    {{ (15 - $iscount) <= 0 ? "" : (15 - $iscount) }}
-                                                    @php
-                                                        $quota_is = 15 - $iscount;
-                                                        // echo $quota_is;
-                                                    @endphp
-                                                @elseif (isset($advisor->academic['thesis']) && $thesiscount > 0 && $iscount !== 0)
-                                                    @php
-                                                        $p = (10 - $thesiscount) * 3;
-                                                        $q = $thesiscount + $p;
-                                                        if ($q <= 15) {
-                                                            if (($p - $iscount) <= 0) {
-                                                                $n = 0;
-                                                            } else {
-                                                                $n = $p - $iscount;
-                                                            }
+                                            @if ($project['project'] == 2 && $project['project_status'] == 0)
+                                                @php $iscount++; @endphp
+                                            @endif
+                                        @endforeach
+                                        <td class="text-center">
+                                            {{ $thesiscount > 0 ? $thesiscount : '' }}
+                                        </td>
+                                        <td class="text-center">
+                                            {{ $iscount > 0 ? $iscount : '' }}
+                                        </td>
+                                        <td class="text-success text-center" style="background-color: #f8f9fa">
+                                            {{-- @if ($iscount > 0) --}}
+                                            @if (isset($advisor->academic['thesis']))
+                                                {{ $advisor->academic['thesis'] - ceil($iscount / 3) - $thesiscount == 0 ? 'Full' : $advisor->academic['thesis'] - ceil($iscount / 3) - $thesiscount }}
+                                                @php
+                                                    $quota_thesis =
+                                                        $advisor->academic['thesis'] -
+                                                        ceil($iscount / 3) -
+                                                        $thesiscount;
+                                                    // echo $quota_thesis;
+                                                @endphp
+                                            @elseif (!isset($advisor->academic['thesis']))
+                                                {{ $advisor->qualification['thesis'] - ceil($iscount / 3) - $thesiscount }}
+                                                @php
+                                                    $quota_thesis =
+                                                        $advisor->qualification['thesis'] -
+                                                        ceil($iscount / 3) -
+                                                        $thesiscount;
+                                                    // echo $quota_thesis;
+                                                @endphp
+                                            @endif
+                                        </td>
+                                        <td class="text-success text-center" style="background-color: #f8f9fa">
+                                            @if (isset($advisor->academic['thesis']) && $thesiscount === 0)
+                                                {{ 15 - $iscount <= 0 ? '' : 15 - $iscount }}
+                                                @php
+                                                    $quota_is = 15 - $iscount;
+                                                    // echo $quota_is;
+                                                @endphp
+                                            @elseif (isset($advisor->academic['thesis']) && $thesiscount > 0 && $iscount !== 0)
+                                                @php
+                                                    $p = (10 - $thesiscount) * 3;
+                                                    $q = $thesiscount + $p;
+                                                    if ($q <= 15) {
+                                                        if ($p - $iscount <= 0) {
+                                                            $n = 0;
                                                         } else {
-                                                            $n = ($q + $thesiscount) - 15 - $iscount;
+                                                            $n = $p - $iscount;
                                                         }
-                                                    @endphp
-                                                    {{ $n <= 0 ? "Full" : $n }}
-                                                    @php
-                                                        // $quota_is = $p - $iscount;
-                                                        $quota_is = $n;
-                                                        // echo $quota_is;
-                                                        // echo $n;
-                                                    @endphp
-                                                @elseif (isset($advisor->academic['thesis']) && $iscount === 0)
-
-                                                    @php
-                                                        $p = (10 - $thesiscount) * 3;
-                                                        $q = $thesiscount + $p;
-                                                        // echo $p . $q;
-                                                        if ($q <= 15) {
-                                                            if (($p - $iscount) <= 0) {
-                                                                $n = 0;
-                                                            } else {
-                                                                $n = $p - $iscount;
-                                                            }
+                                                    } else {
+                                                        $n = $q + $thesiscount - 15 - $iscount;
+                                                    }
+                                                @endphp
+                                                {{ $n <= 0 ? 'Full' : $n }}
+                                                @php
+                                                    // $quota_is = $p - $iscount;
+                                                    $quota_is = $n;
+                                                    // echo $quota_is;
+                                                    // echo $n;
+                                                @endphp
+                                            @elseif (isset($advisor->academic['thesis']) && $iscount === 0)
+                                                @php
+                                                    $p = (10 - $thesiscount) * 3;
+                                                    $q = $thesiscount + $p;
+                                                    // echo $p . $q;
+                                                    if ($q <= 15) {
+                                                        if ($p - $iscount <= 0) {
+                                                            $n = 0;
                                                         } else {
-                                                            $n = ($q + $thesiscount) - 15 - $iscount;
+                                                            $n = $p - $iscount;
                                                         }
+                                                    } else {
+                                                        $n = $q + $thesiscount - 15 - $iscount;
+                                                    }
 
-                                                        echo $n;
-                                                        $quota_is = $n;
-                                                        // echo $quota_is;
-                                                    @endphp
+                                                    echo $n;
+                                                    $quota_is = $n;
+                                                    // echo $quota_is;
+                                                @endphp
 
-                                                    {{-- {{ (15 - ($thesiscount * 3)) <= 0 ? "Full" : (15 - (10 - $thesiscount * 3)) }} --}}
-                                                    @php
-                                                        // $quota_is = (15 - ($thesiscount * 3)) <= 0 ? 0 : (15 - ($thesiscount * 3));
-                                                        // echo $quota_is;
-                                                    @endphp
-                                                @else
-                                                    {{ (15 - $iscount) - ($thesiscount * 3) <= 0 ? "Full" : (15 - $iscount) - ($thesiscount * 3) }}
-                                                    @php
-                                                        $quota_is = (15 - $iscount) - ($thesiscount * 3);
-                                                        // echo $quota_is;
-                                                    @endphp
-                                                @endif
-                                            </td>
-                                            {{-- <td class="text-center">
+                                                {{-- {{ (15 - ($thesiscount * 3)) <= 0 ? "Full" : (15 - (10 - $thesiscount * 3)) }} --}}
+                                                @php
+                                                    // $quota_is = (15 - ($thesiscount * 3)) <= 0 ? 0 : (15 - ($thesiscount * 3));
+                                                    // echo $quota_is;
+                                                @endphp
+                                            @else
+                                                {{ 15 - $iscount - $thesiscount * 3 <= 0 ? 'Full' : 15 - $iscount - $thesiscount * 3 }}
+                                                @php
+                                                    $quota_is = 15 - $iscount - $thesiscount * 3;
+                                                    // echo $quota_is;
+                                                @endphp
+                                            @endif
+                                        </td>
+                                        {{-- <td class="text-center">
                                                 <div class="dropdown">
                                                     <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button"
                                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -256,16 +271,16 @@
                                                     <span class="ms-1">{{ __('Edit') }}</span>
                                                 </a>
                                             </td> --}}
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <tr>
-                                        <td colspan="6">{{ __('ไม่พบข้อมูลที่ท่านต้องการค้นหาในขณะนี้') }}</td>
                                     </tr>
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="6">{{ __('ไม่พบข้อมูลที่ท่านต้องการค้นหาในขณะนี้') }}</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                    {{-- </div> --}}
                 </div>
             </div>
         </div>
