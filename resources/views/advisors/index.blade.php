@@ -93,9 +93,11 @@
                 </nav>
             </div>
             <div class="col-" style="text-align: right!important;">
-                {{-- <a href="{{ route('advisors.create') }}" class="btn btn-primary mb-2">
-                    <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New') }}</span>
-                </a> --}}
+                @if (Auth::user()->role == 2)
+                    <a href="{{ route('advisors.create') }}" class="btn btn-primary mb-2">
+                        <i class="bi bi-plus-square"></i><span class="ms-2">{{ __('Create New') }}</span>
+                    </a>
+                @endif
             </div>
         </div>
         <div class="row justify-content-end">

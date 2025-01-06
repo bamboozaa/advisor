@@ -253,7 +253,7 @@
                                                 @endif
 
                                             </td>
-                                            @if (Auth::user()->role == 1)
+                                            @if (Auth::user()->role == 1 || Auth::user()->role == 2)
                                                 <td class="text-center">
                                                     <div class="dropdown">
                                                         <button class="btn btn-transparent p-0 dark:text-high-emphasis"

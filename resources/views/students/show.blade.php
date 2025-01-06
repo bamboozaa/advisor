@@ -173,13 +173,15 @@
                         </table>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <div class="row justify-content-center">
-                        <div class="d-grid col-sm-3">
-                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning"><i class="bi bi-floppy pe-2"></i><span>{{ __('แก้ไข') }}</span></a>
+                @if(Auth::user()->role == 1 || Auth::user()->role == 2)
+                    <div class="card-footer">
+                        <div class="row justify-content-center">
+                            <div class="d-grid col-sm-3">
+                                <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning"><i class="bi bi-floppy pe-2"></i><span>{{ __('แก้ไข') }}</span></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </main>
     </div>
