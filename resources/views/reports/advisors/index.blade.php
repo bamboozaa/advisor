@@ -89,10 +89,10 @@
                     </ol>
                 </nav>
             </div>
-            <div class="col text-end">
+            {{-- <div class="col text-end">
                 <a href="#" class="text-success"><i class="bi bi-file-earmark-excel-fill fs-4 shadow"></i></a>
                 <a href="#" class="text-danger"><i class="bi bi-file-pdf-fill fs-4 shadow"></i></a>
-            </div>
+            </div> --}}
         </div>
         <div class="row justify-content-end">
             <div class="card bg-white">
