@@ -253,7 +253,7 @@
                                                 @endif
 
                                             </td>
-                                            @if (Auth::user()->role == 1 || Auth::user()->role == 2)
+                                            {{-- @if (Auth::user()->role == 1 || Auth::user()->role == 2)
                                                 <td class="text-center">
                                                     <div class="dropdown">
                                                         <button class="btn btn-transparent p-0 dark:text-high-emphasis"
@@ -274,11 +274,8 @@
                                                             </form>
                                                         </div>
                                                     </div>
-                                                    {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
-                                                        <i class="bi bi-info-circle"></i></a> --}}
                                                 </td>
-                                            @endif
-
+                                            @endif --}}
                                         </tr>
                                     @endforeach
                                 @else
