@@ -75,14 +75,12 @@
                                             {!! Form::label('adv_academic', 'ตำแหน่งทางวิชาการ', ['class' => 'form-control-plaintext text-light']) !!}
                                         </th>
                                         <td>
-                                            {!! Form::text(
-                                                'adv_academic',
-                                                !isset($advisor->academic['academic']) ? '' : old('name', $advisor->academic['academic']),
+                                            {{-- {!! Form::text('adv_academic', !isset($advisor->academic['academic']) ? '' : old('name', $advisor->academic['academic']),
                                                 [
                                                     'class' => 'form-control',
                                                     'readonly',
                                                 ],
-                                            ) !!}
+                                            ) !!} --}}
                                         </td>
                                     </tr>
                                     <tr>
