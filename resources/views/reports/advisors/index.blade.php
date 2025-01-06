@@ -276,7 +276,6 @@
                                                     </div>
                                                     {{-- <a href="{{ route('advisors.show', $advisor->id) }}" class="btn btn-sm btn-info">
                                                         <i class="bi bi-info-circle"></i></a> --}}
-
                                                 </td>
                                             @endif
 

@@ -255,6 +255,29 @@
                                                 @endphp
                                             @endif
                                         </td>
+                                        @if (Auth::user()->role == 1 || Auth::user()->role == 2)
+                                                <td class="text-center">
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-transparent p-0 dark:text-high-emphasis"
+                                                            type="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a href="{{ route('advisors.show', $advisor) }}" class="dropdown-item text-info">info</a>
+                                                            <a href="{{ route('advisors.edit', $advisor) }}" class="dropdown-item text-warning">{{ __('Edit') }}</a>
+                                                            {{-- <form action="{{ route('advisors.destroy', $advisor) }}" method="POST" style="display: inline;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="dropdown-item text-danger"
+                                                                    onclick="return confirm('Are you sure you want to delete this department?')">
+                                                                    {{ __('Delete') }}
+                                                                </button>
+                                                            </form> --}}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            @endif
                                         {{-- <td class="text-center">
                                                 <div class="dropdown">
                                                     <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button"
