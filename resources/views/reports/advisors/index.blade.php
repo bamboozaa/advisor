@@ -166,11 +166,14 @@
                                     <th class="text-nowrap align-middle text-center" rowspan="2">
                                         {{ __('ชื่อ - นามสกุล') }}</th>
                                     <th class="text-center text-nowrap" colspan="2">
-                                        {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
-
-                                    <th class="text-center text-nowrap" colspan="3">{{ __('สถานะ') }}</th>
-                                    <th rowspan="2"></th>
+                                        {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}
+                                    </th>
                                     @if (Auth::user()->role == 1)
+                                    <th class="text-center text-nowrap" colspan="3">
+                                        {{ __('สถานะ') }}
+                                    </th>
+                                    <th rowspan="2"></th>
+
                                         <th rowspan="2"></th>
                                     @endif
 
