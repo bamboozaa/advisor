@@ -168,12 +168,11 @@
                                     <th class="text-center text-nowrap" colspan="2">
                                         {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}
                                     </th>
-                                    @if (Auth::user()->role == 1)
                                     <th class="text-center text-nowrap" colspan="3">
                                         {{ __('สถานะ') }}
                                     </th>
                                     <th rowspan="2"></th>
-
+                                    @if (Auth::user()->role == 1)
                                         <th rowspan="2"></th>
                                     @endif
 
