@@ -120,7 +120,10 @@
                                 <th class="text-center text-nowrap" colspan="2">
                                     {{ __('จำนวนภาระงานที่ปรึกษาวิทยานิพนธ์และการค้นคว้าอิสระ') }}</th>
                                 <th class="text-center text-nowrap" colspan="2">{{ __('จำนวนโควต้าคงเหลือ') }}</th>
+                                @if(Auth::user()->role == 1 || Auth::user()->role == 2)
                                 <th rowspan="2"></th>
+                                @endif
+
                             </tr>
                             <tr>
                                 <th class="text-center text-nowrap" style="width: 10%">{{ __('วิทยานิพนธ์ (Thesis)') }}
