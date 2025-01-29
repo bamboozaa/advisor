@@ -199,7 +199,7 @@ return [
                 |
                 */
 
-                'username' => env('LDAP_USERNAME', 'komsan_aia@utcc.ac.th'),
+                'username' => env('LDAP_USERNAME', 'krittanan_aia@utcc.ac.th'),
                 'password' => env('LDAP_PASSWORD', 'KA423244055'),
 
                 /*
