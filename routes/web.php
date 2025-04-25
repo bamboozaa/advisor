@@ -43,6 +43,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/report-advisor/{advisor}', [App\Http\Controllers\ReportController::class, 'show'])->name('reports.show');
     Route::get('/report-advisor/{advisor}/edit', [App\Http\Controllers\ReportController::class, 'edit'])->name('reports.edit');
     Route::post('/report-advisor/{advisor}', [App\Http\Controllers\ReportController::class, 'update'])->name('reports.update');
-
-
 });
+
+// Route::get('/clear-cache', [\App\Http\Controllers\TestCacheController::class, 'clearCache']);
+// Route::get('/check-cache', [\App\Http\Controllers\TestCacheController::class, 'checkCache']);
+// Route::get('/set-cache', [\App\Http\Controllers\TestCacheController::class, 'setCache']);

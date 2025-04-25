@@ -184,7 +184,8 @@ return [
                 |
                 */
 
-                'base_dn' => env('LDAP_BASE_DN', 'OU=UTCC Organization Units,DC=utcc-net,DC=utcc-domain,DC=local'),
+                // 'base_dn' => env('LDAP_BASE_DN', 'OU=UTCC Organization Units,DC=utcc-net,DC=utcc-domain,DC=local'),
+                'base_dn' => env('LDAP_BASE_DN', 'DC=utcc-net,DC=utcc-domain,DC=local'),
 
                 /*
                 |--------------------------------------------------------------------------
